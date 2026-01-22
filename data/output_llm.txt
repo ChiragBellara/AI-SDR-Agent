@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Anthropic",
+        "value_proposition": "Anthropic is dedicated to building reliable, interpretable, and steerable AI systems while conducting research about the opportunities and risks of AI.",
+        "target_icp": [
+            "Businesses",
+            "Nonprofits",
+            "Civil society groups",
+            "Policymakers"
+        ],
+        "tech_stack_hints": [
+            "AI safety techniques",
+            "Research methodologies",
+            "Product development",
+            "Interdisciplinary collaboration"
+        ],
+        "error": false
+    }
+]

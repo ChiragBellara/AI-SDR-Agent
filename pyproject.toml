@@ -11,4 +11,7 @@ dependencies = [
     "pandas",
     "numpy",
     "pydantic",
+    "python-dotenv",
+    "langchain-openai",
+    "langchain-anthropic",
 ]
