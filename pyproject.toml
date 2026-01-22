@@ -1,0 +1,14 @@
+[project]
+name = "ai-sdr-agent"
+version = "0.1.0"
+description = "A tool that takes a company URL, scrapes their latest news/blog, finds a relevant lead on LinkedIn (simulated or via API), and generates a hyper-personalized, multi-channel outreach strategy."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "crawl4ai",
+    "beautifulsoup4",
+    "requests",
+    "pandas",
+    "numpy",
+    "pydantic",
+]
