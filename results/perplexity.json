@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Perplexity",
+        "value_proposition": "Perplexity is AI for people who expect more. More accuracy. More agency. More signal, less noise. Our products serve those whose questions spark change and whose decisions bend the world toward progress.",
+        "target_icp": [
+            "Individuals seeking accurate AI solutions",
+            "Professionals making impactful decisions",
+            "Curious minds looking for innovative tools"
+        ],
+        "tech_stack_hints": [
+            "AI technology",
+            "Data analytics",
+            "Machine learning"
+        ],
+        "error": false
+    },
+    {
+        "name": "Perplexity AI",
+        "value_proposition": "We believe the best work happens when brilliant minds come together, so our in-person team members spend 4 days a week in the office—creating, innovating, and pushing boundaries side by side.",
+        "target_icp": [
+            "AI Engineers",
+            "Software Engineers",
+            "Research Scientists",
+            "Interns"
+        ],
+        "tech_stack_hints": [
+            "AI Platform",
+            "Applied ML",
+            "API Development",
+            "Full Stack Development"
+        ],
+        "error": false
+    },
+    {
+        "name": "Perplexity AI",
+        "value_proposition": "Innovative browser and data solutions with a focus on user experience and growth.",
+        "target_icp": [
+            "Tech professionals",
+            "Data scientists",
+            "Product managers",
+            "Customer success teams"
+        ],
+        "tech_stack_hints": [
+            "C++",
+            "Data analytics",
+            "Product management tools",
+            "Customer support software"
+        ],
+        "error": false
+    },
+    {
+        "name": "Perplexity AI",
+        "value_proposition": "Innovative AI solutions for various business needs.",
+        "target_icp": [
+            "Finance professionals",
+            "Growth teams",
+            "IT specialists",
+            "Legal experts",
+            "Mobile developers",
+            "People operations"
+        ],
+        "tech_stack_hints": [
+            "Software Engineering",
+            "Data Platforms",
+            "Web Platforms",
+            "Infrastructure",
+            "Mobile Development"
+        ],
+        "error": false
+    },
+    {
+        "name": "Perplexity AI",
+        "value_proposition": "Innovative AI solutions and infrastructure for search and data platforms.",
+        "target_icp": [
+            "Software Engineers",
+            "Data Scientists",
+            "Machine Learning Engineers",
+            "Product Managers"
+        ],
+        "tech_stack_hints": [
+            "Backend Development",
+            "Machine Learning",
+            "Infrastructure Engineering",
+            "Web Development"
+        ],
+        "error": false
+    },
+    {
+        "name": "Perplexity",
+        "value_proposition": "Innovative technology solutions in search and machine learning.",
+        "target_icp": [
+            "Software Engineers",
+            "Machine Learning Engineers",
+            "Data Scientists",
+            "DevOps Engineers",
+            "Security Engineers"
+        ],
+        "tech_stack_hints": [
+            "Golang",
+            "C++",
+            "Rust",
+            "Machine Learning",
+            "Backend Infrastructure"
+        ],
+        "error": false
+    },
+    {
+        "name": "Perplexity",
+        "value_proposition": "Providing a comprehensive platform for browsing and accessing information through various applications.",
+        "target_icp": [
+            "General consumers",
+            "Tech enthusiasts",
+            "Developers"
+        ],
+        "tech_stack_hints": [
+            "API Platform",
+            "Mobile Applications",
+            "Web Applications"
+        ],
+        "error": false
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Samsara",
+        "url": "https://www.samsara.com/company/about",
+        "storage_path": "../results/samsara.json"
+    },
+    {
+        "name": "Perplexity",
+        "url": "https://www.perplexity.ai/hub/careers",
+        "storage_path": "../results/perplexity.json"
+    },
+    {
+        "name": "Vanta",
+        "url": "https://www.vanta.com/company/about",
+        "storage_path": "../results/vanta.json"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Anthropic",
+        "value_proposition": "AI will have a vast impact on the world. Anthropic is a public benefit corporation dedicated to securing its benefits and mitigating its risks.",
+        "target_icp": [
+            "Businesses seeking AI solutions",
+            "Developers looking for AI tools",
+            "Organizations focused on responsible AI development"
+        ],
+        "tech_stack_hints": [
+            "Claude Developer Platform",
+            "AI models like Claude, Opus, Sonnet, Haiku",
+            "Integration with platforms like Amazon Bedrock and Google Cloud’s Vertex AI"
+        ],
+        "error": false
+    }
+]

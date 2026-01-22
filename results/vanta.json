@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Vanta",
+        "value_proposition": "Vanta helps businesses earn and prove trust by automating compliance and security processes, enabling companies to build, maintain, and demonstrate their trust in a real-time and transparent manner.",
+        "target_icp": [
+            "Startups",
+            "Mid-market",
+            "Enterprise"
+        ],
+        "tech_stack_hints": [
+            "AI-powered Trust Management Platform",
+            "Integrations with 400+ tools",
+            "Vanta API"
+        ],
+        "error": false
+    },
+    {
+        "name": "Vanta",
+        "value_proposition": "Vanta’s mission is to protect consumer data and restore trust in internet business by building an enduring company where all Vanta’ns can do the best work of their careers.",
+        "target_icp": [
+            "Companies needing compliance solutions",
+            "Businesses focused on cybersecurity",
+            "Organizations looking to manage risk"
+        ],
+        "tech_stack_hints": [
+            "Automated Compliance",
+            "Continuous GRC",
+            "Third Party Risk Management",
+            "Streamlined Audits",
+            "Risk Management"
+        ],
+        "error": false
+    }
+]
