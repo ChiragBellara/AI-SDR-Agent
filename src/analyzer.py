@@ -1,11 +1,15 @@
 import os
 import json
+import time
 from pathlib import Path
 from typing import List, Dict, Any
 from pydantic import BaseModel
 from schema.LeadCard import LeadCard
+from logging.llm_logger import _log_llm_call
+from logging.universal_logger import setup_logger
 
 LEAD_CARD_DIR = Path("../storage/identities")
+logger = setup_logger('AI_SDR.Analyzer')
 
 
 class RankedItem(BaseModel):
@@ -47,10 +51,10 @@ def llm_client():
     raise RuntimeError("Set OPENAI_API_KEY")
 
 
-def call_llm_json(system: str, user_obj: Dict[str, Any]) -> str | None:
+def call_llm_json(system: str, user_obj: Dict[str, Any], stage: str) -> str | None:
     provider, client = llm_client()
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-
+    start = time.perf_counter()
     resp = client.chat.completions.create(
         model=model,
         messages=[
@@ -59,7 +63,13 @@ def call_llm_json(system: str, user_obj: Dict[str, Any]) -> str | None:
         ],
         temperature=0.2,
     )
-    print(resp)
+    latency_ms = (time.perf_counter() - start) * 1000
+    usage = resp.usage
+    _log_llm_call(stage=stage, provider=provider, model=model,
+                  prompt_tokens=usage.prompt_tokens if usage else None,
+                  completion_tokens=usage.completion_tokens if usage else None,
+                  latency_ms=latency_ms,)
+
     return resp.choices[0].message.content
 
 
@@ -82,7 +92,7 @@ def rank_companies(goal: str, cards: List[LeadCard]) -> RankResult:
         ]
     }
 
-    raw = call_llm_json(system, user)
+    raw = call_llm_json(system, user, "lead_ranking")
     if raw:
         data = json.loads(strip_fences(raw))
         return RankResult.model_validate(data)

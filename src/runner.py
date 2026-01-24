@@ -1,25 +1,35 @@
 import argparse
 import asyncio
+import json
+import time
 from scrapper import CrawlURLs
 from pathlib import Path
-import json
 from analyzer import get_or_create_lead_card, rank_companies
 from storage_manager import _load_all_icps
-from typing import List, Any
+from typing import List
 from schema.LeadCard import LeadCard
+from logging.universal_logger import setup_logger
+
+logger = setup_logger('AI_SDR.Runner')
 
 
 def _crawl_urls():
+    logger.info("Starting Extraction")
     crawler = CrawlURLs()
+    start_time = time.perf_counter()
     with open('./sources.json', 'r') as source_file:
         sources = json.load(source_file)
 
         for src in sources:
-            print(f"Working on extracting data for {src["name"]}")
+            logger.info(f"Extracting data for {src['name']}")
             site_content = asyncio.run(crawler._crawl_url(src["url"]))
             if site_content:
                 crawler.write_to_file(
                     site_content[0], Path(src["storage_path"]))
+        logger.info("Extraction Complete.")
+        logger.info(f"Number of websites crawled: {len(sources)}")
+        logger.info(
+            f"Total time taken: {round((time.perf_counter() - start_time) * 1000, 2)}")
 
 
 def get_companies():
@@ -30,7 +40,8 @@ def get_companies():
 
     stored = _load_all_icps()
     if not stored:
-        print("No saved ICPs found in storage/identities. Run extraction first.")
+        logger.warning(
+            "No saved ICPs found in storage/identities. Run extraction first.")
         return
 
     cards: List[LeadCard] = []

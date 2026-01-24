@@ -6,6 +6,9 @@ from schema.LeadCard import LeadCard
 from crawl4ai import (AsyncWebCrawler, CrawlerRunConfig,
                       DefaultMarkdownGenerator, LLMConfig, LLMExtractionStrategy, PruningContentFilter)
 from crawl4ai.models import CrawlResult
+from logging.universal_logger import setup_logger
+
+logger = setup_logger('AI_SDR.Scrapper')
 
 
 class FileWriteError(RuntimeError):
@@ -74,8 +77,7 @@ class CrawlURLs:
                 config=crawl_config
             ))
             if result.extracted_content:
-                print(
-                    f"Content Size: {len(result.extracted_content), type(result.extracted_content)}")
+                logger.info(f"Content Size: {len(result.extracted_content)}")
                 data = json.loads(result.extracted_content)
                 return data
         return None
@@ -85,4 +87,4 @@ class CrawlURLs:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(content, indent=2), encoding="utf-8")
         except Exception:
-            raise FileWriteError(f"Failed to write to {path}")
+            logger.exception(f"File Write Error. Failed to write to {path}")
