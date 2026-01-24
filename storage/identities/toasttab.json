@@ -1,0 +1,68 @@
+{
+  "company_name": "Toast",
+  "category": "Restaurant Technology",
+  "one_liner": "A powerful POS system designed for the guest experience.",
+  "products_or_platform": [
+    "Toast Platform",
+    "Toast IQ",
+    "Guest CRM",
+    "Operations Suite",
+    "Marketing Suite",
+    "Team Management Suite",
+    "Digital Storefront Suite",
+    "Supplier & Accounting Suite",
+    "Payroll Suite",
+    "Restaurant Management Suite",
+    "Commercial-grade hardware"
+  ],
+  "target_customers": [
+    "Restaurants",
+    "Retail"
+  ],
+  "core_workflows": [
+    "Manage point of sale",
+    "Catering & events",
+    "Payment processing",
+    "Online ordering",
+    "Scheduling",
+    "Inventory management"
+  ],
+  "technical_surface_area": [
+    "APIs",
+    "Integrations",
+    "Cloud-based platform"
+  ],
+  "integrations_or_stack_hints": [
+    "Grubhub",
+    "Uber Eats",
+    "DoorDash",
+    "xtraCHEF"
+  ],
+  "compliance_or_regulatory_signals": [
+    "Privacy Statement",
+    "California Privacy Statement"
+  ],
+  "scale_and_growth_signals": [
+    "156,000 locations",
+    "Enterprise",
+    "Multi-location management"
+  ],
+  "common_pain_points": [
+    "Outgrown tech",
+    "Need for seamless customer experience",
+    "Managing multiple locations"
+  ],
+  "buyer_roles": [],
+  "relevance_score": 9,
+  "notable_keywords": [
+    "POS system",
+    "Guest experience",
+    "Seamless integrations",
+    "24/7 support"
+  ],
+  "source_notes": [
+    "from homepage hero",
+    "from product offerings section"
+  ],
+  "error": false
+}

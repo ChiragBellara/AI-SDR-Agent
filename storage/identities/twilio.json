@@ -1,0 +1,70 @@
+{
+  "company_name": "Twilio",
+  "category": null,
+  "one_liner": "We help you build amazing experiences with contextual data, the right communication channels, and AI to scale personalization and increase efficiency.",
+  "products_or_platform": [
+    "Messaging",
+    "Voice",
+    "Verify",
+    "Video",
+    "Customer Engagement Platform",
+    "Customer Data Platform",
+    "Twilio Segment",
+    "Email API",
+    "Video API",
+    "Flex"
+  ],
+  "target_customers": [
+    "Financial services",
+    "Healthcare",
+    "Retail",
+    "Nonprofit",
+    "Hospitality",
+    "eCommerce",
+    "Public sector",
+    "Education"
+  ],
+  "core_workflows": [
+    "Fraud prevention",
+    "Alerts and notifications",
+    "Appointment reminders",
+    "Lead alerts",
+    "Mass texting",
+    "SMS marketing",
+    "Cross-sell and upsell",
+    "Optimize ad spend",
+    "AI agent productivity",
+    "IVR",
+    "Contact center",
+    "Customer data management"
+  ],
+  "technical_surface_area": [
+    "APIs",
+    "SDKs",
+    "Data pipelines",
+    "Security features"
+  ],
+  "integrations_or_stack_hints": [],
+  "compliance_or_regulatory_signals": [
+    "Privacy and security"
+  ],
+  "scale_and_growth_signals": [
+    "Enterprise",
+    "Built for builders"
+  ],
+  "common_pain_points": [],
+  "buyer_roles": [],
+  "relevance_score": 8,
+  "notable_keywords": [
+    "contextual data",
+    "communication channels",
+    "AI",
+    "personalization",
+    "efficiency"
+  ],
+  "source_notes": [
+    "from homepage hero",
+    "from solutions section"
+  ],
+  "error": false
+}

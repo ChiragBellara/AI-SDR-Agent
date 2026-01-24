@@ -1,0 +1,88 @@
+{
+  "company_name": "Vanta",
+  "category": "Compliance Automation",
+  "one_liner": "Vanta helps businesses earn and prove trust through automated compliance solutions.",
+  "products_or_platform": [
+    "Compliance",
+    "Continuous GRC",
+    "Personnel and Access",
+    "Risk Management",
+    "Third Party Risk Management",
+    "Questionnaire Automation",
+    "Trust Center",
+    "Streamlined audits",
+    "Vanta AI",
+    "Agentic Trust Platform",
+    "Integrations",
+    "Vanta API"
+  ],
+  "target_customers": [
+    "Startups",
+    "Mid-market",
+    "Enterprise",
+    "Healthcare",
+    "Government",
+    "Fintech"
+  ],
+  "core_workflows": [
+    "get compliant quickly",
+    "control user access",
+    "manage risk",
+    "manage vendor onboarding",
+    "automate security questionnaire responses",
+    "showcase compliance status",
+    "automate audit prep"
+  ],
+  "technical_surface_area": [
+    "API",
+    "custom integrations",
+    "workflows",
+    "data from 400+ tools"
+  ],
+  "integrations_or_stack_hints": [
+    "AWS",
+    "SOC 2",
+    "ISO 27001",
+    "GDPR",
+    "HIPAA",
+    "HITRUST",
+    "USDP",
+    "NIST",
+    "AI Risk Management Framework",
+    "ISO 42001"
+  ],
+  "compliance_or_regulatory_signals": [
+    "SOC 2",
+    "ISO 27001",
+    "GDPR",
+    "HIPAA",
+    "HITRUST"
+  ],
+  "scale_and_growth_signals": [
+    "over 12,000 companies",
+    "thousands of companies"
+  ],
+  "common_pain_points": [
+    "manual work",
+    "time-consuming compliance processes",
+    "risk management"
+  ],
+  "buyer_roles": [
+    "CISO",
+    "IT admin",
+    "Ops manager"
+  ],
+  "relevance_score": 9,
+  "notable_keywords": [
+    "automate compliance",
+    "trust management",
+    "security foundation",
+    "real-time",
+    "transparent"
+  ],
+  "source_notes": [
+    "from about us section",
+    "from product offerings"
+  ],
+  "error": false
+}

@@ -14,4 +14,5 @@ dependencies = [
     "python-dotenv",
     "langchain-openai",
     "langchain-anthropic",
+    "chromadb",
 ]

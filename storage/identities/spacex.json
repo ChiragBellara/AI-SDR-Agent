@@ -1,0 +1,32 @@
+{
+  "company_name": "SpaceX",
+  "category": null,
+  "one_liner": "SpaceX is working on a next generation of fully reusable launch vehicles capable of carrying humans to Mars and other destinations in the solar system.",
+  "products_or_platform": [
+    "Starship",
+    "Falcon 9",
+    "Falcon Heavy",
+    "Dragon"
+  ],
+  "target_customers": [],
+  "core_workflows": [],
+  "technical_surface_area": [],
+  "integrations_or_stack_hints": [],
+  "compliance_or_regulatory_signals": [],
+  "scale_and_growth_signals": [],
+  "common_pain_points": [
+    "reduce the cost of space access"
+  ],
+  "buyer_roles": [],
+  "relevance_score": 8,
+  "notable_keywords": [
+    "multiplanetary",
+    "reusable rockets",
+    "historic milestones",
+    "cost reduction"
+  ],
+  "source_notes": [
+    "from mission overview"
+  ],
+  "error": false
+}

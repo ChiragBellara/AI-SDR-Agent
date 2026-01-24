@@ -1,0 +1,56 @@
+{
+  "company_name": "Samsara",
+  "category": "Fleet management",
+  "one_liner": "Samsara helps improve the safety, efficiency, and sustainability of operations that power the global economy.",
+  "products_or_platform": [
+    "Connected Operations Platform",
+    "App Marketplace",
+    "Vehicle Gateway",
+    "dashcams",
+    "AI-powered safety programs"
+  ],
+  "target_customers": [
+    "construction",
+    "transportation and warehousing",
+    "field services",
+    "manufacturing",
+    "retail",
+    "logistics",
+    "public sector"
+  ],
+  "core_workflows": [
+    "monitor fleets",
+    "track temperature",
+    "GPS location",
+    "vehicle diagnostics",
+    "improve driver safety"
+  ],
+  "technical_surface_area": [],
+  "integrations_or_stack_hints": [],
+  "compliance_or_regulatory_signals": [],
+  "scale_and_growth_signals": [
+    "tens of thousands of customers globally",
+    "14 trillion data points processed",
+    "300 million workflows digitized",
+    "billions of pounds of CO2 reduced"
+  ],
+  "common_pain_points": [
+    "safety",
+    "efficiency",
+    "sustainability"
+  ],
+  "buyer_roles": [],
+  "relevance_score": 9,
+  "notable_keywords": [
+    "safety",
+    "efficiency",
+    "sustainability",
+    "AI-powered",
+    "award winning"
+  ],
+  "source_notes": [
+    "from homepage hero",
+    "from company history section"
+  ],
+  "error": false
+}
