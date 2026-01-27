@@ -5,8 +5,8 @@ from pathlib import Path
 from typing import List, Dict, Any
 from pydantic import BaseModel
 from schema.LeadCard import LeadCard
-from logging.llm_logger import _log_llm_call
-from logging.universal_logger import setup_logger
+from logger.llm_logger import _log_llm_call
+from logger.universal_logger import setup_logger
 
 LEAD_CARD_DIR = Path("../storage/identities")
 logger = setup_logger('AI_SDR.Analyzer')

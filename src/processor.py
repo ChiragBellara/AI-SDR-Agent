@@ -7,13 +7,11 @@ from typing import List, Tuple, Optional
 from pathlib import Path
 import json
 import os
-from dotenv import load_dotenv
 from company_identity import CompanyIdentity
 
 
 class IdentityProcessor:
     def __init__(self, provider="gpt-4o-mini", file_to_read=None):
-        load_dotenv()
         self.model = provider
         if not file_to_read:
             raise Exception("File Not Found")

@@ -1,48 +1,32 @@
 import os
 import json
-from typing import cast
-# from company_identity import CompanyIdentity
+import time
+import asyncio
+from typing import cast, List, Dict, Any
+from urllib.parse import urlparse
 from schema.LeadCard import LeadCard
 from crawl4ai import (AsyncWebCrawler, CrawlerRunConfig,
                       DefaultMarkdownGenerator, LLMConfig, LLMExtractionStrategy, PruningContentFilter)
 from crawl4ai.models import CrawlResult
-from logging.universal_logger import setup_logger
+from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
+from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
+from logger.universal_logger import setup_logger
+from utils.json_utils import _parse_first_json, _merge_lead_cards
+from discovery import Discovery
+from utils.prompts import CRAWL_INSTRUCTION
 
 logger = setup_logger('AI_SDR.Scrapper')
 
 
-class FileWriteError(RuntimeError):
-    pass
-
-
 class CrawlURLs:
     def __init__(self, model="openai"):
+        self.discover = Discovery()
         self.model = model
-        self.instruction = (
-            "You are an AI-SDR agent building a reusable company 'LeadCard' memory object.\n"
-            "From the provided markdown, populate the LeadCard schema with ONLY what is explicitly supported by the text.\n"
-            "Do NOT guess or infer details that are not present. If a field is not supported, use an empty list or null.\n\n"
-            "Guidelines:\n"
-            "- company_name: exact company name as written.\n"
-            "- category: short category (e.g., 'Fleet management', 'AI developer tools', 'Fintech'), only if clearly stated.\n"
-            "- one_liner: 1 sentence describing what the company does.\n"
-            "- products_or_platform: product names, platform modules, offerings mentioned.\n"
-            "- target_customers: industries or customer types explicitly mentioned.\n"
-            "- core_workflows: what users do with the product (e.g., 'monitor fleets', 'manage invoices', 'deploy agents').\n"
-            "- technical_surface_area: APIs, SDKs, integrations, data pipelines, security/compliance features, admin controls—anything that implies technical complexity.\n"
-            "- integrations_or_stack_hints: named tools, clouds, standards, integrations (e.g., 'Salesforce', 'AWS', 'SAML', 'Snowflake').\n"
-            "- compliance_or_regulatory_signals: any mentions of compliance, audits, privacy, security standards, regulations.\n"
-            "- scale_and_growth_signals: enterprise, multi-site, high volume, global, 'thousands', 'millions', fleet size, customers count—only if stated.\n"
-            "- common_pain_points: problems the company claims to solve (cost, risk, manual work, downtime, visibility).\n"
-            "- buyer_roles: roles mentioned or clearly implied by text (e.g., 'IT admin', 'Ops manager', 'CISO'). Only include if supported.\n"
-            "- relevance_score: A number from 1-10 on how clearly this text defines the company's ICP (10 = very clear, 1 = vague marketing).\n"
-            "- notable_keywords: short key phrases/terms repeated or emphasized in the markdown.\n"
-            "- source_notes: brief notes on where signals came from (e.g., 'from homepage hero', 'from pricing page', 'from security section').\n\n"
-            "Output requirements:\n"
-            "- Return STRICT JSON matching the schema. No markdown, no extra keys.\n"
-            "- Keep list items short (3–10 words each). Avoid long sentences in arrays.\n"
-            "- Prefer concrete phrases copied/paraphrased from the markdown.\n"
-        )
+        self.instruction = CRAWL_INSTRUCTION
+
+    def is_valid_url(self, url):
+        parsed = urlparse(url)
+        return bool(parsed.scheme and parsed.netloc)
 
     def _get_llm_config(self):
         # Add functionality for the user to choose their model from a dropdown and update the LLM Config accordingly
@@ -66,6 +50,30 @@ class CrawlURLs:
             instruction=self.instruction
         ),
 
+    async def _shortlist_urls_to_crawl(self, URL_TO_CRAWL: str = ""):
+        config = CrawlerRunConfig(
+            only_text=True,
+            excluded_tags=['meta', 'noscript', 'style'],
+            deep_crawl_strategy=BFSDeepCrawlStrategy(
+                max_depth=3,
+                include_external=False,
+                max_pages=18,
+            ),
+            scraping_strategy=LXMLWebScrapingStrategy(),
+            verbose=True,
+            prettiify=True
+        )
+
+        async with AsyncWebCrawler() as web_crawler:
+            results = await web_crawler.arun(
+                url=URL_TO_CRAWL,
+                config=config
+            )
+
+        all_links = [
+            crawl_result.url for container in results for crawl_result in container]
+        return all_links
+
     async def _crawl_url(self, URL_TO_CRAWL: str = ""):
         crawl_config = CrawlerRunConfig(
             markdown_generator=self._get_mardown_generator(),
@@ -82,9 +90,76 @@ class CrawlURLs:
                 return data
         return None
 
+    async def _crawl_shortlisted_urls(self, selected_urls: List[Any]):
+        crawl_config = CrawlerRunConfig(
+            markdown_generator=self._get_mardown_generator(),
+            extraction_strategy=self._get_extraction_stratergy()[0]
+        )
+        logger.info(f"Crawling shortlisted URLs | count={len(selected_urls)}")
+        async with AsyncWebCrawler() as web_crawler:
+            t0 = time.perf_counter()
+            results = await web_crawler.arun_many(
+                urls=selected_urls,
+                config=crawl_config
+            )
+            latency_ms = (time.perf_counter() - t0) * 1000
+
+        if not results:
+            logger.warning("No crawl results returned")
+            return None
+        logger.info(
+            f"Crawl complete | results={len(results)} | latency_ms={latency_ms}")
+
+        per_page_cards: List[Dict[str, Any]] = []
+        for res in results:
+            url = getattr(res, "url", None)
+            status = getattr(res, "success", True)
+            extracted = getattr(res, "extracted_content", None)
+
+            if not extracted:
+                logger.warning(
+                    f"No extracted_content | url={url} | ok={status}")
+                continue
+
+            logger.info(
+                f"Extracted content | url={url} | size={len(extracted)}")
+
+            obj = _parse_first_json(extracted)
+            if not obj:
+                logger.warning(f"Failed to parse JSON | url={url}")
+                continue
+
+            # Optionally: tag the source URL so your merger has provenance
+            obj.setdefault("source_notes", [])
+            obj["source_notes"].append(f"from {url}")
+
+            per_page_cards.append(obj)
+        if not per_page_cards:
+            logger.warning(
+                "No valid LeadCards parsed from shortlisted URLs")
+            return None
+
+        # Merge page-level LeadCards into one site-level LeadCard
+        merged = _merge_lead_cards(per_page_cards)
+        return merged
+
     def write_to_file(self, content, path):
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(content, indent=2), encoding="utf-8")
         except Exception:
             logger.exception(f"File Write Error. Failed to write to {path}")
+
+    def _identify_target_urls(self, crawl_url: str = ""):
+        all_urls = asyncio.run(self._shortlist_urls_to_crawl(crawl_url))
+        if all_urls:
+            selected_sdr_links = self.discover._select_sdr_pages(all_urls)
+            return selected_sdr_links
+        logger.error("No URLS to classify")
+
+    def handler(self, URL_TO_CRAWL: str = ""):
+        selected_links = self._identify_target_urls(URL_TO_CRAWL)
+        if selected_links:
+            outcome = asyncio.run(self._crawl_shortlisted_urls(selected_links))
+            return outcome
+        return None

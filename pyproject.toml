@@ -16,3 +16,9 @@ dependencies = [
     "langchain-anthropic",
     "chromadb",
 ]
+
+[project.scripts]
+neo = "src.runner:main"
+
+[tool.uv]
+package = true

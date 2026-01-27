@@ -7,10 +7,29 @@ from pathlib import Path
 from analyzer import get_or_create_lead_card, rank_companies
 from storage_manager import _load_all_icps
 from typing import List
+from dotenv import load_dotenv
 from schema.LeadCard import LeadCard
-from logging.universal_logger import setup_logger
+from logger.universal_logger import setup_logger
 
 logger = setup_logger('AI_SDR.Runner')
+load_dotenv()
+
+
+def _classify_all_urls():
+    logger.info("Starting Classification")
+    crawler = CrawlURLs()
+    start_time = time.perf_counter()
+    sources = ["https://stripe.com/"]
+    for src in sources:
+        site_content = crawler.handler(src)
+        print(site_content)
+        if site_content:
+            crawler.write_to_file(
+                site_content, Path("../storage/identities/stripe.json"))
+    logger.info("Extraction Complete.")
+    logger.info(f"Number of websites crawled: {len(sources)}")
+    logger.info(
+        f"Total time taken: {round((time.perf_counter() - start_time) * 1000, 2)}")
 
 
 def _crawl_urls():
@@ -57,5 +76,6 @@ def get_companies():
 
 
 if __name__ == "__main__":
-    get_companies()
+    # get_companies()
     # _crawl_urls()
+    _classify_all_urls()
