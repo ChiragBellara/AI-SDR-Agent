@@ -19,13 +19,15 @@ def _classify_all_urls():
     logger.info("Starting Classification")
     crawler = CrawlURLs()
     start_time = time.perf_counter()
-    sources = ["https://stripe.com/"]
-    for src in sources:
-        site_content = crawler.handler(src)
-        print(site_content)
-        if site_content:
-            crawler.write_to_file(
-                site_content, Path("../storage/identities/stripe.json"))
+    with open('./sources.json', 'r') as source_file:
+        sources = json.load(source_file)
+        for src in sources:
+            logger.info(f"Extracting data for {src['name']}")
+            site_content = crawler.handler(src["url"])
+            if site_content:
+                crawler.write_to_file(
+                    site_content, Path(src["storage_path"]))
+
     logger.info("Extraction Complete.")
     logger.info(f"Number of websites crawled: {len(sources)}")
     logger.info(
@@ -72,10 +74,12 @@ def get_companies():
     print("\n=== Ranked Leads ===")
     for i, item in enumerate(result.ranked, start=1):
         print(f"{i}. {item.company_name} — {item.fit_score_0_to_100}/100")
-        print(f"   {item.reason}\n")
+        print(f"is_competitor: {item.is_competitor}")
+        print(f"{item.reason}")
+        print(f"can reach out to: {item.top_outreach_roles}\n\n")
 
 
 if __name__ == "__main__":
-    # get_companies()
+    get_companies()
     # _crawl_urls()
-    _classify_all_urls()
+    # _classify_all_urls()

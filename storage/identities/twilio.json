@@ -1,0 +1,110 @@
+{
+  "company_name": "Twilio",
+  "category": "Customer Engagement Platform",
+  "one_liner": "One flexible platform that combines data, AI, and the communication channels your customers love.",
+  "products_or_platform": [
+    "Messaging",
+    "Voice",
+    "Verify",
+    "Video",
+    "Customer Data Platform",
+    "Twilio Segment",
+    "Email",
+    "Twilio SendGrid",
+    "Flex",
+    "Video API",
+    "Email API",
+    "SIP Trunking",
+    "Conferencing",
+    "Marketing Campaigns",
+    "Functions",
+    "Protocols",
+    "Unified Profiles",
+    "Profiles Sync",
+    "Audiences",
+    "Journeys",
+    "Intelligence",
+    "Predictions",
+    "Recommendations",
+    "Data Observability",
+    "Conversational AI",
+    "ConversationRelay",
+    "Conversational Intelligence"
+  ],
+  "target_customers": [
+    "Financial services",
+    "Healthcare",
+    "Retail",
+    "Nonprofit",
+    "Hospitality",
+    "eCommerce",
+    "Public sector",
+    "Education",
+    "Enterprise",
+    "Startup"
+  ],
+  "core_workflows": [
+    "Fraud prevention",
+    "Alerts and notifications",
+    "Appointment reminders",
+    "Lead alerts",
+    "Mass texting",
+    "SMS marketing",
+    "Cross-sell and upsell",
+    "Optimize ad spend",
+    "AI agent productivity",
+    "IVR",
+    "Contact center",
+    "Customer data management"
+  ],
+  "technical_surface_area": [
+    "APIs",
+    "SDKs",
+    "data pipelines",
+    "security/compliance features",
+    "admin controls"
+  ],
+  "integrations_or_stack_hints": [],
+  "compliance_or_regulatory_signals": [
+    "Privacy and security"
+  ],
+  "scale_and_growth_signals": [
+    "enterprise",
+    "high volume"
+  ],
+  "common_pain_points": [
+    "cost",
+    "risk",
+    "manual work",
+    "downtime",
+    "visibility"
+  ],
+  "buyer_roles": [
+    "Chief Technology Officer",
+    "VP of Engineering",
+    "Product Manager",
+    "Data Engineer",
+    "Marketing Manager",
+    "Customer Experience Manager",
+    "Compliance Officer",
+    "Sales Manager",
+    "IT Director",
+    "Operations Manager"
+  ],
+  "notable_keywords": [
+    "Customer Engagement Platform",
+    "data",
+    "AI",
+    "communication channels",
+    "Fraud prevention",
+    "SMS marketing",
+    "IVR",
+    "Contact center"
+  ],
+  "source_notes": [
+    "from homepage hero",
+    "from solutions section",
+    "from use cases section",
+    "from https://www.twilio.com/en-us/support-plans"
+  ]
+}

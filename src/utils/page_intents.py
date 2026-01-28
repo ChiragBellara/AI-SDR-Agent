@@ -30,6 +30,7 @@ EXTENSIONS = [
 INTENT_WEIGHTS = {
     PageIntent.SECURITY: 15,
     PageIntent.PRICING: 15,
+    PageIntent.MISSION: 12,
     PageIntent.ENTERPRISE: 12,
     PageIntent.INTEGRATIONS: 12,
     PageIntent.USE_CASE: 10,
@@ -42,6 +43,7 @@ INTENT_WEIGHTS = {
 
 INTENT_QUOTAS = {
     PageIntent.PRICING: 1,
+    PageIntent.MISSION: 1,
     PageIntent.ENTERPRISE: 1,
     PageIntent.INTEGRATIONS: 2,
     PageIntent.USE_CASE: 2,

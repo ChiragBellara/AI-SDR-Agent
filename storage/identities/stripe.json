@@ -1,14 +1,14 @@
 {
   "company_name": "Stripe",
   "category": "Fintech",
-  "one_liner": "Stripe Capital provides fast financing for businesses on platforms.",
+  "one_liner": "Build and monetize a program that gives your customers access to fast financing.",
   "products_or_platform": [
     "Stripe Capital",
     "Stripe Connect",
     "Global Payouts",
     "Financial Accounts",
-    "Connect",
     "Issuing",
+    "Connect",
     "Payments",
     "Payment Links",
     "Checkout",
@@ -42,20 +42,21 @@
     "Startups",
     "Global businesses",
     "SaaS",
-    "Nonprofits",
     "AI companies",
     "Creator economy",
     "Hospitality, travel, and leisure",
     "Media and entertainment",
+    "Nonprofits",
     "Retail"
   ],
   "core_workflows": [
+    "provide access to financing",
     "manage cash flow",
     "invest in growth",
-    "access financing",
     "send money to third parties",
     "create recipients",
     "track payout success rates",
+    "manage business finances",
     "Accept online payments",
     "Manage subscriptions",
     "Offer usage-based billing",
@@ -65,33 +66,30 @@
     "APIs",
     "integrations",
     "automated payments",
-    "no-code solutions",
-    "hosted forms",
-    "Financial Connections",
     "SDKs",
+    "Financial Connections",
+    "one-time password verifications",
     "Data sync",
-    "Security compliance",
     "Fraud prevention",
-    "Payment optimizations"
+    "Security compliance"
   ],
   "integrations_or_stack_hints": [
-    "Stripe-hosted",
-    "Embedded",
-    "API"
+    "Stripe API"
   ],
   "compliance_or_regulatory_signals": [
-    "financing issued by financial partners",
     "compliance program covering the entire financing cycle",
     "KYC",
     "AML checks",
+    "money transmitter licenses",
     "PCI compliant",
     "Regulatory licenses globally"
   ],
   "scale_and_growth_signals": [
     "global",
-    "multi-party payments",
+    "new revenue stream",
     "50+ countries",
-    "high volume",
+    "global payouts",
+    "high payout success rates",
     "195 countries",
     "135+ currencies",
     "100+ payment methods"
@@ -104,32 +102,48 @@
     "simplify compliance management",
     "Fraud prevention",
     "Payment optimization",
-    "Revenue recognition",
-    "Subscription management"
+    "Revenue recognition"
   ],
-  "buyer_roles": [],
+  "buyer_roles": [
+    "CFO",
+    "VP of Finance",
+    "Product Manager",
+    "Operations Manager",
+    "Business Development Manager",
+    "Finance Manager",
+    "Compliance Officer",
+    "Technical Lead",
+    "Head of Payments",
+    "Technical Support Specialist",
+    "Sales Manager",
+    "Marketing Director",
+    "Business Analyst"
+  ],
   "notable_keywords": [
     "financing program",
-    "revenue stream",
-    "automated payment",
+    "cash flow",
+    "revenue share",
+    "zero credit loss liability",
     "global payouts",
-    "securely send money",
+    "send money",
+    "securely",
     "reduce costs",
-    "go live faster",
+    "enhance experience",
     "Global payments",
-    "No-code payments",
-    "Fraud prevention",
-    "Subscription management",
-    "Payment methods"
+    "Built-in fraud prevention",
+    "Payment optimizations",
+    "Fast payouts",
+    "24x7 support"
   ],
   "source_notes": [
     "from Capital section",
-    "from user experience section",
+    "from user growth and retention section",
     "from https://stripe.com/capital/platforms",
     "from payouts section",
     "from product overview",
     "from https://stripe.com/payouts",
     "from pricing page",
+    "from product offerings section",
     "from https://stripe.com/pricing"
   ]
 }

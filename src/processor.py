@@ -1,12 +1,8 @@
-from litellm import max_tokens
-from pydantic import BaseModel, Field, ValidationError
+import os
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
-from typing import List, Tuple, Optional
-from pathlib import Path
-import json
-import os
+
 from company_identity import CompanyIdentity
 
 
@@ -20,29 +16,6 @@ class IdentityProcessor:
             f"Loaded the model and the file successfully. File Size: {len(self.content)}")
 
     def _build_prompt(self):
-        schema_example = {
-            "company_name": "Atlassian",
-            "value_prop": "Providing collaboration and productivity tools for software teams...",
-            "target_icp": {
-                "industry": "Software Development, Enterprise IT",
-                "titles": ["CTO", "Engineering Manager", "Product Owner"],
-                "pain_points": ["Siloed communication", "Delayed shipping cycles"]
-            }
-        }
-        # system_prompt = f"""
-        #     You are an information extraction engine.
-        #     Task:
-        #     Read the markdown content and extract a CompanyIdentity object.
-
-        #     Rules:
-        #     - Output MUST be valid JSON (no markdown fences, no commentary).
-        #     - If a field is not explicitly stated, infer conservatively from context.
-        #     - target_icp and tech_stack_hints must be arrays of strings (can be empty, but prefer best-effort).
-        #     - value_proposition should be concise (1–2 sentences max).
-
-        #     Return JSON matching this shape exactly:
-        #     {json.dumps(schema_example, indent=2)}
-        # """
         system_prompt = (
             "You extract structured information from markdown. Return only the fields required by the schema.")
         prompt = ChatPromptTemplate.from_messages([

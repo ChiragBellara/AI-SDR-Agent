@@ -1,0 +1,44 @@
+{
+  "company_name": "Perplexity",
+  "category": "AI developer tools",
+  "one_liner": "Build with the AI power of Perplexity's platform.",
+  "products_or_platform": [
+    "Search API",
+    "Sonar API",
+    "Agentic Research API"
+  ],
+  "target_customers": [],
+  "core_workflows": [
+    "access real-time web search results",
+    "build AI applications",
+    "provide conversational answers with citations"
+  ],
+  "technical_surface_area": [
+    "APIs",
+    "low-latency hybrid search",
+    "model-agnostic platform"
+  ],
+  "integrations_or_stack_hints": [],
+  "compliance_or_regulatory_signals": [],
+  "scale_and_growth_signals": [],
+  "common_pain_points": [],
+  "buyer_roles": [
+    "Product Manager",
+    "Software Engineer",
+    "Data Scientist",
+    "CTO",
+    "AI Researcher"
+  ],
+  "notable_keywords": [
+    "real-time web search",
+    "AI applications",
+    "conversational answers",
+    "structured retrieval"
+  ],
+  "source_notes": [
+    "from homepage hero",
+    "from API section",
+    "from customer stories",
+    "from https://perplexity.ai/api-platform"
+  ]
+}

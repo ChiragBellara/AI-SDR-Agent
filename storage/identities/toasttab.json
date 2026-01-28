@@ -1,0 +1,70 @@
+{
+  "company_name": "Toast",
+  "category": "Restaurant POS",
+  "one_liner": "Toast Enterprise Solutions brings together the tech and expertise that hospitality leaders need to accelerate change and take their business to the next level.",
+  "products_or_platform": [
+    "Toast Platform",
+    "Toast IQ",
+    "Guest CRM",
+    "Operations Suite",
+    "Marketing Suite",
+    "Team Management Suite",
+    "Digital Storefront Suite",
+    "Supplier & Accounting Suite",
+    "Payroll Suite",
+    "Restaurant Management Suite",
+    "Commercial-grade hardware"
+  ],
+  "target_customers": [
+    "Restaurants",
+    "Retail"
+  ],
+  "core_workflows": [
+    "manage restaurant operations",
+    "handle catering & events",
+    "process payments",
+    "manage team scheduling",
+    "conduct marketing campaigns",
+    "manage inventory"
+  ],
+  "technical_surface_area": [
+    "integrations",
+    "APIs",
+    "data analytics"
+  ],
+  "integrations_or_stack_hints": [
+    "Grubhub",
+    "Uber Eats",
+    "DoorDash",
+    "Local by Toast"
+  ],
+  "compliance_or_regulatory_signals": [],
+  "scale_and_growth_signals": [
+    "multi-unit brands",
+    "hundreds of leading brands"
+  ],
+  "common_pain_points": [
+    "outgrown tech",
+    "managing costs",
+    "driving revenue"
+  ],
+  "buyer_roles": [
+    "IT Manager",
+    "Operations Manager",
+    "Franchise Owner",
+    "Marketing Director",
+    "Restaurant Manager"
+  ],
+  "notable_keywords": [
+    "enterprise solutions",
+    "drive revenue",
+    "manage costs",
+    "hospitality leaders",
+    "multi-unit brands"
+  ],
+  "source_notes": [
+    "from enterprise solutions section",
+    "from product offerings section",
+    "from https://pos.toasttab.com/restaurant-pos/enterprise"
+  ]
+}

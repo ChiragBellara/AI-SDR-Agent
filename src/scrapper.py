@@ -69,7 +69,6 @@ class CrawlURLs:
                 url=URL_TO_CRAWL,
                 config=config
             )
-
         all_links = [
             crawl_result.url for container in results for crawl_result in container]
         return all_links

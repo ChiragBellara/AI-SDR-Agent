@@ -1,0 +1,123 @@
+{
+  "company_name": "Vanta",
+  "category": "Compliance Automation",
+  "one_liner": "Vanta helps businesses automate compliance and security processes.",
+  "products_or_platform": [
+    "Vanta API",
+    "SOC 2",
+    "HIPAA",
+    "Agentic Trust Platform",
+    "Vanta AI",
+    "Trust Center",
+    "Questionnaire Automation",
+    "Streamlined audits",
+    "Risk Management",
+    "Third Party Risk Management",
+    "Personnel and Access",
+    "Compliance",
+    "Continuous GRC",
+    "Integrations"
+  ],
+  "target_customers": [
+    "Startups",
+    "Mid-market",
+    "Enterprise",
+    "Healthcare",
+    "Government",
+    "Fintech"
+  ],
+  "core_workflows": [
+    "automate compliance",
+    "manage vendor onboarding",
+    "control user access",
+    "automate security questionnaire responses",
+    "streamline audits",
+    "Get compliant quickly and painlessly",
+    "Control user access and permissions",
+    "Manage risk",
+    "Manage vendor onboarding and security reviews",
+    "Showcase compliance status and documentation",
+    "Automate audit prep and evidence collection",
+    "Automate compliance and uncover insights with AI"
+  ],
+  "technical_surface_area": [
+    "APIs",
+    "integrations",
+    "security features",
+    "admin controls",
+    "Data automation",
+    "Security/compliance features"
+  ],
+  "integrations_or_stack_hints": [
+    "AWS",
+    "400+ tools",
+    "Azure",
+    "Github",
+    "Google Cloud Platform",
+    "Jira",
+    "Okta"
+  ],
+  "compliance_or_regulatory_signals": [
+    "SOC 2",
+    "ISO 27001",
+    "GDPR",
+    "HIPAA",
+    "HITRUST",
+    "NIST",
+    "CMMC",
+    "Cyber Essentials",
+    "USDP",
+    "NIST AI Risk Management Framework",
+    "ISO 42001",
+    "Custom frameworks"
+  ],
+  "scale_and_growth_signals": [
+    "enterprise",
+    "global",
+    "High volume"
+  ],
+  "common_pain_points": [
+    "manual work",
+    "cost",
+    "risk",
+    "downtime",
+    "Risk management",
+    "Cost savings",
+    "Visibility in compliance"
+  ],
+  "buyer_roles": [
+    "Head of Platform Security",
+    "Director of Engineering",
+    "Head of Security",
+    "Compliance Officer",
+    "IT Manager",
+    "Security Analyst",
+    "Risk Manager",
+    "Vendor Manager",
+    "CISO",
+    "DevOps Engineer",
+    "Security Manager",
+    "Operations Manager",
+    "Product Manager",
+    "Audit Manager"
+  ],
+  "notable_keywords": [
+    "automate compliance",
+    "security workflows",
+    "trust",
+    "integration",
+    "evidence collection",
+    "vendor risk management",
+    "continuous GRC",
+    "trust platform"
+  ],
+  "source_notes": [
+    "from product page",
+    "from compliance section",
+    "from https://www.vanta.com/products/vanta-api",
+    "from integrations section",
+    "from products overview",
+    "from customer testimonials",
+    "from https://www.vanta.com/integrations"
+  ]
+}

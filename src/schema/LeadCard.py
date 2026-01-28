@@ -15,6 +15,6 @@ class LeadCard(BaseModel):
     scale_and_growth_signals: List[str] = Field(default_factory=list)
     common_pain_points: List[str] = Field(default_factory=list)
     buyer_roles: List[str] = Field(default_factory=list)
-    relevance_score: int
+    # relevance_score: int
     notable_keywords: List[str] = Field(default_factory=list)
     source_notes: List[str] = Field(default_factory=list)

@@ -1,4 +1,5 @@
 # Used to log the stats of the LLM calls for the purpose of in-app monitoring
+import os
 import json
 import time
 from datetime import datetime
@@ -6,8 +7,7 @@ from pathlib import Path
 from typing import Dict, Any
 
 
-LOG_DIR = Path("../logs")
-LOG_DIR.mkdir(exist_ok=True)
+LOG_DIR = Path("../logs/")
 today = datetime.today().strftime('%Y-%m-%d')
 
 

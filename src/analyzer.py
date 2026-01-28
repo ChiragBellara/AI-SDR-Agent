@@ -4,9 +4,11 @@ import time
 from pathlib import Path
 from typing import List, Dict, Any
 from pydantic import BaseModel
+
 from schema.LeadCard import LeadCard
 from logger.llm_logger import _log_llm_call
 from logger.universal_logger import setup_logger
+from utils.prompts import RANK_COMPANIES_SYSTEM_PROMPT, RANK_COMPANIES_USER_INSTRUCTION
 
 LEAD_CARD_DIR = Path("../storage/identities")
 logger = setup_logger('AI_SDR.Analyzer')
@@ -15,6 +17,8 @@ logger = setup_logger('AI_SDR.Analyzer')
 class RankedItem(BaseModel):
     company_name: str
     fit_score_0_to_100: int
+    is_competitor: bool = False
+    top_outreach_roles: list[str] = []
     reason: str
 
 
@@ -53,7 +57,7 @@ def llm_client():
 
 def call_llm_json(system: str, user_obj: Dict[str, Any], stage: str) -> str | None:
     provider, client = llm_client()
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.getenv("OPENAI_MODEL", "gpt-5-mini-2025-08-07")
     start = time.perf_counter()
     resp = client.chat.completions.create(
         model=model,
@@ -61,7 +65,7 @@ def call_llm_json(system: str, user_obj: Dict[str, Any], stage: str) -> str | No
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(user_obj)}
         ],
-        temperature=0.2,
+        # temperature=0.9,
     )
     latency_ms = (time.perf_counter() - start) * 1000
     usage = resp.usage
@@ -74,25 +78,16 @@ def call_llm_json(system: str, user_obj: Dict[str, Any], stage: str) -> str | No
 
 
 def rank_companies(goal: str, cards: List[LeadCard]) -> RankResult:
-    system = (
-        "You are an AI-SDR lead qualification agent. "
-        "Given LeadCards for multiple companies, rank them for a sales goal. "
-        "Return STRICT JSON only."
-    )
-
+    system = RANK_COMPANIES_SYSTEM_PROMPT
     user = {
         "sales_goal": goal,
         "lead_cards": [c.model_dump() for c in cards],
         "output_schema": RankResult.model_json_schema(),
-        "instructions": [
-            "Rank all companies from best to worst fit for the sales_goal.",
-            "fit_score_0_to_100 must be 0-100.",
-            "reason must be 1-2 sentences and cite specific LeadCard signals (fields/phrases).",
-            "Return JSON only with top-level key 'ranked'."
-        ]
+        "instructions": RANK_COMPANIES_USER_INSTRUCTION
     }
 
     raw = call_llm_json(system, user, "lead_ranking")
+    print(raw)
     if raw:
         data = json.loads(strip_fences(raw))
         return RankResult.model_validate(data)
