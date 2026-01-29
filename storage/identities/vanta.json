@@ -4,8 +4,6 @@
   "one_liner": "Vanta helps businesses automate compliance and security processes.",
   "products_or_platform": [
     "Vanta API",
-    "SOC 2",
-    "HIPAA",
     "Agentic Trust Platform",
     "Vanta AI",
     "Trust Center",
@@ -31,22 +29,20 @@
     "manage vendor onboarding",
     "control user access",
     "automate security questionnaire responses",
-    "streamline audits",
-    "Get compliant quickly and painlessly",
-    "Control user access and permissions",
-    "Manage risk",
-    "Manage vendor onboarding and security reviews",
-    "Showcase compliance status and documentation",
-    "Automate audit prep and evidence collection",
-    "Automate compliance and uncover insights with AI"
+    "collect audit evidence",
+    "manage risk",
+    "vendor onboarding",
+    "showcase compliance status",
+    "automate audit prep",
+    "uncover insights with AI"
   ],
   "technical_surface_area": [
     "APIs",
     "integrations",
     "security features",
-    "admin controls",
-    "Data automation",
-    "Security/compliance features"
+    "OAuth authentication",
+    "data pipelines",
+    "security/compliance features"
   ],
   "integrations_or_stack_hints": [
     "AWS",
@@ -65,7 +61,6 @@
     "HITRUST",
     "NIST",
     "CMMC",
-    "Cyber Essentials",
     "USDP",
     "NIST AI Risk Management Framework",
     "ISO 42001",
@@ -74,49 +69,44 @@
   "scale_and_growth_signals": [
     "enterprise",
     "global",
-    "High volume"
+    "high volume"
   ],
   "common_pain_points": [
     "manual work",
     "cost",
     "risk",
     "downtime",
-    "Risk management",
-    "Cost savings",
-    "Visibility in compliance"
+    "visibility"
   ],
   "buyer_roles": [
     "Head of Platform Security",
     "Director of Engineering",
     "Head of Security",
     "Compliance Officer",
-    "IT Manager",
     "Security Analyst",
+    "GTM Engineering",
+    "CISO",
+    "IT Manager",
     "Risk Manager",
     "Vendor Manager",
-    "CISO",
-    "DevOps Engineer",
-    "Security Manager",
-    "Operations Manager",
-    "Product Manager",
-    "Audit Manager"
+    "Audit Manager",
+    "DevOps Engineer"
   ],
   "notable_keywords": [
     "automate compliance",
     "security workflows",
-    "trust",
-    "integration",
-    "evidence collection",
+    "trust management",
     "vendor risk management",
     "continuous GRC",
-    "trust platform"
+    "vendor onboarding",
+    "trust"
   ],
   "source_notes": [
     "from product page",
     "from compliance section",
     "from https://www.vanta.com/products/vanta-api",
     "from integrations section",
-    "from products overview",
+    "from products section",
     "from customer testimonials",
     "from https://www.vanta.com/integrations"
   ]

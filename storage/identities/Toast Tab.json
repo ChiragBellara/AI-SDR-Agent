@@ -1,7 +1,7 @@
 {
   "company_name": "Toast",
   "category": "Restaurant POS",
-  "one_liner": "Toast Enterprise Solutions brings together the tech and expertise that hospitality leaders need to accelerate change and take their business to the next level.",
+  "one_liner": "A powerful POS system designed for the guest experience.",
   "products_or_platform": [
     "Toast Platform",
     "Toast IQ",
@@ -20,17 +20,16 @@
     "Retail"
   ],
   "core_workflows": [
-    "manage restaurant operations",
-    "handle catering & events",
-    "process payments",
-    "manage team scheduling",
-    "conduct marketing campaigns",
-    "manage inventory"
+    "Manage restaurant operations",
+    "Handle catering & events",
+    "Process payments",
+    "Manage online ordering",
+    "Schedule staff"
   ],
   "technical_surface_area": [
-    "integrations",
     "APIs",
-    "data analytics"
+    "Integrations",
+    "Data analytics"
   ],
   "integrations_or_stack_hints": [
     "Grubhub",
@@ -40,31 +39,32 @@
   ],
   "compliance_or_regulatory_signals": [],
   "scale_and_growth_signals": [
-    "multi-unit brands",
-    "hundreds of leading brands"
+    "Multi-unit brands",
+    "Enterprise solutions",
+    "Hundreds of leading brands"
   ],
   "common_pain_points": [
-    "outgrown tech",
-    "managing costs",
-    "driving revenue"
+    "Outgrown tech",
+    "Managing costs",
+    "Driving revenue"
   ],
   "buyer_roles": [
+    "Restaurant Manager",
     "IT Manager",
-    "Operations Manager",
     "Franchise Owner",
-    "Marketing Director",
-    "Restaurant Manager"
+    "Operations Director",
+    "Marketing Manager"
   ],
   "notable_keywords": [
-    "enterprise solutions",
-    "drive revenue",
-    "manage costs",
-    "hospitality leaders",
-    "multi-unit brands"
+    "Enterprise Solutions",
+    "Guest experience",
+    "Seamless customer experience",
+    "Drive revenue",
+    "Manage costs"
   ],
   "source_notes": [
+    "from homepage hero",
     "from enterprise solutions section",
-    "from product offerings section",
     "from https://pos.toasttab.com/restaurant-pos/enterprise"
   ]
 }

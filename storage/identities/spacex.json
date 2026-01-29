@@ -1,6 +1,6 @@
 {
   "company_name": "SpaceX",
-  "category": "Aerospace",
+  "category": null,
   "one_liner": "SpaceX is working on a next generation of fully reusable launch vehicles capable of carrying humans to Mars and other destinations in the solar system.",
   "products_or_platform": [
     "Starship",
@@ -8,44 +8,32 @@
     "Falcon Heavy",
     "Dragon"
   ],
-  "target_customers": [
-    "government",
-    "commercial satellite operators",
-    "NASA"
-  ],
+  "target_customers": [],
   "core_workflows": [
     "launch rockets",
-    "deliver payloads",
-    "transport humans to space"
+    "deliver cargo to ISS",
+    "return spacecraft from orbit",
+    "test rocket engines"
   ],
-  "technical_surface_area": [
-    "reusable rockets",
-    "autonomous landing technology"
-  ],
+  "technical_surface_area": [],
   "integrations_or_stack_hints": [],
-  "compliance_or_regulatory_signals": [
-    "NASA certification for crew missions"
-  ],
-  "scale_and_growth_signals": [
-    "first private company to return a spacecraft from low-Earth orbit",
-    "first private company to take humans to the ISS"
-  ],
+  "compliance_or_regulatory_signals": [],
+  "scale_and_growth_signals": [],
   "common_pain_points": [
-    "high cost of space access",
-    "limited reusability of rockets"
+    "reduce cost of space access"
   ],
   "buyer_roles": [
     "Aerospace Engineer",
     "Mission Planner",
     "Project Manager",
-    "Supply Chain Manager",
-    "Compliance Officer"
+    "Launch Operations Manager",
+    "Supply Chain Manager"
   ],
   "notable_keywords": [
     "multiplanetary",
-    "reusability",
+    "reusable rockets",
     "historic milestones",
-    "launch vehicles"
+    "cost reduction"
   ],
   "source_notes": [
     "from mission overview",

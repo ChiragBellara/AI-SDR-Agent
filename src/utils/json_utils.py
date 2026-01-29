@@ -1,5 +1,28 @@
 import json
 from typing import Optional, Dict, Any, List
+from pydantic import BaseModel, HttpUrl, ValidationError
+
+
+class SourceEntry(BaseModel):
+    name: str
+    url: HttpUrl
+
+
+def validate_sources(data):
+    """Checks if the uploaded list matches our expected schema."""
+    if not isinstance(data, list):
+        return False, "Data must be a JSON list of objects."
+
+    try:
+        # Validate each item in the list
+        validated_data = [SourceEntry(**item) for item in data]
+        return True, validated_data
+    except ValidationError as e:
+        # Extract the specific error for the UI
+        error_msg = f"Invalid format in entry: {e.errors()[0]['loc']} - {e.errors()[0]['msg']}"
+        return False, error_msg
+    except Exception as e:
+        return False, str(e)
 
 
 def _parse_first_json(raw: str) -> Optional[dict]:

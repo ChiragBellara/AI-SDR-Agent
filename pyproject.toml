@@ -15,6 +15,8 @@ dependencies = [
     "langchain-openai",
     "langchain-anthropic",
     "chromadb",
+    "streamlit>=1.53.1",
+    "streamlit-autorefresh>=1.0.1",
 ]
 
 [project.scripts]

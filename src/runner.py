@@ -12,21 +12,24 @@ from schema.LeadCard import LeadCard
 from logger.universal_logger import setup_logger
 
 logger = setup_logger('AI_SDR.Runner')
+STORAGE_PATH = Path("../storage/identities/")
 load_dotenv()
 
 
-def _classify_all_urls():
+def _classify_all_urls(sources):
     logger.info("Starting Classification")
     crawler = CrawlURLs()
     start_time = time.perf_counter()
-    with open('./sources.json', 'r') as source_file:
-        sources = json.load(source_file)
-        for src in sources:
-            logger.info(f"Extracting data for {src['name']}")
-            site_content = crawler.handler(src["url"])
-            if site_content:
-                crawler.write_to_file(
-                    site_content, Path(src["storage_path"]))
+    # with open('./sources.json', 'r') as source_file:
+    #     sources = json.load(source_file)
+    for src in sources:
+        company_name, company_url = src['name'], src['url']
+        logger.info(f"Extracting data for {company_name}")
+        site_content = crawler.handler(company_url)
+        if site_content:
+            crawler.write_to_file(
+                site_content, STORAGE_PATH / f"{company_name}.json"
+            )
 
     logger.info("Extraction Complete.")
     logger.info(f"Number of websites crawled: {len(sources)}")
@@ -77,9 +80,3 @@ def get_companies():
         print(f"is_competitor: {item.is_competitor}")
         print(f"{item.reason}")
         print(f"can reach out to: {item.top_outreach_roles}\n\n")
-
-
-if __name__ == "__main__":
-    get_companies()
-    # _crawl_urls()
-    # _classify_all_urls()

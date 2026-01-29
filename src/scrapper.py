@@ -155,9 +155,11 @@ class CrawlURLs:
             selected_sdr_links = self.discover._select_sdr_pages(all_urls)
             return selected_sdr_links
         logger.error("No URLS to classify")
+        return []
 
     def handler(self, URL_TO_CRAWL: str = ""):
-        selected_links = self._identify_target_urls(URL_TO_CRAWL)
+        selected_links = self._identify_target_urls(
+            URL_TO_CRAWL)
         if selected_links:
             outcome = asyncio.run(self._crawl_shortlisted_urls(selected_links))
             return outcome

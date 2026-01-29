@@ -7,33 +7,38 @@
     "Sonar API",
     "Agentic Research API"
   ],
-  "target_customers": [],
+  "target_customers": [
+    "developers",
+    "AI applications"
+  ],
   "core_workflows": [
     "access real-time web search results",
     "build AI applications",
-    "provide conversational answers with citations"
+    "conduct agentic workflows"
   ],
   "technical_surface_area": [
     "APIs",
-    "low-latency hybrid search",
-    "model-agnostic platform"
+    "real-time web search",
+    "content extraction",
+    "conversational answers",
+    "structured retrieval"
   ],
   "integrations_or_stack_hints": [],
   "compliance_or_regulatory_signals": [],
   "scale_and_growth_signals": [],
   "common_pain_points": [],
   "buyer_roles": [
+    "Developer",
     "Product Manager",
-    "Software Engineer",
-    "Data Scientist",
     "CTO",
-    "AI Researcher"
+    "AI Researcher",
+    "Data Scientist"
   ],
   "notable_keywords": [
     "real-time web search",
     "AI applications",
-    "conversational answers",
-    "structured retrieval"
+    "fastest search APIs",
+    "low-latency hybrid search"
   ],
   "source_notes": [
     "from homepage hero",
