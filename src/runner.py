@@ -2,7 +2,7 @@ import argparse
 import asyncio
 import json
 import time
-from scrapper import CrawlURLs
+from scrapper import CrawlURLs, FilterAndCrawlPages
 from pathlib import Path
 from analyzer import get_or_create_lead_card, rank_companies
 from storage_manager import _load_all_icps
@@ -16,20 +16,24 @@ STORAGE_PATH = Path("../storage/identities/")
 load_dotenv()
 
 
-def _classify_all_urls(sources):
+def _classify_all_urls(source_path: str):
     logger.info("Starting Classification")
-    crawler = CrawlURLs()
+    # crawler = CrawlURLs()
+    urlfilter = FilterAndCrawlPages()
     start_time = time.perf_counter()
-    # with open('./sources.json', 'r') as source_file:
-    #     sources = json.load(source_file)
-    for src in sources:
-        company_name, company_url = src['name'], src['url']
-        logger.info(f"Extracting data for {company_name}")
-        site_content = crawler.handler(company_url)
-        if site_content:
-            crawler.write_to_file(
-                site_content, STORAGE_PATH / f"{company_name}.json"
-            )
+    with open(source_path, 'r') as source_file:
+        sources = json.load(source_file)
+        for src in sources:
+            company_name, company_url = src['name'], src['url']
+            logger.info(f"Extracting data for {company_name}")
+            bfs_links = urlfilter.filter_crawl_pages(company_name, company_url)
+            with open(STORAGE_PATH / f'{company_name}_links.json', 'w', encoding='utf-8') as file:
+                json.dump(bfs_links, file, indent=4)
+            # site_content = crawler.handler(company_url, company_query)
+            # if site_content:
+            #     crawler.write_to_file(
+            #         site_content, STORAGE_PATH / f"{company_name}.json"
+            #     )
 
     logger.info("Extraction Complete.")
     logger.info(f"Number of websites crawled: {len(sources)}")
@@ -80,3 +84,7 @@ def get_companies():
         print(f"is_competitor: {item.is_competitor}")
         print(f"{item.reason}")
         print(f"can reach out to: {item.top_outreach_roles}\n\n")
+
+
+if __name__ == "__main__":
+    _classify_all_urls("sources.json")

@@ -1,0 +1,913 @@
+[
+    {
+        "url": "https://www.samsara.com/pricing",
+        "score": 30,
+        "page_type": "pricing",
+        "tags": [
+            "pos:pricing"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.samsara.com/solutions/compliance",
+        "score": 26,
+        "page_type": "security",
+        "tags": [
+            "pos:security"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/solutions/security",
+        "score": 26,
+        "page_type": "security",
+        "tags": [
+            "pos:security"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/support/developers",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.samsara.com/products/app-marketplace",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/cameras",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/equipment-tracking",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/models",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/platform",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/telematics",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/workforce-management",
+        "score": 22,
+        "page_type": "products",
+        "tags": [
+            "pos:products"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/products/cameras/ai-multicam-system",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/products/cameras/camera-connector",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/products/cameras/drowsiness-detection",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/products/cameras/site-visibility",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/products/equipment-tracking/asset-tag",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/products/equipment-tracking/asset-tracking",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/products/equipment-tracking/condition-monitoring",
+        "score": 19,
+        "page_type": "products",
+        "tags": [
+            "pos:products",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/solutions",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.samsara.com/solutions/customer-experience",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/solutions/efficiency",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/solutions/fleet-fuel-management-system",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/solutions/safety",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/solutions/sustainability",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/solutions/safety/disaster-response",
+        "score": 17,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/industries",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.samsara.com/industries/construction",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/field-services",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/food-and-beverage",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/logistics",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/passenger-transit",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/public-sector",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/utilities",
+        "score": 18,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/industries/public-sector/grants",
+        "score": 15,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/industries/public-sector/higher-education",
+        "score": 15,
+        "page_type": "industries",
+        "tags": [
+            "pos:industries",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.samsara.com/customers",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.samsara.com/customers/ace-tree-enterprise",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/acv-enviro",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/aeroport",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/all-aboard-america",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/allan-reeder",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/alterman",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/alto-experience",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/american-cementing",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/amerivet-contracting",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/antalis",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/arcbest",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/armstrong-richardson",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/athens-clarke-county",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/aunt-millies",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/automated-dairy",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/awp-safety",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/berkeley-county",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/biotrans",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/birmingham-city-schools",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/company/about",
+        "score": 16,
+        "page_type": "about",
+        "tags": [
+            "pos:about"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/company/careers",
+        "score": 16,
+        "page_type": "about",
+        "tags": [
+            "pos:about"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/company/contact",
+        "score": 16,
+        "page_type": "about",
+        "tags": [
+            "pos:about"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/company/impact-report",
+        "score": 16,
+        "page_type": "about",
+        "tags": [
+            "pos:about"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/company/leadership",
+        "score": 16,
+        "page_type": "about",
+        "tags": [
+            "pos:about"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/support/contact",
+        "score": 12,
+        "page_type": "contact",
+        "tags": [
+            "pos:contact"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/company/news",
+        "score": -19,
+        "page_type": "about",
+        "tags": [
+            "neg:/(blog|press|newsroom|news|media)(/|$)",
+            "pos:about"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/blue-lightning-logistics",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/bobs-heating-and-air-conditioning",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/bragg-companies",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/brenntag-north-america",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/brothers-food-services",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/buckeye-power-sales",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/bulkmatic",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/c-blackburn",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/cable-east",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/caddo-parish-public-schools",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/canyons-school-district",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/cardinal-plumbing-heating-air-inc",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/cash-wa-distributing",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/cdc-delivery",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/certarus",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/cfc-recycling",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/chalk-mountain",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/charles-king-company",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-and-county-of-denver",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-allentown",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-atlanta",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-boston",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-boynton-beach",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-chowchilla",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-cocoa",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-el-paso",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-fort-lauderdale",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-houston-public-works",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-jersey-village",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-lakeland",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-memphis",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-new-orleans",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-sacramento",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-st-petersburg",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/city-of-syracuse",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/clover-dairy",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.samsara.com/customers/coach-usa",
+        "score": 28,
+        "page_type": "customers",
+        "tags": [
+            "pos:customers"
+        ],
+        "depth": 2
+    }
+]

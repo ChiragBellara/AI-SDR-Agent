@@ -1,42 +1,34 @@
 [
     {
         "name": "Samsara",
-        "url": "https://www.samsara.com/company/about",
-        "storage_path": "../storage/identities/samsara.json"
+        "url": "https://www.samsara.com/"
     },
     {
         "name": "Perplexity",
-        "url": "https://www.perplexity.ai/hub/careers",
-        "storage_path": "../storage/identities/perplexity.json"
+        "url": "https://www.perplexity.ai/"
     },
     {
         "name": "Vanta",
-        "url": "https://www.vanta.com/company/about",
-        "storage_path": "../storage/identities/vanta.json"
+        "url": "https://www.vanta.com/"
     },
     {
         "name": "SpaceX",
-        "url": "https://www.spacex.com/mission",
-        "storage_path": "../storage/identities/spacex.json"
+        "url": "https://www.spacex.com/"
     },
     {
         "name": "Stripe",
-        "url": "https://stripe.com/",
-        "storage_path": "../storage/identities/stripe.json"
+        "url": "https://stripe.com/"
     },
     {
-        "name": "Toast Tab",
-        "url": "https://pos.toasttab.com/",
-        "storage_path": "../storage/identities/toasttab.json"
+        "name": "MountSinai",
+        "url": "https://www.mountsinai.org/"
     },
     {
         "name": "Twilio",
-        "url": "https://www.twilio.com/en-us/company",
-        "storage_path": "../storage/identities/twilio.json"
+        "url": "https://www.twilio.com/en-us/"
     },
     {
-        "name": "Uber",
-        "url": "https://www.uber.com/us/en/about/",
-        "storage_path": "../storage/identities/uber.json"
+        "name": "AppliedIntuition",
+        "url": "https://www.appliedintuition.com/"
     }
 ]

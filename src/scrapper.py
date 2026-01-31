@@ -6,27 +6,56 @@ from typing import cast, List, Dict, Any
 from urllib.parse import urlparse
 from schema.LeadCard import LeadCard
 from crawl4ai import (AsyncWebCrawler, CrawlerRunConfig,
-                      DefaultMarkdownGenerator, LLMConfig, LLMExtractionStrategy, PruningContentFilter)
+                      DefaultMarkdownGenerator, LLMConfig, LLMExtractionStrategy, PruningContentFilter, SeedingConfig, AsyncUrlSeeder)
 from crawl4ai.models import CrawlResult
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
 from logger.universal_logger import setup_logger
 from utils.json_utils import _parse_first_json, _merge_lead_cards
+from utils.url_utils import CheckUrlDomain
 from discovery import Discovery
 from utils.prompts import CRAWL_INSTRUCTION
+import logging
 
+logging.basicConfig(
+    filename="crawl4ai.log",
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(message)s"
+)
+file_logger = logging.getLogger("crawl4ai")
 logger = setup_logger('AI_SDR.Scrapper')
 
 
+class FilterAndCrawlPages:
+    def __init__(self) -> None:
+        pass
+
+    async def _get_all_urls(self):
+        config = SeedingConfig(
+            source="sitemap+cc", 
+            max_urls=5000, 
+            hits_per_sec=5, 
+            concurrency=100, 
+            force=True, 
+            verbose=True
+        ) 
+        async with AsyncUrlSeeder() as seeder: 
+            urls = await seeder.urls(self.homepage, config)
+        logger.info(f"Initial seeding identified {len(urls)} for {self.company}.")
+        return urls
+    
+    def filter_crawl_pages(self, company, base_url):
+        self.company = company
+        self.homepage = base_url
+        self.check_url = CheckUrlDomain(base_url)
+        all_urls = asyncio.run(self._get_all_urls())
+        logger.info("Proceeding to shortlist and rank.")
+        return self.check_url._select_top_k_urls(all_urls, k = 100)
+
 class CrawlURLs:
     def __init__(self, model="openai"):
-        self.discover = Discovery()
         self.model = model
         self.instruction = CRAWL_INSTRUCTION
-
-    def is_valid_url(self, url):
-        parsed = urlparse(url)
-        return bool(parsed.scheme and parsed.netloc)
 
     def _get_llm_config(self):
         # Add functionality for the user to choose their model from a dropdown and update the LLM Config accordingly
@@ -49,29 +78,6 @@ class CrawlURLs:
             extraction_type="schema",
             instruction=self.instruction
         ),
-
-    async def _shortlist_urls_to_crawl(self, URL_TO_CRAWL: str = ""):
-        config = CrawlerRunConfig(
-            only_text=True,
-            excluded_tags=['meta', 'noscript', 'style'],
-            deep_crawl_strategy=BFSDeepCrawlStrategy(
-                max_depth=3,
-                include_external=False,
-                max_pages=18,
-            ),
-            scraping_strategy=LXMLWebScrapingStrategy(),
-            verbose=True,
-            prettiify=True
-        )
-
-        async with AsyncWebCrawler() as web_crawler:
-            results = await web_crawler.arun(
-                url=URL_TO_CRAWL,
-                config=config
-            )
-        all_links = [
-            crawl_result.url for container in results for crawl_result in container]
-        return all_links
 
     async def _crawl_url(self, URL_TO_CRAWL: str = ""):
         crawl_config = CrawlerRunConfig(
@@ -148,19 +154,3 @@ class CrawlURLs:
             path.write_text(json.dumps(content, indent=2), encoding="utf-8")
         except Exception:
             logger.exception(f"File Write Error. Failed to write to {path}")
-
-    def _identify_target_urls(self, crawl_url: str = ""):
-        all_urls = asyncio.run(self._shortlist_urls_to_crawl(crawl_url))
-        if all_urls:
-            selected_sdr_links = self.discover._select_sdr_pages(all_urls)
-            return selected_sdr_links
-        logger.error("No URLS to classify")
-        return []
-
-    def handler(self, URL_TO_CRAWL: str = ""):
-        selected_links = self._identify_target_urls(
-            URL_TO_CRAWL)
-        if selected_links:
-            outcome = asyncio.run(self._crawl_shortlisted_urls(selected_links))
-            return outcome
-        return None

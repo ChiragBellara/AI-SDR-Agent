@@ -87,7 +87,6 @@ def rank_companies(goal: str, cards: List[LeadCard]) -> RankResult:
     }
 
     raw = call_llm_json(system, user, "lead_ranking")
-    print(raw)
     if raw:
         data = json.loads(strip_fences(raw))
         return RankResult.model_validate(data)

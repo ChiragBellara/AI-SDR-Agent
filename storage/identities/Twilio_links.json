@@ -1,0 +1,989 @@
+[
+    {
+        "url": "https://www.twilio.com/flex/pricing",
+        "score": 30,
+        "page_type": "pricing",
+        "tags": [
+            "pos:pricing"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/iot/supersim/pricing",
+        "score": 27,
+        "page_type": "pricing",
+        "tags": [
+            "pos:pricing",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/pricing",
+        "score": 30,
+        "page_type": "pricing",
+        "tags": [
+            "pos:pricing"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://twilio.com/pricing",
+        "score": 30,
+        "page_type": "pricing",
+        "tags": [
+            "pos:pricing"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.twilio.com/sms/pricing/au",
+        "score": 27,
+        "page_type": "pricing",
+        "tags": [
+            "pos:pricing",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/collect-business-info",
+        "score": 17,
+        "page_type": "security",
+        "tags": [
+            "pos:security",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/direct-standard-onboarding",
+        "score": 17,
+        "page_type": "security",
+        "tags": [
+            "pos:security",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/externally-registered-campaigns-api.md",
+        "score": 17,
+        "page_type": "security",
+        "tags": [
+            "pos:security",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/onboarding-for-government-and-non-profit-agencies",
+        "score": 17,
+        "page_type": "security",
+        "tags": [
+            "pos:security",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/onboarding-isv-api-sole-prop-new",
+        "score": 17,
+        "page_type": "security",
+        "tags": [
+            "pos:security",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/sendgrid/api-reference/integrations/get-all-integrations",
+        "score": 15,
+        "page_type": "integrations",
+        "tags": [
+            "pos:integrations",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/sendgrid/api-reference/integrations/get-integration-by-id",
+        "score": 15,
+        "page_type": "integrations",
+        "tags": [
+            "pos:integrations",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/sendgrid/for-developers/partners/google",
+        "score": 15,
+        "page_type": "integrations",
+        "tags": [
+            "pos:integrations",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/sendgrid/for-developers/partners/jelastic",
+        "score": 15,
+        "page_type": "integrations",
+        "tags": [
+            "pos:integrations",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/sendgrid/for-developers/partners/microsoft-azure",
+        "score": 15,
+        "page_type": "integrations",
+        "tags": [
+            "pos:integrations",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/sendgrid/for-developers/partners/microsoft-azure-2021.md",
+        "score": 15,
+        "page_type": "integrations",
+        "tags": [
+            "pos:integrations",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/ai-constellations",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/api/assistants/knowledge.md",
+        "score": 12,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:6"
+        ],
+        "depth": 6
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/api/assistants/messages",
+        "score": 12,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:6"
+        ],
+        "depth": 6
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/api/policies.md",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/api/sessions",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/api/tools",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/code-samples/channel-conversations",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/code-samples/channel-messaging",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants/tools",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/content/dam/twilio-com/global/en/solutions/partner-solutions/2025-Twilio-Segment-Partner-Program.pdf",
+        "score": -13,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions",
+            "depth:8",
+            "neg:file_ext"
+        ],
+        "depth": 8
+    },
+    {
+        "url": "https://www.twilio.com/solutions/healthcare",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/solutions/startups",
+        "score": 20,
+        "page_type": "solutions",
+        "tags": [
+            "pos:solutions"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://twilio.com/jobs",
+        "score": 14,
+        "page_type": "careers",
+        "tags": [
+            "pos:careers"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.twilio.com/jobs",
+        "score": 14,
+        "page_type": "careers",
+        "tags": [
+            "pos:careers"
+        ],
+        "depth": 1
+    },
+    {
+        "url": "https://www.twilio.com/flex/request-demo",
+        "score": 12,
+        "page_type": "contact",
+        "tags": [
+            "pos:contact"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/docs/alpha/ai-assistants",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/2010-04-01/rest/subaccounts",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/chat/guides/quickstart-ios",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/chat",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/client/android",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/notify/rest/bindings",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/notify/rest/segments-resource",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/api/video",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy.md",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api.md",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/applications",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/push-authentications.md",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/reporting/phone_change_canceled",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/reporting/phone_verification_failed",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/reporting/suspended_account",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/reporting/totp_token_sent_via_call",
+        "score": 15,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:5"
+        ],
+        "depth": 5
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/transactional-time-based-one-time-passwords",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/api/webhooks",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/obtain-your-app-id",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/quickstart/dotnet-core-csharp-two-factor-authentication.md",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/quickstart/two-factor-authentication-nodejs",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/quickstart/two-factor-authentication-nodejs.md",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/authy/return-and-error-codes",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/channels",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/extra-debugging-information-ios-sdks",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/fundamentals",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/ios/2x-changelog.md",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/ios/quickstart",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/ios/sdk-migration-guide-ios-10",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/reachability-indicator",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/binding-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/channel-migration-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/channel-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/member-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/user-binding-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/user-channel-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/rest/user-resource.md",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/sdk-download-install.md",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/tutorials/chat-application-android-java",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/tutorials/chat-application-ios-swift",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/typing-indicator",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/chat/webhook-events",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/client",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/content-api-postman-collection",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/create-and-send-your-first-content-api-template.md",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/create-templates-with-the-content-template-builder",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/flows",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/overview",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/send-templates-created-with-the-content-editor",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/send-templates-created-with-the-content-template-builder",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/session-definitions",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/twilio-location",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/twilio-media",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/twilio-quick-reply",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/using-variables-with-content-api",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/whatsapp-flows",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/content/whatsappcard",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversational-intelligence/api/operator-attachment-subresource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations",
+        "score": 24,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs"
+        ],
+        "depth": 2
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/a2p-10dlc-conversations",
+        "score": 21,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:3"
+        ],
+        "depth": 3
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/android/changelog",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/android/migrate-your-chat-android-sdk-conversations",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/android/push-notifications",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/api/address-configuration-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/api/configuration-resource.md",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    },
+    {
+        "url": "https://www.twilio.com/docs/conversations/api/conversation-participant-resource",
+        "score": 18,
+        "page_type": "api_devs",
+        "tags": [
+            "pos:api_devs",
+            "depth:4"
+        ],
+        "depth": 4
+    }
+]
