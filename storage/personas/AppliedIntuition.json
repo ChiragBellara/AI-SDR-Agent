@@ -1,0 +1,608 @@
+{
+  "company": {
+    "name": "Applied Intuition",
+    "website": "https://www.appliedintuition.com",
+    "domains": {
+      "primary": "appliedintuition.com",
+      "subdomains_seen": []
+    },
+    "hq": {
+      "city": "Jeju-si",
+      "country": "South Korea"
+    },
+    "description": {
+      "one_liner": "Accelerate advanced driver-assistance systems (ADAS) and automated driving (AD) development with scenario-based testing.",
+      "positioning": "Applied Intuition works hand in hand with our engineering teams to integrate their tools with our quite complex codebase.",
+      "category": "Software",
+      "keywords": [
+        "ADAS",
+        "automated driving",
+        "scenario-based testing",
+        "vehicle software",
+        "simulation",
+        "mining",
+        "vehicle intelligence",
+        "autonomous fleet operations",
+        "safety",
+        "productivity",
+        "autonomous agriculture",
+        "virtual testing",
+        "development workflows",
+        "cloud",
+        "automotive",
+        "software development",
+        "AI"
+      ]
+    },
+    "stage_and_size": {
+      "employee_range": "65+ (in 2022)",
+      "public_company": false
+    },
+    "geo_coverage": [
+      "South Korea"
+    ]
+  },
+  "icp_fit": {
+    "fit_score": 80,
+    "fit_tier": "B",
+    "fit_rationale": {
+      "strong_signals": [
+        "Motion planning and controls engineers require closed-loop testing.",
+        "Applied Intuition\u2019s motion planning and controls solution allows teams to benefit fully from scenario-based testing.",
+        "RideFlux aims to reduce the need for individual car ownership and alleviate traffic congestion in South Korea.",
+        "RideFlux seeks to scale its self-driving technology development, expand its operational design domain (ODD), and improve the stability and reliability of its robotaxi services.",
+        "Woven Planet Group is at the forefront of automated driving vehicle development.",
+        "They focus on developing algorithms that aim to deliver the world\u2019s most secure, comfortable, and, above all, the safest mobility experience.",
+        "Develop and validate next-generation AD and ADAS, and general vehicle software.",
+        "Log-based testing to identify, reproduce, debug, and resolve issues from real-world tests.",
+        "Testing ADAS and AD perception and localization systems in the real world is time-consuming and often difficult to execute and repeat at scale.",
+        "Rising demand for electric vehicles and renewable energy sources mandate that mines adopt modern technology to produce enough critical minerals.",
+        "Applied Intuition provides vehicle intelligence solutions to develop, test, integrate, and operate automation technology for mining.",
+        "Growing demand to deploy technology to smaller-scale farms and specialty crops.",
+        "Autonomy solutions must be scalable, cost-effective for providers, and safe for customers.",
+        "Rigorous testing to find thousands of edge cases and prevent critical regressions.",
+        "Cloud simulation allows for running thousands of tests in parallel.",
+        "Integrate and deploy next-gen vehicles with Applied Intuition\u2019s validated autonomy AI stacks."
+      ],
+      "weak_signals": [
+        "Need to test stack modules and integrations at scale.",
+        "Mines need to improve productivity and unit economics despite facing challenges such as labor and skill shortages.",
+        "Real-world testing can be costly, dangerous, and difficult to scale."
+      ],
+      "red_flags": []
+    },
+    "target_segments": {
+      "customer_size": [],
+      "industries_served": [
+        "Automotive",
+        "Mining",
+        "Trucking",
+        "Construction",
+        "Defense",
+        "Agriculture"
+      ],
+      "regions_served": []
+    }
+  },
+  "budget_and_buying": {
+    "pricing": {
+      "has_pricing_page": false,
+      "pricing_model": "unknown",
+      "enterprise_plan_present": false,
+      "quote_required": false
+    },
+    "procurement_signals": {
+      "legal_readiness": "medium",
+      "security_certifications": [],
+      "compliance_standards": [],
+      "data_residency_options": []
+    },
+    "sales_motion": {
+      "cta_primary": "request-demo",
+      "demo_required": false
+    }
+  },
+  "tech_environment": {
+    "integrations_and_ecosystem": {
+      "api_maturity": "unknown",
+      "tools_they_integrate_with": [],
+      "partner_ecosystem": []
+    },
+    "inferred_stack": {
+      "frontend": [],
+      "backend": [],
+      "cloud": [],
+      "data": [],
+      "observability": []
+    }
+  },
+  "products_and_offering": {
+    "primary_products": [
+      {
+        "name": "Self-Driving System (SDS)",
+        "type": "software",
+        "category": "Autonomous Driving",
+        "who_uses_it": [
+          "Automotive manufacturers",
+          "Trucking companies",
+          "Mining companies"
+        ],
+        "key_capabilities": [
+          "Integrate and deploy next-gen vehicles",
+          "Validated autonomy AI stacks",
+          "Integrate and deploy next-gen vehicles with validated autonomy AI stacks.",
+          "Autonomous haulage fleets",
+          "Safety management applications",
+          "Scaled virtual testing",
+          "Automated field operations",
+          "Multi-robot coordination"
+        ],
+        "integrations": [],
+        "differentiators": [
+          "Comprehensive environment modeling",
+          "OpenSCENARIO-compatible scenario language",
+          "AI- and ML-based autonomy modules",
+          "Performant physics-based simulation",
+          "Scaled test case creation and execution",
+          "Performance analysis and reporting"
+        ],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Data Explorer",
+        "type": "software",
+        "category": "",
+        "who_uses_it": [],
+        "key_capabilities": [
+          "Assess full advanced driver-assistance system (ADAS) and automated driving (AD) system coverage",
+          "Curate data to train machine learning (ML) models",
+          "Analyze and triage events up to 30x faster"
+        ],
+        "integrations": [],
+        "differentiators": [],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Object Sim",
+        "type": "software",
+        "category": "",
+        "who_uses_it": [],
+        "key_capabilities": [],
+        "integrations": [],
+        "differentiators": [],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Log Sim",
+        "type": "software",
+        "category": "Simulation",
+        "who_uses_it": [],
+        "key_capabilities": [
+          "Log-based testing",
+          "Scenario extraction",
+          "Re-simulation"
+        ],
+        "integrations": [],
+        "differentiators": [],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Vehicle OS",
+        "type": "software",
+        "category": "",
+        "who_uses_it": [],
+        "key_capabilities": [
+          "Develop and validate next-generation AD and ADAS, and general vehicle software.",
+          "Develop, deploy, and update complete vehicle software, hardware, and AI applications."
+        ],
+        "integrations": [],
+        "differentiators": [],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Validation Toolset",
+        "type": "software",
+        "category": "",
+        "who_uses_it": [],
+        "key_capabilities": [],
+        "integrations": [],
+        "differentiators": [],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Large-scale testing solution",
+        "type": "software",
+        "category": "Testing",
+        "who_uses_it": [
+          "ADAS teams",
+          "automated driving teams"
+        ],
+        "key_capabilities": [
+          "Scenario-based testing",
+          "Cloud simulation",
+          "Parallel test execution"
+        ],
+        "integrations": [],
+        "differentiators": [
+          "Ability to analyze terabytes of test data",
+          "Rapid issue identification and resolution"
+        ],
+        "pricing_motion": "sales-led",
+        "url_sources": []
+      },
+      {
+        "name": "Applied Intuition Copilot",
+        "type": "software",
+        "category": "Generative AI",
+        "who_uses_it": [
+          "Automotive engineers",
+          "ADAS developers"
+        ],
+        "key_capabilities": [
+          "Create simulation scenarios up to 40x faster",
+          "Generate maps",
+          "Auto-tag drive data"
+        ],
+        "integrations": [],
+        "differentiators": [
+          "Conversational interfaces",
+          "Generative models"
+        ],
+        "pricing_motion": "sales-led",
+        "url_sources": [
+          "https://www.appliedintuition.com/products/copilot"
+        ]
+      }
+    ],
+    "platform_signals": {
+      "api_available": false
+    }
+  },
+  "customer_profile": {
+    "industries": [
+      "Automotive",
+      "Mining",
+      "Trucking",
+      "Construction",
+      "Defense",
+      "Agriculture"
+    ],
+    "customer_examples": [
+      {
+        "name": "Toyota",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "Automated driving control algorithm development",
+        "outcomes": [
+          "Shorter development cycle",
+          "High-quality software",
+          "Scalable comprehensive testing"
+        ],
+        "proof_url": ""
+      },
+      {
+        "name": "Nissan",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Porsche AG",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Volkswagen Group",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "TRATON",
+        "industry": "Trucking",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Komatsu",
+        "industry": "Construction",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Isuzu",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Valeo",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Kodiak",
+        "industry": "Trucking",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "May Mobility",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "National Instruments",
+        "industry": "Technology",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Torc",
+        "industry": "Trucking",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Stellantis",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "Scientific Systems",
+        "industry": "Technology",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      },
+      {
+        "name": "AISIN",
+        "industry": "Automotive",
+        "size_hint": "",
+        "use_case": "",
+        "outcomes": [],
+        "proof_url": ""
+      }
+    ],
+    "logo_tier_summary": {
+      "enterprise_logos_present": true,
+      "notable_logos": [
+        "Toyota",
+        "Nissan",
+        "Porsche AG",
+        "Volkswagen Group"
+      ]
+    }
+  },
+  "pain_points_and_use_cases": {
+    "stated_problems": [
+      "Real-world field testing can be slow, expensive, and dangerous.",
+      "Covering the entire ODD is time and cost-intensive.",
+      "Millions of test miles are required.",
+      "Complex safety requirements",
+      "Unbounded ODD",
+      "Limited regulatory guidance",
+      "Manage drive data effectively",
+      "Scale scenario creation",
+      "Need for powerful and scalable simulation environments to efficiently and comprehensively verify the system.",
+      "Reproducing issues that occur during field testing can be extremely difficult and costly.",
+      "Real-world operations don\u2019t capture all situations.",
+      "Certain events are dangerous to test in the real world.",
+      "Collecting and labeling real datasets is costly.",
+      "ADAS and AD test fleets collect terabytes of drive data per vehicle daily",
+      "Production fleets can generate millions of events per day",
+      "Costs and risks associated with real-world testing",
+      "ADAS and AD systems are becoming increasingly complex to develop.",
+      "Labor and skill shortages",
+      "Net-zero emissions targets",
+      "Social license requirements",
+      "Rising costs",
+      "Real-world testing can be costly, dangerous, and difficult to scale.",
+      "ADAS and AD software requires rigorous testing to find thousands of edge cases and prevent critical regressions.",
+      "Physical testing is not sufficiently scalable.",
+      "Creating high-quality simulation scenarios manually is complex.",
+      "Real-world maps can be difficult to procure.",
+      "Writing SQL queries and building charts to understand test performance can be time-consuming.",
+      "Manually tagging drive logs is slow and expensive."
+    ],
+    "use_cases": [
+      "Scenario-based testing for ADAS and AD development.",
+      "Efficiently manage drive logs from its growing fleet of robotaxis.",
+      "Create test cases from drive data.",
+      "Run re-simulation tests based on real-world data.",
+      "Automated driving control algorithm development",
+      "Safety and functional safety testing",
+      "Expanding coverage to test edge cases",
+      "A scalable approach to testing",
+      "Log visualization and triage",
+      "Scenario creation",
+      "Large-scale testing",
+      "Develop high-performing perception and localization systems.",
+      "Data management and exploration for ADAS and AD engineering teams",
+      "Centralized system logs and drive data for development and testing",
+      "Advanced data analytics capabilities",
+      "Perception & localization",
+      "Planning & controls",
+      "Log visualization & triage",
+      "Vehicle dynamics",
+      "Verification & validation",
+      "Map creation",
+      "Sensor suite design & validation",
+      "Automated parking development solution",
+      "Manage tests and perform custom analysis to increase developer efficiency by 30% and accelerate the safe commercial deployment of advanced driver-assistance systems (ADAS) and automated driving (AD) systems.",
+      "Autonomous fleet operations",
+      "Safety management",
+      "Automated field operations",
+      "Multi-robot coordination",
+      "Field-to-field transits",
+      "Automated testing of ADAS and AD systems",
+      "Scenario creation and execution",
+      "Simulation scenario generation",
+      "Map generation and editing",
+      "Drive data auto-tagging"
+    ],
+    "value_metrics": {
+      "cost": [
+        "Reduce total cost of ownership"
+      ],
+      "time": [],
+      "risk": [],
+      "revenue": []
+    },
+    "urgency_signals": {
+      "regulatory_pressure": [],
+      "safety_pressure": [],
+      "downtime_pressure": [],
+      "scale_pressure": []
+    }
+  },
+  "organization_and_people": {
+    "leadership": [
+      {
+        "name": "Junghee Park",
+        "title": "Co-Founder and CEO",
+        "linkedin": "",
+        "notes": "Level 4 self-driving service technology requires driving on roads with high complexity and high uncertainty."
+      },
+      {
+        "name": "Nikos Michalakis",
+        "title": "VP of Software Platform",
+        "linkedin": "",
+        "notes": ""
+      },
+      {
+        "name": "Kenichiro Aoki",
+        "title": "Staff Engineer, Teammate Features Development Team",
+        "linkedin": "",
+        "notes": ""
+      },
+      {
+        "name": "Tadashi Okubo",
+        "title": "Senior Engineer, Teammate Features Development Team",
+        "linkedin": "",
+        "notes": ""
+      }
+    ]
+  },
+  "messaging_and_outreach": {},
+  "web_signals": {
+    "high_signal_pages": [
+      {
+        "page_type": "solutions",
+        "url": "https://www.appliedintuition.com/use-cases/motion-planning-and-controls",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      },
+      {
+        "page_type": "products",
+        "url": "https://www.appliedintuition.com/products/log-sim",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      },
+      {
+        "page_type": "products",
+        "url": "https://www.appliedintuition.com/products/data-explorer",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      },
+      {
+        "page_type": "careers",
+        "url": "https://www.appliedintuition.com/careers",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      },
+      {
+        "page_type": "products",
+        "url": "https://www.appliedintuition.com/products/validation-toolset",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      },
+      {
+        "page_type": "solutions",
+        "url": "https://www.appliedintuition.com/use-cases/large-scale-testing",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      },
+      {
+        "page_type": "products",
+        "url": "https://www.appliedintuition.com/products/copilot",
+        "bm25_score": null,
+        "url_prior": null,
+        "content_quality": null,
+        "notes": ""
+      }
+    ]
+  },
+  "risk_and_disqualifiers": {
+    "deal_risks": [],
+    "competitive_landscape": {
+      "competitors_mentioned": [],
+      "alternatives_likely": []
+    }
+  },
+  "next_steps": {},
+  "sources": {
+    "scraped_urls": [
+      "https://www.appliedintuition.com/use-cases/motion-planning-and-controls",
+      "https://www.appliedintuition.com/use-cases/verification-and-validation",
+      "https://www.appliedintuition.com/case-studies/rideflux",
+      "https://www.appliedintuition.com/case-studies/toyota",
+      "https://www.appliedintuition.com/products/log-sim",
+      "https://www.appliedintuition.com/use-cases/perception-and-localization",
+      "https://www.appliedintuition.com/products/data-explorer",
+      "https://www.appliedintuition.com/careers",
+      "https://www.appliedintuition.com/products/validation-toolset",
+      "https://www.appliedintuition.com/industries/mining",
+      "https://www.appliedintuition.com/industries/agriculture",
+      "https://www.appliedintuition.com/use-cases/large-scale-testing",
+      "https://www.appliedintuition.com/products/copilot"
+    ]
+  }
+}

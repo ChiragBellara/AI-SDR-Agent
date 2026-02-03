@@ -12,7 +12,7 @@ from schema.LeadCard import LeadCard
 from logger.universal_logger import setup_logger
 
 logger = setup_logger('AI_SDR.Runner')
-STORAGE_PATH = Path("../storage/identities/")
+STORAGE_PATH = Path("../storage/personas/")
 load_dotenv()
 
 
@@ -44,20 +44,14 @@ def _classify_all_urls(source_path: str):
 def _crawl_urls():
     logger.info("Starting Extraction")
     crawler = CrawlURLs()
-    start_time = time.perf_counter()
-    with open('./sources.json', 'r') as source_file:
+    with open('../storage/identities/AppliedIntuition_links.json', 'r') as source_file:
         sources = json.load(source_file)
-
-        for src in sources:
-            logger.info(f"Extracting data for {src['name']}")
-            site_content = asyncio.run(crawler._crawl_url(src["url"]))
-            if site_content:
-                crawler.write_to_file(
-                    site_content[0], Path(src["storage_path"]))
-        logger.info("Extraction Complete.")
-        logger.info(f"Number of websites crawled: {len(sources)}")
-        logger.info(
-            f"Total time taken: {round((time.perf_counter() - start_time) * 1000, 2)}")
+        urls = [x["url"] for x in sources]
+        results = asyncio.run(crawler._crawl_shortlisted_urls(urls))
+        if results:
+            crawler.write_to_file(
+                results, STORAGE_PATH / f"AppliedIntuition.json"
+            )
 
 
 def get_companies():
@@ -87,4 +81,5 @@ def get_companies():
 
 
 if __name__ == "__main__":
-    _classify_all_urls("sources.json")
+    # _classify_all_urls("sources.json")
+    _crawl_urls()

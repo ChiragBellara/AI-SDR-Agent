@@ -5,16 +5,17 @@ import asyncio
 from typing import cast, List, Dict, Any
 from urllib.parse import urlparse
 from schema.LeadCard import LeadCard
+from schema.CompanyPersona import CompanyPersona
 from crawl4ai import (AsyncWebCrawler, CrawlerRunConfig,
                       DefaultMarkdownGenerator, LLMConfig, LLMExtractionStrategy, PruningContentFilter, SeedingConfig, AsyncUrlSeeder)
 from crawl4ai.models import CrawlResult
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
 from logger.universal_logger import setup_logger
-from utils.json_utils import _parse_first_json, _merge_lead_cards
+from utils.json_utils import _parse_first_json, _merge_lead_cards, _merge_company_personas
 from utils.url_utils import CheckUrlDomain
 from discovery import Discovery
-from utils.prompts import CRAWL_INSTRUCTION
+from utils.prompts import CRAWL_INSTRUCTION, COMPANY_PERSONA_PROMPT
 import logging
 
 logging.basicConfig(
@@ -55,7 +56,7 @@ class FilterAndCrawlPages:
 class CrawlURLs:
     def __init__(self, model="openai"):
         self.model = model
-        self.instruction = CRAWL_INSTRUCTION
+        self.instruction = COMPANY_PERSONA_PROMPT
 
     def _get_llm_config(self):
         # Add functionality for the user to choose their model from a dropdown and update the LLM Config accordingly
@@ -74,9 +75,12 @@ class CrawlURLs:
     def _get_extraction_stratergy(self):
         return LLMExtractionStrategy(
             llm_config=self._get_llm_config(),
-            schema=LeadCard.model_json_schema(),
+            schema=CompanyPersona.model_json_schema(),
             extraction_type="schema",
-            instruction=self.instruction
+            instruction=self.instruction,
+            backoff_base_delay=5,
+            backoff_max_attempts=3,
+            backoff_exponential_factor=5,
         ),
 
     async def _crawl_url(self, URL_TO_CRAWL: str = ""):
@@ -120,7 +124,6 @@ class CrawlURLs:
             url = getattr(res, "url", None)
             status = getattr(res, "success", True)
             extracted = getattr(res, "extracted_content", None)
-
             if not extracted:
                 logger.warning(
                     f"No extracted_content | url={url} | ok={status}")
@@ -128,25 +131,47 @@ class CrawlURLs:
 
             logger.info(
                 f"Extracted content | url={url} | size={len(extracted)}")
-
             obj = _parse_first_json(extracted)
             if not obj:
                 logger.warning(f"Failed to parse JSON | url={url}")
                 continue
-
-            # Optionally: tag the source URL so your merger has provenance
-            obj.setdefault("source_notes", [])
-            obj["source_notes"].append(f"from {url}")
-
             per_page_cards.append(obj)
-        if not per_page_cards:
-            logger.warning(
-                "No valid LeadCards parsed from shortlisted URLs")
-            return None
-
-        # Merge page-level LeadCards into one site-level LeadCard
-        merged = _merge_lead_cards(per_page_cards)
+        
+        merged = _merge_company_personas(per_page_cards)
         return merged
+
+        # per_page_cards: List[Dict[str, Any]] = []
+        # for res in results:
+        #     url = getattr(res, "url", None)
+        #     status = getattr(res, "success", True)
+        #     extracted = getattr(res, "extracted_content", None)
+
+        #     if not extracted:
+        #         logger.warning(
+        #             f"No extracted_content | url={url} | ok={status}")
+        #         continue
+
+        #     logger.info(
+        #         f"Extracted content | url={url} | size={len(extracted)}")
+
+        #     obj = _parse_first_json(extracted)
+        #     if not obj:
+        #         logger.warning(f"Failed to parse JSON | url={url}")
+        #         continue
+
+        #     # Optionally: tag the source URL so your merger has provenance
+        #     obj.setdefault("source_notes", [])
+        #     obj["source_notes"].append(f"from {url}")
+
+        #     per_page_cards.append(obj)
+        # if not per_page_cards:
+        #     logger.warning(
+        #         "No valid LeadCards parsed from shortlisted URLs")
+        #     return None
+
+        # # Merge page-level LeadCards into one site-level LeadCard
+        # merged = _merge_lead_cards(per_page_cards)
+        # return merged
 
     def write_to_file(self, content, path):
         try:
