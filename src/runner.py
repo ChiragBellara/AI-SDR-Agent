@@ -11,6 +11,10 @@ from dotenv import load_dotenv
 from schema.LeadCard import LeadCard
 from logger.universal_logger import setup_logger
 
+# Tavily Test
+from nodes.grounding import GroundingNode
+from schema.state import InputState
+
 logger = setup_logger('AI_SDR.Runner')
 STORAGE_PATH = Path("../storage/personas/")
 load_dotenv()
@@ -80,6 +84,18 @@ def get_companies():
         print(f"can reach out to: {item.top_outreach_roles}\n\n")
 
 
+def create_initial_state():
+    return InputState(
+        company="Snorkel",
+        company_url="https://snorkel.ai/"
+    )
+
 if __name__ == "__main__":
     # _classify_all_urls("sources.json")
-    _crawl_urls()
+    # _crawl_urls()
+    state = create_initial_state()
+    grounding = GroundingNode()
+    content = asyncio.run(grounding.run(state))
+    path = Path("../storage/personas/snorkel.json")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(content, indent=2), encoding="utf-8")
