@@ -2,6 +2,7 @@ import argparse
 import asyncio
 import json
 import time
+from langchain_core.messages import content
 from scrapper import CrawlURLs, FilterAndCrawlPages
 from pathlib import Path
 from analyzer import get_or_create_lead_card, rank_companies
@@ -13,6 +14,7 @@ from logger.universal_logger import setup_logger
 
 # Tavily Test
 from nodes.grounding import GroundingNode
+from nodes.research_nodes.news import NewsResearcher
 from schema.state import InputState
 
 logger = setup_logger('AI_SDR.Runner')
@@ -87,7 +89,9 @@ def get_companies():
 def create_initial_state():
     return InputState(
         company="Snorkel",
-        company_url="https://snorkel.ai/"
+        company_url="https://snorkel.ai/",
+        hq_location="California",
+        industry="Enterprise AI"
     )
 
 if __name__ == "__main__":
@@ -96,6 +100,9 @@ if __name__ == "__main__":
     state = create_initial_state()
     grounding = GroundingNode()
     content = asyncio.run(grounding.run(state))
-    path = Path("../storage/personas/snorkel.json")
+    print(content)
+    news = NewsResearcher()
+    news_content = asyncio.run(news.run(content))
+    path = Path("../storage/personas/snorkel_news.json")
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(content, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(news_content, indent=2), encoding="utf-8")

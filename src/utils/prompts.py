@@ -106,3 +106,17 @@ RANK_COMPANIES_USER_INSTRUCTION = """
             Output:\n
             - Return JSON only with top-level key 'ranked'.
         """
+
+
+PROMPT_QUERY_FORMAT_GUIDELINES = """
+Important Guidelines:
+- Focus ONLY on {company}-specific information
+- Make queries very brief and to the point
+- Provide exactly 4 search queries (one per line), with no hyphens or dashes
+- DO NOT make assumptions about the industry - use only the provided industry information"""
+
+NEWS_SCANNER_QUERY_PROMPT = """Generate queries on the recent news coverage of {company} such as:
+- Recent company announcements
+- Press releases
+- New partnerships
+"""

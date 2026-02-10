@@ -9,6 +9,29 @@ from utils.url_config import ALLOW, DENY_LOCALE_PREFIX, DENY_LOCALE_QUERY, DENY_
 
 logger = setup_logger('AI_SDR.Url_Utils')
 
+
+def clean_title(title: str) -> str:
+    """Clean up a title by removing dates, trailing periods or quotes, and truncating if needed."""
+    if not title:
+        return ""
+    
+    original_title = title
+    
+    title = title.strip().rstrip('.').strip('"\'')
+    title = re.sub(r'^\d{4}[-\s]*\d{1,2}[-\s]*\d{1,2}[-\s]*', '', title)
+    title = title.strip('- ').strip()
+    
+    # If title became empty after cleaning, return empty string
+    if not title:
+        logger.warning(f"Title became empty after cleaning: '{original_title}'")
+        return ""
+    
+    # Log if we made changes to the title
+    if title != original_title:
+        logger.info(f"Cleaned title from '{original_title}' to '{title}'")
+    
+    return title
+
 class CheckUrlDomain:
     def __init__(self, company_domain) -> None:
         self.BASE_DOMAIN = self.registrable_domain(company_domain)

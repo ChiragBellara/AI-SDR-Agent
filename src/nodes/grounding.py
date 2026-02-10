@@ -99,7 +99,7 @@ class GroundingNode:
             "hq_location": initial_state.get('hq_location'),
             "industry": initial_state.get('industry'),
             # Initialize research fields
-            "messages": [AIMessage(content=message).model_dump()],
+            "messages": [AIMessage(content=message)],
             "site_scrape": site_scrape
         }
         if "Error crawling website content:" in message:
