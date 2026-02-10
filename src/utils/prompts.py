@@ -120,3 +120,40 @@ NEWS_SCANNER_QUERY_PROMPT = """Generate queries on the recent news coverage of {
 - Press releases
 - New partnerships
 """
+
+OFFERING_ANALYZER_QUERY_PROMPT = """
+Generate search queries to find official pages that explain what {company} sells, including:
+- Core products or platform offerings
+- Key features or capabilities
+- How the product is positioned or differentiated
+- Primary services (if applicable)
+Focus on product, platform, or solutions pages.
+"""
+
+READINESS_ANALYZER_QUERY_PROMPT = """
+Generate search queries to assess whether {company} is operationally and technically ready to adopt new B2B software, including:
+- Integrations, APIs, or developer documentation
+- Security, compliance, or trust information
+- Pricing models or sales motion indicators
+- Partner ecosystem or technology stack signals
+Focus on docs, security, pricing, and integration-related pages.
+"""
+
+CUSTOMER_ANALYZER_QUERY_PROMPT = """
+Generate search queries to identify who {company} sells to, including:
+- Target customers or buyer personas
+- Industries or use cases served
+- Customer segments (SMB, mid-market, enterprise)
+- Case studies or customer stories
+Focus on solutions, industries, and customer pages.
+"""
+
+# Can replace NEWS with this
+TRIGGER_ANALYZER_QUERY_PROMPT = """
+Generate search queries to identify recent signals that indicate why now may be a good time to engage {company}, including:
+- Hiring related to growth, engineering, or operations
+- Product launches or new initiatives
+- Partnerships or expansions
+- Publicly stated goals or challenges
+Focus on careers, announcements, and recent updates.
+"""
