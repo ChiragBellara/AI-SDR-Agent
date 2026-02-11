@@ -9,17 +9,11 @@ class InputState(TypedDict, total=False):
 class ResearchState(InputState):
     site_scrape: Dict[str, Any]
     messages: List[Any]
-    financial_data: Dict[str, Any]
     news_data: Dict[str, Any]
-    industry_data: Dict[str, Any]
-    company_data: Dict[str, Any]
-    curated_financial_data: Dict[str, Any]
-    curated_news_data: Dict[str, Any]
-    curated_industry_data: Dict[str, Any]
-    curated_company_data: Dict[str, Any]
-    financial_briefing: str
-    news_briefing: str
-    industry_briefing: str
+    trigger_data: Dict[str, Any]
+    offering_data: Dict[str, Any]
+    customer_data: Dict[str, Any]
+    readiness_data: Dict[str, Any]
     company_briefing: str
     references: List[str]
     briefings: Dict[str, Any]
