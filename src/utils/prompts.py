@@ -108,6 +108,91 @@ RANK_COMPANIES_USER_INSTRUCTION = """
         """
 
 
+
+EDITOR_SYSTEM_MESSAGE = "You are an expert report editor that compiles research briefings into comprehensive company reports."
+
+COMPILE_CONTENT_PROMPT = """You are compiling a comprehensive research report about {company}.
+
+Compiled briefings:
+{combined_content}
+
+Create a deep, comprehensive, and thorough report on {company}, a {industry} company headquartered in {hq_location} that:
+1. Integrates information from all sections into a cohesive non-repetitive narrative
+2. Maintains important details from each section
+3. Logically organizes information and removes transitional commentary / explanations
+4. Uses clear section headers and structure
+
+Formatting rules:
+Strictly enforce this EXACT document structure:
+
+# {company} Research Report
+
+## Company Overview
+[Company content with ### subsections]
+
+## Industry Overview
+[Industry content with ### subsections]
+
+## Financial Overview
+[Financial content with ### subsections]
+
+## News
+[News content with ### subsections]
+
+Return the report in clean markdown format. No explanations or commentary."""
+
+CONTENT_SWEEP_SYSTEM_MESSAGE = "You are an expert markdown formatter that ensures consistent document structure."
+
+CONTENT_SWEEP_PROMPT = """You are an expert briefing editor. You are given a report on {company}.
+
+Current report:
+{content}
+
+1. Remove redundant or repetitive information
+2. Remove information that is not relevant to {company}, the {industry} company headquartered in {hq_location}.
+3. Remove sections lacking substantial content
+4. Remove any meta-commentary (e.g. "Here is the news...")
+
+Strictly enforce this document structure:
+
+## Company Overview
+[Company content with ### subsections]
+
+## Industry Overview
+[Industry content with ### subsections]
+
+## Financial Overview
+[Financial content with ### subsections]
+
+## News
+[News content with ### subsections]
+
+## References
+[References in MLA format - PRESERVE EXACTLY AS PROVIDED]
+
+Critical rules:
+1. The document MUST start with "# {company} Research Report"
+2. The document MUST ONLY use these exact ## headers in this order:
+   - ## Company Overview
+   - ## Industry Overview
+   - ## Financial Overview
+   - ## News
+   - ## References
+3. NO OTHER ## HEADERS ARE ALLOWED
+4. Use ### for subsections in Company/Industry/Financial sections
+5. News section should only use bullet points (*), never headers
+6. Never use code blocks (```)
+7. Never use more than one blank line between sections
+8. Format all bullet points with *
+9. Add one blank line before and after each section/list
+10. DO NOT CHANGE the format of the references section
+
+Return the polished report in flawless markdown format. No explanation.
+
+Return the cleaned report in flawless markdown format. No explanations or commentary."""
+
+
+
 PROMPT_QUERY_FORMAT_GUIDELINES = """
 Important Guidelines:
 - Focus ONLY on {company}-specific information

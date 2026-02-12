@@ -9,7 +9,7 @@ from utils.references import process_references_from_search_results
 
 logger = logging.getLogger(__name__)
 
-class Curator:
+class CuratorNode:
     def __init__(self) -> None:
         self.relevance_threshold = 0.4
         logger.info(f"Curator initialized with relevance threshold: {self.relevance_threshold}")

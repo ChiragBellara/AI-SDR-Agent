@@ -8,6 +8,7 @@ from schema.state import InputState
 from nodes.grounding import GroundingNode
 from nodes.editor import EditorNode
 from nodes.collector import CollectorNode
+from nodes.curator import CuratorNode
 from nodes.research_nodes.customers import CustomersResearcher
 from nodes.research_nodes.triggers import TriggersResearcher
 from nodes.research_nodes.news import NewsResearcher
@@ -35,6 +36,7 @@ class Graph:
         self.readiness_researcher = ReadinessResearcher()
         self.triggers_researcher = TriggersResearcher()
         self.collector = CollectorNode()
+        self.curator = CuratorNode()
         self.editor = EditorNode()
 
     def _build_workflow(self):
@@ -47,10 +49,12 @@ class Graph:
         self.workflow.add_node("customer_researcher", self.customer_researcher.run)
         self.workflow.add_node("news_analyst", self.news_analyst.run)
         self.workflow.add_node("collector", self.collector.run)
-        self.workflow.add_node("editor", self.editor.run)
+        self.workflow.add_node("curator", self.curator.run)
+        # self.workflow.add_node("editor", self.editor.run)
 
         self.workflow.set_entry_point("grounding")
-        self.workflow.set_finish_point("editor")
+        self.workflow.set_finish_point("curator")
+        # self.workflow.set_finish_point("editor")
 
         self.workflow.add_edge("grounding", "triggers_researcher")
         self.workflow.add_edge("grounding", "readiness_researcher")
@@ -64,7 +68,7 @@ class Graph:
         self.workflow.add_edge("customer_researcher", "collector")
         self.workflow.add_edge("news_analyst", "collector")
 
-        self.workflow.add_edge("collector", "editor")
+        self.workflow.add_edge("collector", "curator")
 
     async def run(self, thread: Dict[str, Any]) -> AsyncIterator[Dict[str, Any]]:
         """Execute the research workflow"""
