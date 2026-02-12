@@ -19,6 +19,7 @@ dependencies = [
     "streamlit-autorefresh>=1.0.1",
     "publicsuffix2>=2.20191221",
     "tavily-python>=0.7.21",
+    "langgraph>=1.0.8",
 ]
 
 [project.scripts]

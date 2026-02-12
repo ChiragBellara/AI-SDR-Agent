@@ -1,10 +1,10 @@
+import logging
 import os
-from logger.universal_logger import setup_logger
 from tavily import AsyncTavilyClient
 from langchain_core.messages import AIMessage
 from schema.state import InputState, ResearchState
 
-logger = setup_logger(__name__)
+logger = logging.getLogger(__name__)
 
 class GroundingNode:
     """Gathers initial information about the company"""
