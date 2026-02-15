@@ -2,6 +2,7 @@ import logging
 from langchain_core.messages import SystemMessage
 from langgraph.graph import StateGraph
 from typing import Any, Dict, AsyncIterator
+from langsmith import traceable
 
 from logger.universal_logger import setup_logger
 from schema.state import InputState
@@ -14,8 +15,9 @@ from nodes.research_nodes.triggers import TriggersResearcher
 from nodes.research_nodes.news import NewsResearcher
 from nodes.research_nodes.offerings import OfferingsResearcher
 from nodes.research_nodes.readiness import ReadinessResearcher
+from nodes.persona import PersonaNode
 
-logger = logging.getLogger(__name__)
+logger = setup_logger(__name__)
 
 class Graph:
     def __init__(self, company="Unknown", url="Unknown", hq_location="Unknown", industry="Unknown") -> None:
@@ -37,6 +39,7 @@ class Graph:
         self.triggers_researcher = TriggersResearcher()
         self.collector = CollectorNode()
         self.curator = CuratorNode()
+        self.persona = PersonaNode()
         self.editor = EditorNode()
 
     def _build_workflow(self):
@@ -49,11 +52,12 @@ class Graph:
         self.workflow.add_node("customer_researcher", self.customer_researcher.run)
         self.workflow.add_node("news_analyst", self.news_analyst.run)
         self.workflow.add_node("collector", self.collector.run)
-        self.workflow.add_node("curator", self.curator.run)
+        self.workflow.add_node("persona", self.persona.run)
+        # self.workflow.add_node("curator", self.curator.run)
         # self.workflow.add_node("editor", self.editor.run)
 
         self.workflow.set_entry_point("grounding")
-        self.workflow.set_finish_point("curator")
+        self.workflow.set_finish_point("persona")
         # self.workflow.set_finish_point("editor")
 
         self.workflow.add_edge("grounding", "triggers_researcher")
@@ -68,7 +72,7 @@ class Graph:
         self.workflow.add_edge("customer_researcher", "collector")
         self.workflow.add_edge("news_analyst", "collector")
 
-        self.workflow.add_edge("collector", "curator")
+        self.workflow.add_edge("collector", "persona")
 
     async def run(self, thread: Dict[str, Any]) -> AsyncIterator[Dict[str, Any]]:
         """Execute the research workflow"""

@@ -1,3 +1,5 @@
+from typing import Any, Dict, List, Optional, Tuple
+from copy import deepcopy
 import json
 from typing import Optional, Dict, Any, List
 from pydantic import BaseModel, HttpUrl, ValidationError
@@ -87,9 +89,6 @@ def _merge_lead_cards(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
         merged[f] = out
 
     return merged
-
-from typing import Any, Dict, List, Optional, Tuple
-from copy import deepcopy
 
 
 def _merge_company_personas(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -370,53 +369,71 @@ def _merge_company_personas(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
     # --------------------------
 
     # products_and_offering.primary_products: key by name (fallback enrich/merge)
-    prod_lists = [(_get(c, "products_and_offering.primary_products", []) or []) for c in cards]
-    merged_products = _merge_object_lists(prod_lists, key_paths=["name"], keep="first")
+    prod_lists = [
+        (_get(c, "products_and_offering.primary_products", []) or []) for c in cards]
+    merged_products = _merge_object_lists(
+        prod_lists, key_paths=["name"], keep="first")
     if merged_products:
         _set(merged, "products_and_offering.primary_products", merged_products)
 
     # customer_profile.customer_examples: key by proof_url if present, else name
-    cust_lists = [(_get(c, "customer_profile.customer_examples", []) or []) for c in cards]
+    cust_lists = [(_get(c, "customer_profile.customer_examples", []) or [])
+                  for c in cards]
     # do two-pass: prefer proof_url key, then name
-    merged_cust = _merge_object_lists(cust_lists, key_paths=["proof_url"], keep="first")
-    merged_cust = _merge_object_lists([merged_cust], key_paths=["name"], keep="first")
+    merged_cust = _merge_object_lists(
+        cust_lists, key_paths=["proof_url"], keep="first")
+    merged_cust = _merge_object_lists(
+        [merged_cust], key_paths=["name"], keep="first")
     if merged_cust:
         _set(merged, "customer_profile.customer_examples", merged_cust)
 
     # organization_and_people.leadership: key by (name,title)
-    lead_lists = [(_get(c, "organization_and_people.leadership", []) or []) for c in cards]
-    merged_leadership = _merge_object_lists(lead_lists, key_paths=["name", "title"], keep="first")
+    lead_lists = [(_get(c, "organization_and_people.leadership", []) or [])
+                  for c in cards]
+    merged_leadership = _merge_object_lists(
+        lead_lists, key_paths=["name", "title"], keep="first")
     if merged_leadership:
         _set(merged, "organization_and_people.leadership", merged_leadership)
 
     # organization_and_people.hiring_signals.open_roles: key by url if present else title+location
-    roles_lists = [(_get(c, "organization_and_people.hiring_signals.open_roles", []) or []) for c in cards]
-    merged_roles = _merge_object_lists(roles_lists, key_paths=["url"], keep="first")
-    merged_roles = _merge_object_lists([merged_roles], key_paths=["title", "location"], keep="first")
+    roles_lists = [
+        (_get(c, "organization_and_people.hiring_signals.open_roles", []) or []) for c in cards]
+    merged_roles = _merge_object_lists(
+        roles_lists, key_paths=["url"], keep="first")
+    merged_roles = _merge_object_lists([merged_roles], key_paths=[
+                                       "title", "location"], keep="first")
     if merged_roles:
         _set(merged, "organization_and_people.hiring_signals.open_roles", merged_roles)
 
     # messaging_and_outreach.personalization_hooks: key by (hook,source_url)
-    hook_lists = [(_get(c, "messaging_and_outreach.personalization_hooks", []) or []) for c in cards]
-    merged_hooks = _merge_object_lists(hook_lists, key_paths=["hook", "source_url"], keep="first")
+    hook_lists = [
+        (_get(c, "messaging_and_outreach.personalization_hooks", []) or []) for c in cards]
+    merged_hooks = _merge_object_lists(
+        hook_lists, key_paths=["hook", "source_url"], keep="first")
     if merged_hooks:
         _set(merged, "messaging_and_outreach.personalization_hooks", merged_hooks)
 
     # messaging_and_outreach.value_hypotheses: key by hypothesis
-    hyp_lists = [(_get(c, "messaging_and_outreach.value_hypotheses", []) or []) for c in cards]
-    merged_hyps = _merge_object_lists(hyp_lists, key_paths=["hypothesis"], keep="first")
+    hyp_lists = [
+        (_get(c, "messaging_and_outreach.value_hypotheses", []) or []) for c in cards]
+    merged_hyps = _merge_object_lists(
+        hyp_lists, key_paths=["hypothesis"], keep="first")
     if merged_hyps:
         _set(merged, "messaging_and_outreach.value_hypotheses", merged_hyps)
 
     # web_signals.high_signal_pages: key by url
-    hsp_lists = [(_get(c, "web_signals.high_signal_pages", []) or []) for c in cards]
-    merged_hsp = _merge_object_lists(hsp_lists, key_paths=["url"], keep="first")
+    hsp_lists = [(_get(c, "web_signals.high_signal_pages", []) or [])
+                 for c in cards]
+    merged_hsp = _merge_object_lists(
+        hsp_lists, key_paths=["url"], keep="first")
     if merged_hsp:
         _set(merged, "web_signals.high_signal_pages", merged_hsp)
 
     # risk_and_disqualifiers.disqualifiers: key by reason
-    disq_lists = [(_get(c, "risk_and_disqualifiers.disqualifiers", []) or []) for c in cards]
-    merged_disq = _merge_object_lists(disq_lists, key_paths=["reason"], keep="first")
+    disq_lists = [
+        (_get(c, "risk_and_disqualifiers.disqualifiers", []) or []) for c in cards]
+    merged_disq = _merge_object_lists(
+        disq_lists, key_paths=["reason"], keep="first")
     if merged_disq:
         _set(merged, "risk_and_disqualifiers.disqualifiers", merged_disq)
 
@@ -461,3 +478,35 @@ def _merge_company_personas(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
         _set(merged, "web_signals.ignore_rules_applied", ira)
 
     return merged
+
+
+OUTPUT_STRUCT = {
+    "company_name": "string",
+    "industry": "string",
+    "mission_statement": "string",
+    "core_products": [
+        {
+            "name": "string",
+            "description": "string"
+        }
+    ],
+    "target_market": {
+        "industries": ["string"],
+        "ideal_customer_profile": "string"
+    },
+    "sales_triggers": {
+        "recent_funding_or_news": "string",
+        "strategic_priorities": "string"
+    },
+    "impact_metrics": [
+        {
+            "case_study": "string",
+            "result": "string"
+        }
+    ],
+    "sales_intelligence": {
+        "green_flags": ["string"],
+        "red_flags": ["string"],
+        "compliance_standards": ["string"]
+    }
+}

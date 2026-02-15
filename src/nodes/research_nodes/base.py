@@ -11,8 +11,9 @@ from tavily import AsyncTavilyClient
 from schema.state import ResearchState
 from utils.prompts import PROMPT_QUERY_FORMAT_GUIDELINES
 from utils.url_utils import clean_title
+from logger.universal_logger import setup_logger
 
-logger = logging.getLogger(__name__)
+logger = setup_logger(__name__)
 
 class BaseResearcher:
     def __init__(self) -> None:

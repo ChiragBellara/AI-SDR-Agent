@@ -1,8 +1,9 @@
 import logging
 from langchain_core.messages import AIMessage
 from schema.state import ResearchState
+from logger.universal_logger import setup_logger
 
-logger = logging.getLogger(__name__)
+logger = setup_logger(__name__)
 
 class CollectorNode:
     """Collects and organizes all research data before curation."""

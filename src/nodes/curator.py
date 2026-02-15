@@ -1,4 +1,3 @@
-import logging
 from typing import Dict
 from urllib.parse import urljoin, urlparse
 
@@ -6,8 +5,9 @@ from langchain_core.messages import AIMessage
 
 from schema.state import ResearchState
 from utils.references import process_references_from_search_results
+from logger.universal_logger import setup_logger
 
-logger = logging.getLogger(__name__)
+logger = setup_logger(__name__)
 
 class CuratorNode:
     def __init__(self) -> None:

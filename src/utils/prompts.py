@@ -108,7 +108,6 @@ RANK_COMPANIES_USER_INSTRUCTION = """
         """
 
 
-
 EDITOR_SYSTEM_MESSAGE = "You are an expert report editor that compiles research briefings into comprehensive company reports."
 
 COMPILE_CONTENT_PROMPT = """You are compiling a comprehensive research report about {company}.
@@ -192,7 +191,6 @@ Return the polished report in flawless markdown format. No explanation.
 Return the cleaned report in flawless markdown format. No explanations or commentary."""
 
 
-
 PROMPT_QUERY_FORMAT_GUIDELINES = """
 Important Guidelines:
 - Focus ONLY on {company}-specific information
@@ -241,4 +239,44 @@ Generate search queries to identify recent signals that indicate why now may be 
 - Partnerships or expansions
 - Publicly stated goals or challenges
 Focus on careers, announcements, and recent updates.
+"""
+
+
+PERSONA_CREATION_PROMPT = """
+Role: Act as a Senior Strategic Sales Consultant and Business Analyst.
+
+Task: Using the provided JSON data, create a comprehensive Company Persona formatted as a JSON object. This data will be used in a UI to help a Sales Representative evaluate if the company is a high-value target.\n
+
+Formatting Constraint: Return ONLY a valid JSON object. Do not include any introductory or concluding text.\n
+
+Structure the Persona as follows:
+Please return a JSON object with the following keys. Follow the descriptions for each:\n
+- company_name: The official name of the entity.\n
+- industry: A 2-3 word classification (e.g., "Enterprise AI Infrastructure").\n
+- mission_statement: A one-sentence summary of their primary business goal.\n
+- core_products: An array of objects. Each should have:\n
+    - name: Product title.\n
+    - description: A brief summary of what it does and why it matters.\n
+- target_market: A array of objects. Each should have:\n
+    - industries: A list of the industries this company is serving\n
+    - ideal_customer_profile: A brief description of what profile of customers is the company is targetting\n
+- sales_triggers: An object containing:\n
+    - funding: Mention the most recent round (e.g., "May 2025 Series D") or if the company has acquired a new funding from a different source.\n
+    - strategic_shifts: Key goals for {year}. Also mention if there are specific areas the company has decided to focus more on."\n
+- impact_metrics: An array of strings. Each must include a specific quantitative result (e.g., "99% accuracy" or "10,000 hours saved").\n
+- sales_intelligence:\n
+    - green_flags: List 3 indicators that make them a "Buy" target for our project.\n
+    - red_flags: List potential barriers (e.g., specific security compliance like SOC2).\n
+    - compliance_standards: List of  the compliance standards the company adheres to.\n
+
+JSON Schema Requirements:
+Please ensure the output follows this exact structure:
+{output_structure}
+
+Instructions for the LLM:\n
+- Analyze the raw_content and site_scrape fields specifically for technical details.\n
+- Look for specific impact metrics like "10,000 hours saved" or "80% reduction in query resolution".\n
+- Identify high-level strategic shifts, such as moving toward "Agentic AI" or "Better Evaluators".\n
+
+{company_json}
 """

@@ -7,6 +7,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+from logger.universal_logger import setup_logger
 from schema.state import ResearchState
 from utils.references import format_references_section
 from utils.prompts import (
@@ -16,7 +17,7 @@ from utils.prompts import (
     CONTENT_SWEEP_PROMPT
 )
 
-logger = logging.getLogger(__name__)
+logger = setup_logger(__name__)
 
 class EditorNode:
     """Compiles individual section briefings into a cohesive final report."""

@@ -20,6 +20,8 @@ dependencies = [
     "publicsuffix2>=2.20191221",
     "tavily-python>=0.7.21",
     "langgraph>=1.0.8",
+    "langsmith>=0.6.4",
+    "langchain-google-genai>=4.2.0",
 ]
 
 [project.scripts]
