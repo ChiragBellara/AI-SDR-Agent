@@ -9,10 +9,12 @@ from logger.universal_logger import setup_logger
 
 logger = setup_logger(__name__)
 
+
 class CuratorNode:
     def __init__(self) -> None:
         self.relevance_threshold = 0.4
-        logger.info(f"Curator initialized with relevance threshold: {self.relevance_threshold}")
+        logger.info(
+            f"Curator initialized with relevance threshold: {self.relevance_threshold}")
 
     def evaluate_documents(self, docs: list, context: Dict[str, str]) -> list:
         """Evaluate documents based on Tavily's scoring."""
@@ -20,23 +22,25 @@ class CuratorNode:
             return []
 
         logger.info(f"Evaluating {len(docs)} documents")
-        
+
         evaluated_docs = []
         try:
             # Evaluate each document using Tavily's score
             for doc in docs:
                 try:
                     # Ensure score is a valid float
-                    tavily_score = float(doc.get('score', 0))  # Default to 0 if no score
-                    
+                    # Default to 0 if no score
+                    tavily_score = float(doc.get('score', 0))
+
                     # Always keep company website data regardless of score (first-party information)
                     is_company_website = doc.get('source') == 'company_website'
-                    
+
                     # Keep documents with good Tavily score or company website data
                     if tavily_score >= self.relevance_threshold or is_company_website:
                         reason = "company website" if is_company_website else f"score {tavily_score:.4f}"
-                        logger.info(f"Document kept ({reason}) for '{doc.get('title', 'No title')}')")
-                        
+                        logger.info(
+                            f"Document kept ({reason}) for '{doc.get('title', 'No title')}')")
+
                         evaluated_doc = {
                             **doc,
                             "evaluation": {
@@ -46,26 +50,27 @@ class CuratorNode:
                         }
                         evaluated_docs.append(evaluated_doc)
                     else:
-                        logger.info(f"Document below threshold with score {tavily_score:.4f} for '{doc.get('title', 'No title')}'")
+                        logger.info(
+                            f"Document below threshold with score {tavily_score:.4f} for '{doc.get('title', 'No title')}'")
                 except (ValueError, TypeError) as e:
                     logger.warning(f"Error processing score for document: {e}")
                     continue
-                    
+
         except Exception as e:
             logger.error(f"Error during document evaluation: {e}")
             return []
 
         # Sort evaluated docs by score before returning
-        evaluated_docs.sort(key=lambda x: float(x['evaluation']['overall_score']), reverse=True)
+        evaluated_docs.sort(key=lambda x: float(
+            x['evaluation']['overall_score']), reverse=True)
         logger.info(f"Returning {len(evaluated_docs)} evaluated documents")
-        
+
         return evaluated_docs
 
     async def curate_data(self, state: ResearchState) -> ResearchState:
         """Curate all collected data based on Tavily scores."""
         company = state.get('company', 'Unknown Company')
-        job_id = state.get('job_id')
-        logger.info(f"Starting curation for company: {company}, job_id={job_id}")
+        logger.info(f"Starting curation for company: {company}")
 
         industry = state.get('industry', 'Unknown')
         context = {
@@ -75,7 +80,7 @@ class CuratorNode:
         }
 
         msg = [f"🔍 Curating research data for {company}"]
-        
+
         data_types = {
             'news_data': ('📰 News', 'news'),
             'trigger_data': ('🫆 Triggers', 'triggers'),
@@ -107,17 +112,18 @@ class CuratorNode:
 
             docs = list(unique_docs.values())
             msg.append(f"\n{emoji}: Found {len(docs)} documents")
-            
+
             evaluated_docs = self.evaluate_documents(docs, context)
-            
+
             if not evaluated_docs:
                 msg.append("  ⚠️ No relevant documents found")
                 continue
 
             # Filter and sort by Tavily score
             relevant_docs = {doc['url']: doc for doc in evaluated_docs}
-            sorted_items = sorted(relevant_docs.items(), key=lambda item: item[1]['evaluation']['overall_score'], reverse=True)
-            
+            sorted_items = sorted(relevant_docs.items(
+            ), key=lambda item: item[1]['evaluation']['overall_score'], reverse=True)
+
             # Limit to top 30 documents per category
             if len(sorted_items) > 30:
                 sorted_items = sorted_items[:30]
@@ -125,20 +131,25 @@ class CuratorNode:
 
             if relevant_docs:
                 msg.append(f"  ✓ Kept {len(relevant_docs)} relevant documents")
-                logger.info(f"Kept {len(relevant_docs)} documents for {doc_type} with scores above threshold")
+                logger.info(
+                    f"Kept {len(relevant_docs)} documents for {doc_type} with scores above threshold")
             else:
                 msg.append("  ⚠️ No documents met relevance threshold")
-                logger.info(f"No documents met relevance threshold for {doc_type}")
+                logger.info(
+                    f"No documents met relevance threshold for {doc_type}")
 
             # Store curated documents in state
             state[f'curated_{data_field}'] = relevant_docs
-            
+
         # Process references using the references module
-        top_reference_urls, reference_titles, reference_info = process_references_from_search_results(state)
-        logger.info(f"Selected top {len(top_reference_urls)} references for the report")
-        
+        top_reference_urls, reference_titles, reference_info = process_references_from_search_results(
+            state)
+        logger.info(
+            f"Selected top {len(top_reference_urls)} references for the report")
+
         # Update state with references and their titles
-        state.setdefault('messages', []).append(AIMessage(content="\n".join(msg)))
+        state.setdefault('messages', []).append(
+            AIMessage(content="\n".join(msg)))
         state['references'] = top_reference_urls
         state['reference_titles'] = reference_titles
         state['reference_info'] = reference_info

@@ -15,6 +15,7 @@ from logger.universal_logger import setup_logger
 
 logger = setup_logger(__name__)
 
+
 class BaseResearcher:
     def __init__(self) -> None:
         tavily_key = os.getenv("TAVILY_API_KEY")
@@ -22,7 +23,7 @@ class BaseResearcher:
 
         if not tavily_key or not openai_key:
             raise ValueError("Missing API keys")
-        
+
         self.tavily_client = AsyncTavilyClient(api_key=tavily_key)
         self.llm = ChatOpenAI(
             model="gpt-5.1",
@@ -41,33 +42,33 @@ class BaseResearcher:
     @analyst_type.setter
     def analyst_type(self, value: str):
         self._analyst_type = value
-    
+
     async def generate_queries(self, state: Dict, prompt: str):
         """Generate search queries and yield events as they're created"""
         company = state.get("company", "Unknown Company")
         industry = state.get("industry", "Unknown Industry")
         hq_location = state.get("hq_location", "Unknown")
         current_year = datetime.now().year
-        job_id = state.get("job_id")
-        
-        logger.info(f"=== GENERATE_QUERIES START: job_id={job_id}, analyst={self.analyst_type} ===")
-        if not job_id:
-            logger.warning(f"⚠️ NO JOB_ID in state! Keys: {list(state.keys())}")
-        
+
+        logger.info(
+            f"=== GENERATE_QUERIES START: analyst={self.analyst_type} ===")
+
         try:
-            logger.info(f"Generating queries for {company} as {self.analyst_type}, job_id={job_id}")
-            
+            logger.info(
+                f"Generating queries for {company} as {self.analyst_type}")
+
             # Create prompt template using LangChain
             query_prompt = ChatPromptTemplate.from_messages([
-                ("system", "You are researching {company}, a company in the {industry} industry, headquartered in {hq_location}."),
+                ("system",
+                 "You are researching {company}, a company in the {industry} industry, headquartered in {hq_location}."),
                 ("user", """Researching {company} in {year}, as of {date}.
                 {task_prompt}
                 {format_guidelines}""")
             ])
-            
+
             # Create LCEL chain
             chain = query_prompt | self.llm
-            
+
             queries = []
             current_query = ""
             current_query_number = 1
@@ -83,7 +84,7 @@ class BaseResearcher:
                 "format_guidelines": PROMPT_QUERY_FORMAT_GUIDELINES.format(company=company)
             }):
                 current_query += chunk.content
-                
+
                 # Yield query generation progress
                 event = {
                     "type": "query_generating",
@@ -92,12 +93,12 @@ class BaseResearcher:
                     "category": self.analyst_type
                 }
                 yield event
-                
+
                 # Parse completed queries on newline
                 if '\n' in current_query:
                     parts = current_query.split('\n')
                     current_query = parts[-1]
-                    
+
                     for query in parts[:-1]:
                         query = query.strip()
                         if query:
@@ -120,18 +121,19 @@ class BaseResearcher:
                     "query_number": len(queries),
                     "category": self.analyst_type
                 }
-            
+
             if not queries:
                 raise ValueError(f"No queries generated for {company}")
 
             queries = queries[:4]  # Limit to 4 queries
             logger.info(f"Final queries for {self.analyst_type}: {queries}")
-            
+
             yield {"type": "queries_complete", "queries": queries, "count": len(queries)}
-            
+
         except Exception as e:
             logger.error(f"Error generating queries for {company}: {e}")
-            raise RuntimeError(f"Fatal API error - query generation failed: {str(e)}") from e
+            raise RuntimeError(
+                f"Fatal API error - query generation failed: {str(e)}") from e
 
     def _get_search_params(self) -> Dict[str, Any]:
         """Get search parameters based on analyst type"""
@@ -144,25 +146,27 @@ class BaseResearcher:
             "offering_analyzer": "offerings",
             "customer_analyzer": "customers",
             "readiness_analyzer": "readiness",
+            "trigger_analyzer": "triggers",
             "news_analyzer": "news"
         }
-        
+
         if topic := topic_map.get(self.analyst_type):
             params["topic"] = topic
         return params
-    
+
     def _process_search_result(self, result: Dict[str, Any], query: str) -> Dict[str, Any]:
         """Process a single search result into standardized format"""
         if not result.get("content") or not result.get("url"):
             return {}
-            
+
         url = result.get("url")
-        title = clean_title(result.get("title", "")) if result.get("title") else ""
-        
+        title = clean_title(result.get("title", "")
+                            ) if result.get("title") else ""
+
         # Reset empty or invalid titles
         if not title or title.lower() == url.lower():
             title = ""
-        
+
         return {
             "title": title,
             "content": result.get("content", ""),
@@ -171,7 +175,7 @@ class BaseResearcher:
             "source": "web_search",
             "score": result.get("score", 0.0)
         }
-    
+
     async def search_documents(self, state: ResearchState, queries: List[str]):
         """Execute all Tavily searches in parallel and yield events"""
         if not queries:
@@ -188,7 +192,8 @@ class BaseResearcher:
 
         # Execute all searches in parallel
         search_params = self._get_search_params()
-        search_tasks = [self.tavily_client.search(query, **search_params) for query in queries]
+        search_tasks = [self.tavily_client.search(
+            query, **search_params) for query in queries]
 
         try:
             results = await asyncio.gather(*search_tasks, return_exceptions=True)
@@ -204,7 +209,7 @@ class BaseResearcher:
                 logger.error(f"Search failed for query '{query}': {result}")
                 yield {"type": "query_error", "query": query, "error": str(result)}
                 continue
-                
+
             for item in result.get("results", []):
                 if doc := self._process_search_result(item, query):
                     merged_docs[doc["url"]] = doc

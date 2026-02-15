@@ -1,0 +1,94 @@
+{
+  "persona": {
+    "company_name": "AgilityRecovery",
+    "industry": "Business Continuity & Disaster Recovery",
+    "hq_location": "Unknown",
+    "mission_statement": "To empower organizations to anticipate, withstand, and recover from disruptions, ensuring business continuity and safeguarding operations for employees, customers, and communities.",
+    "core_products": [
+      {
+        "name": "Backup Power",
+        "description": "On-demand backup power solutions, including generator delivery and support, to ensure facilities remain operational during grid failures and avoid surge pricing."
+      },
+      {
+        "name": "Workspace Recovery",
+        "description": "Provides temporary, fully equipped workspace environments, including private offices and meeting rooms, to enable continued business operations during crises or planned inaccessibility."
+      },
+      {
+        "name": "Backup Technology & Equipment",
+        "description": "Offers end-to-end technology recovery, including secure internet connectivity (broadband, satellite, LTE/5G), data backup and recovery, and replacement IT hardware deployment."
+      },
+      {
+        "name": "Risk Planning & Testing",
+        "description": "Services to identify vulnerabilities through detailed risk analysis, create tailored continuity plans, validate defenses with penetration testing, and ensure compliance with industry regulations."
+      },
+      {
+        "name": "Cyber Resilience",
+        "description": "Comprehensive solutions for information security, data protection, cyberattack prevention, breach response, recovery support, and ransomware impact analysis."
+      },
+      {
+        "name": "Data Backup & Recovery",
+        "description": "Instant recovery of data and systems by spinning up virtual machine replicas locally or in the cloud, featuring agent-based backup, support for 100+ operating systems, and military-grade encryption."
+      }
+    ],
+    "target_markets": {
+      "industries": [
+        "Credit Unions & Independent Banks",
+        "Manufacturing",
+        "Logistics",
+        "Healthcare",
+        "Public Sector",
+        "Warehouse Distribution",
+        "Insurance"
+      ],
+      "ideal_customer_profile": "Organizations across critical sectors that require robust, proven solutions to minimize downtime, protect sensitive data, ensure operational continuity, and maintain compliance in the face of natural disasters, cyberattacks, planned outages, or other disruptions."
+    },
+    "sales_triggers": {
+      "recent_news": "No recent funding rounds or major news explicitly mentioned in provided data. Company founded in 1989 as the disaster recovery and business continuity division of General Electric.",
+      "strategic_priorities": "Focus on enhancing cybersecurity and resilience, ensuring compliance with industry regulations, minimizing costly downtime for critical operations, and providing comprehensive end-to-end technology recovery and high-bandwidth connectivity solutions."
+    },
+    "impact_metrics": [
+      {
+        "case_study": "Data & System Recovery",
+        "result": "Bring any system back online in 15 minutes or less"
+      },
+      {
+        "case_study": "Metro City Bank Fire Recovery",
+        "result": "Reopened in just hours after a devastating fire"
+      },
+      {
+        "case_study": "Connectivity Performance",
+        "result": "High-speed, low-latency connections (up to 350 Mbps, 20\u201340ms latency)"
+      },
+      {
+        "case_study": "Overall Experience",
+        "result": "Proven track record of 34+ years restoring operations for thousands of organizations"
+      },
+      {
+        "case_study": "Data Backup & Recovery Capability",
+        "result": "Capacity for 100+ operating systems"
+      },
+      {
+        "case_study": "Slidell Memorial Hospital",
+        "result": "Able to care for patients even with servers down"
+      }
+    ],
+    "sales_intelligence": {
+      "green_flags": [
+        "Over 35 years of experience in business continuity and disaster recovery, indicating deep expertise and reliability.",
+        "Offers a comprehensive suite of solutions (power, workspace, technology, planning, cyber resilience) providing a holistic approach to client needs.",
+        "Serves a diverse range of critical industries, demonstrating broad applicability and understanding of varied sector-specific requirements.",
+        "Strong emphasis on compliance and proven resilience, which is crucial for regulated industries."
+      ],
+      "red_flags": [
+        "Specific compliance certifications (e.g., HIPAA, SOC2, ISO 27001) are mentioned generally as 'industry regulations' but not explicitly detailed, which might require further investigation for specific client requirements.",
+        "No explicit mention of recent funding rounds or significant growth initiatives, which could indicate a stable but not rapidly expanding company, potentially affecting budget for new projects.",
+        "The data does not provide specific details on pricing models or potential integration complexities with existing client infrastructure."
+      ],
+      "compliance_standards": [
+        "Adherence to industry regulations (specifics like HIPAA, SOC2, ISO 27001 not explicitly detailed in provided data)",
+        "Military-grade encryption for data in transit and at rest",
+        "Code compliant and secure workspace recovery solutions"
+      ]
+    }
+  }
+}
