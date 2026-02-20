@@ -1,0 +1,71 @@
+{
+  "company_name": "Glean",
+  "industry": "Enterprise AI Platform",
+  "hq_location": "Unknown",
+  "mission_statement": "Expand human potential to do extraordinary work, enabling AI-centric employees to create AI-transformed businesses.",
+  "core_products": [
+    {
+      "name": "Glean Assistant",
+      "description": "A personal AI assistant offering data analysis, deep research, canvas, and companion features to empower employees with instant access to company knowledge."
+    },
+    {
+      "name": "Glean Agents",
+      "description": "A platform to build, manage, govern, and orchestrate AI agents, including an Agent Builder, Governance, Orchestration, and Library for automating workflows."
+    },
+    {
+      "name": "Glean Search",
+      "description": "The foundational enterprise AI search connecting all company knowledge across various applications through an Enterprise Graph, Personal Graph, System of Context, and Hybrid Search for instant, relevant results."
+    },
+    {
+      "name": "Connectors & Actions",
+      "description": "Provides 100+ out-of-the-box connectors to integrate with diverse enterprise applications (e.g., Slack, Jira, Salesforce, ServiceNow) and APIs for building custom generative AI experiences."
+    },
+    {
+      "name": "Glean Protect",
+      "description": "Ensures safe and secure scaling of AI at work with security built-in from day one, offering flexible content controls and permissions-aware access."
+    },
+    {
+      "name": "Agentic Engine",
+      "description": "Enables advanced AI capabilities to plan and adapt over company context, driving intelligent automation and decision-making."
+    }
+  ],
+  "target_markets": {
+    "industries": [
+      "Retail",
+      "Financial Services",
+      "Higher Education",
+      "Healthcare",
+      "Government"
+    ],
+    "ideal_customer_profile": "Large enterprises and organizations across various sectors seeking to enhance employee productivity, streamline operations, and drive innovation through AI-powered knowledge management and intelligent automation across departments like Engineering, Customer Service, Sales, Marketing, People, and IT."
+  },
+  "sales_triggers": {
+    "recent_news": "No specific recent funding rounds mentioned in the provided data. News includes the 'AI Transformation 100' report, highlighting real-world AI transformations.",
+    "strategic_priorities": "Focus on enabling AI-centric employees, building and managing AI agents, safely scaling AI at work, and connecting all company knowledge to automate work and improve productivity."
+  },
+  "impact_metrics": [
+    {
+      "case_study": "Employee Productivity Improvement",
+      "result": "Saves up to 110 hours per user per year."
+    },
+    {
+      "case_study": "New Hire Onboarding Efficiency",
+      "result": "Saved new hires an average of 36 hours on onboarding."
+    }
+  ],
+  "sales_intelligence": {
+    "green_flags": [
+      "Offers a comprehensive Work AI Platform with AI Assistant, Agents, and Search capabilities, addressing multiple enterprise needs.",
+      "Features an extensive integration ecosystem with 100+ out-of-the-box connectors, ensuring broad compatibility with existing enterprise tools.",
+      "Strong emphasis on improving employee productivity and accelerating AI transformation across diverse industries and departments."
+    ],
+    "red_flags": [
+      "Lack of explicit mention of specific security compliance certifications (e.g., SOC2, ISO 27001) beyond 'secure by design' and 'Glean Protect'.",
+      "No recent funding announcements or valuation details provided in the given data, which might require further investigation for financial stability and growth trajectory."
+    ],
+    "compliance_standards": [
+      "Secure by design from day one",
+      "Glean Protect for safely scaling AI at work"
+    ]
+  }
+}

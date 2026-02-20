@@ -23,8 +23,9 @@ PERSONA_DIR = Path(__file__).resolve().parent.parent / "storage" / "personas"
 def parse_args():
     p = argparse.ArgumentParser(
         description="Run the full AI-SDR research workflow")
-    p.add_argument("--company", default="Snorkel", help="Company name")
-    p.add_argument("--url", default="https://snorkel.ai/", help="Company URL")
+    p.add_argument("--company", default="Glean", help="Company name")
+    p.add_argument("--url", default="https://www.glean.com/",
+                   help="Company URL")
     p.add_argument("--hq", default="California", help="HQ location")
     p.add_argument("--industry", default="Enterprise AI", help="Industry")
     p.add_argument("--out", default=None,
@@ -74,7 +75,8 @@ async def main():
         f"{args.company}_persona.json"
     persona_path.parent.mkdir(parents=True, exist_ok=True)
 
-    persona = to_serializable(final_state["persona"])
+    persona_obj = final_state["persona"]
+    persona = to_serializable(persona_obj["persona"])
     persona_path.write_text(json.dumps(persona, indent=2), encoding="utf-8")
     logger.info("Persona Created. Output: %s", persona_path)
 
