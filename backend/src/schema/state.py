@@ -1,7 +1,7 @@
 from typing import TypedDict, Required, NotRequired, List, Dict, Any
 
 
-class InputState(TypedDict, total=False):
+class InputState(TypedDict):
     company: Required[str]
     company_url: NotRequired[str]
     hq_location: NotRequired[str]
