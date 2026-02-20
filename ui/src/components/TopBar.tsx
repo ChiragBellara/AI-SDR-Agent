@@ -18,10 +18,6 @@ export function TopBar(props: { company: string; status: string; fit: number }) 
             </span>
 
             <div className="spacer" />
-
-            <button className="btn">Export JSON</button>
-            <button className="btn">Clone Run</button>
-            <button className="btn primary">New Run</button>
         </header>
     );
 }
