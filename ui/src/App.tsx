@@ -1,48 +1,34 @@
-import { useMemo } from "react";
-import { TopBar } from "./components/TopBar"
-import { PipelinePanel } from "./components/PipelinePanel"
-import type { Step, Source } from "./types";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
+import NewProfilePage from "./pages/NewProfilePage";
+import RunPage from "./pages/RunPage";
+import ProfilePage from "./pages/ProfilePage";
 
-function App() {
-  const steps: Step[] = useMemo(
-    () => [
-      { name: "Grounding", status: "Done", badge: "good", chips: ["3 pages", "2m 14s"] },
-      { name: "Research", status: "Done", badge: "good", chips: ["12 queries", "1m 02s"] },
-      { name: "Collector", status: "Running", badge: "warn", chips: ["18 sources", "blog + docs"] },
-      { name: "Curator", status: "Queued", badge: "neutral", chips: ["dedupe", "rank"] },
-      { name: "Analyzer", status: "Queued", badge: "neutral", chips: ["score", "recommend"] },
-    ],
-    []
-  );
-  
-  const sources: Source[] = useMemo(
-    () => [
-      {
-        url: "https://example.com/product/glean-assistant",
-        snippet: "Assistant capabilities, knowledge access, deep research, and governance summary…",
-      },
-      {
-        url: "https://example.com/platform/agents",
-        snippet: "Agent Builder, orchestration, and library for workflow automation…",
-      },
-      {
-        url: "https://example.com/security/glean-protect",
-        snippet: "Permissions-aware access, content controls, and secure scaling claims…",
-      },
-    ],
-    []
-  );
+export default function App() {
   return (
-      <div className="app">
-        <TopBar company="Glean" status="Running" fit={8.2} />
+    <div className="min-h-screen bg-white text-slate-900">
+      <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+          <Link to="/" className="font-semibold tracking-tight">
+            AI-SDR <span className="text-slate-500 font-normal">Profiles</span>
+          </Link>
+          <div className="text-sm text-slate-600">Minimal clean SaaS scaffold</div>
+        </div>
+      </header>
 
-        <main>
-          <PipelinePanel steps={steps} sources={sources} />
-          {/* <ReportPanel activeTab={activeTab} onTabChange={setActiveTab} />
-          <NewRunPanel /> */}
-        </main>
-      </div>
-  )
+      <main className="mx-auto max-w-5xl px-4 py-10">
+        <Routes>
+          <Route path="/" element={<NewProfilePage />} />
+          <Route path="/run/:jobId" element={<RunPage />} />
+          <Route path="/profile/:jobId" element={<ProfilePage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+
+      <footer className="border-t border-slate-200">
+        <div className="mx-auto max-w-5xl px-4 py-6 text-xs text-slate-500">
+          Tip: Replace the backend fake pipeline with your LangGraph workflow output.
+        </div>
+      </footer>
+    </div>
+  );
 }
-
-export default App
