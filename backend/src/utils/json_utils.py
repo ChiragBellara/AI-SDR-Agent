@@ -28,3 +28,13 @@ OUTPUT_STRUCT = {
         "compliance_standards": ["string"]
     }
 }
+
+
+def to_serializable(obj):
+    if isinstance(obj, dict):
+        return {k: to_serializable(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [to_serializable(v) for v in obj]
+    if isinstance(obj, (str, int, float, bool, type(None))):
+        return obj
+    return str(obj)

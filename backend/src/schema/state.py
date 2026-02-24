@@ -1,3 +1,5 @@
+from datetime import datetime
+from collections import defaultdict
 from typing import TypedDict, Required, NotRequired, List, Dict, Any
 
 
@@ -6,6 +8,7 @@ class InputState(TypedDict):
     company_url: NotRequired[str]
     hq_location: NotRequired[str]
     industry: NotRequired[str]
+    job_id: NotRequired[str]
 
 
 class CompanyProduct():
@@ -64,3 +67,15 @@ class ResearchState(InputState):
     reference_info: Dict[str, Any]
     report: str
     persona: NotRequired[Persona]
+
+
+job_status = defaultdict[Any, dict[str, str | list[Any] | None]](lambda: {
+    "status": "pending",
+    "result": None,
+    "error": None,
+    "debug_info": [],
+    "company": None,
+    "report": None,
+    "last_update": datetime.now().isoformat(),
+    "events": []  # Queue for events from parallel nodes
+})

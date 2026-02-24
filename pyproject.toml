@@ -22,10 +22,12 @@ dependencies = [
     "langgraph>=1.0.8",
     "langsmith>=0.6.4",
     "langchain-google-genai>=4.2.0",
+    "uvicorn>=0.40.0",
+    "fastapi>=0.129.0",
 ]
-
-[project.scripts]
-neo = "src.runner:main"
 
 [tool.uv]
 package = true
+
+[tool.setuptools]
+py-modules = []

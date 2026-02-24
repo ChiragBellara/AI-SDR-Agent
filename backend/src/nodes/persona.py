@@ -5,10 +5,11 @@ from typing import Any, Dict, List, cast
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser
 
-from logger.universal_logger import setup_logger
-from schema.state import ResearchState, Persona
-from utils.prompts import PERSONA_CREATION_PROMPT
-from utils.json_utils import OUTPUT_STRUCT
+from ..logger.universal_logger import setup_logger
+from ..schema import ResearchState, Persona
+from ..schema.state import job_status
+from ..utils.prompts import PERSONA_CREATION_PROMPT
+from ..utils.json_utils import OUTPUT_STRUCT
 
 logger = setup_logger(__name__)
 
@@ -33,6 +34,7 @@ class PersonaNode:
     def _build_company_json(self, state: ResearchState) -> Dict:
         """Build a JSON string containing all research data for the LLM."""
         company = state.get('company', 'Unknown')
+        job_id = state.get('job_id')
 
         curated_data = {
             "company": company,
@@ -81,6 +83,16 @@ class PersonaNode:
                     "url": url,
                     "score": doc.get('score', 0.0)
                 }
+
+        if job_id:
+            try:
+                if job_id in job_status:
+                    job_status[job_id]["events"].append({
+                        "type": "curated_data_creation",
+                        "message": f"Curated Data for {company}"
+                    })
+            except Exception as e:
+                logger.error(f"Error appending report_compilation event: {e}")
 
         return curated_data
 
@@ -180,6 +192,7 @@ class PersonaNode:
     async def create_personas(self, state: ResearchState) -> ResearchState:
         """Create company persona from curated research data."""
         company = state.get('company', 'Unknown')
+        job_id = state.get('job_id')
         logger.info(f"Creating persona for {company}")
 
         company_json = self._build_company_json(state)

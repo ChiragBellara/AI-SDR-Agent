@@ -1,8 +1,8 @@
 from typing import Any
 from langchain_core.messages import AIMessage
 
-from schema.state import ResearchState
-from utils.prompts import READINESS_ANALYZER_QUERY_PROMPT
+from ...schema.state import ResearchState
+from ...utils.prompts import READINESS_ANALYZER_QUERY_PROMPT
 from .base import BaseResearcher
 
 
@@ -53,7 +53,7 @@ class ReadinessResearcher(BaseResearcher):
         """Run analysis and yield all events"""
         result = None
         async for event in self.analyze(state):
-            # yield event
+            yield event
             if "message" in event or "readinesss_data" in event:
                 result = event
-        return result or {}
+        yield result or {}

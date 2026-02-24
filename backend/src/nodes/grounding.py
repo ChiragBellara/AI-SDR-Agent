@@ -2,17 +2,19 @@ import os
 from tavily import AsyncTavilyClient
 from langchain_core.messages import AIMessage
 
-from schema.state import InputState, ResearchState
-from logger.universal_logger import setup_logger
+from ..schema.state import InputState, ResearchState
+from ..logger.universal_logger import setup_logger
 
 logger = setup_logger(__name__)
+
 
 class GroundingNode:
     """Gathers initial information about the company"""
 
     def __init__(self) -> None:
-        self.tavily_client = AsyncTavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
-    
+        self.tavily_client = AsyncTavilyClient(
+            api_key=os.getenv("TAVILY_API_KEY"))
+
     async def _initial_search(self, initial_state: InputState):
         """Initial search and yield events"""
         company = initial_state.get("company", "No Company Name")
@@ -38,7 +40,7 @@ class GroundingNode:
             try:
                 logger.info("Initializing Tavily crawl")
                 site_content = await self.tavily_client.crawl(
-                    url = url,
+                    url=url,
                     instructions="Find the most important official pages that explain the company's business, products or platform, services, customers or use cases, pricing or packaging, and company overview. Prefer core product and solution pages over blogs or news.",
                     max_depth=2,
                     max_breadth=50,
@@ -55,7 +57,8 @@ class GroundingNode:
                         }
 
                 if site_scrape:
-                    logger.info(f"Successfully crawled {len(site_scrape)} pages from website")
+                    logger.info(
+                        f"Successfully crawled {len(site_scrape)} pages from website")
                     message += f"\nSuccessfully crawled {len(site_scrape)} pages from website"
                     yield {
                         "type": "crawl_success",
@@ -74,7 +77,8 @@ class GroundingNode:
 
             except Exception as ex:
                 error_str = str(ex)
-                logger.error(f"Website crawl error: {error_str}", exc_info=True)
+                logger.error(
+                    f"Website crawl error: {error_str}", exc_info=True)
                 error_msg = f"Error crawling website content: {error_str}"
                 message += f"\n{error_msg}"
                 yield {
@@ -100,7 +104,7 @@ class GroundingNode:
             "hq_location": initial_state.get('hq_location'),
             "industry": initial_state.get('industry'),
             # Initialize research fields
-            "messages": [AIMessage(content=message)],
+            "messages": [AIMessage(content=message).model_dump()],
             "site_scrape": site_scrape
         }
         if "Error crawling website content:" in message:

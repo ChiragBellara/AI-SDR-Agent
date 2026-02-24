@@ -1,5 +1,5 @@
 import re
-from logger.universal_logger import setup_logger
+from ..logger.universal_logger import setup_logger
 
 logger = setup_logger(__name__)
 

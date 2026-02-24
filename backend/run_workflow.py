@@ -8,11 +8,10 @@ import argparse
 import asyncio
 import json
 from pathlib import Path
-from typing import final
 from dotenv import load_dotenv
 
 from graph import Graph
-from logger.universal_logger import setup_logger
+from src.logger.universal_logger import setup_logger
 
 logger = setup_logger("AI_SDR.RunWorkflow")
 IDENTITY_DIR = Path(__file__).resolve().parent.parent / \
