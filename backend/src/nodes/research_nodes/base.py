@@ -142,10 +142,10 @@ class BaseResearcher:
             "max_results": 5
         }
         topic_map = {
-            "offering_analyzer": "offerings",
-            "customer_analyzer": "customers",
-            "readiness_analyzer": "readiness",
-            "trigger_analyzer": "triggers",
+            "offering_analyzer": "general",
+            "customer_analyzer": "general",
+            "readiness_analyzer": "general",
+            "trigger_analyzer": "news",
             "news_analyzer": "news"
         }
 

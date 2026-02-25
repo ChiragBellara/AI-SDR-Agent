@@ -19,10 +19,10 @@ def main():
 
     # 2. POST /research (minimal payload)
     body = json.dumps({
-        "company": "Acme Corp",
-        "company_url": None,
-        "industry": "SaaS",
-        "hq_location": None,
+        "company": "Rubrik",
+        "company_url": "https://www.rubrik.com/",
+        "industry": "Data Security",
+        "hq_location": "California",
     }).encode("utf-8")
     req = urllib.request.Request(
         f"{BASE}/research",
