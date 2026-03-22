@@ -4,7 +4,6 @@ from datetime import datetime
 from pathlib import Path
 
 import uvicorn
-from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -14,10 +13,6 @@ from backend.graph import Graph
 from backend.src.logger.universal_logger import setup_logger
 from backend.src.schema.state import job_status
 from backend.src.utils.json_utils import to_serializable
-
-env_path = Path(__file__).parent / '.env'
-if env_path.exists():
-    load_dotenv(dotenv_path=env_path, override=True)
 
 logger = setup_logger(__name__)
 
@@ -84,8 +79,6 @@ async def research(data: ResearchRequest):
 async def process_research(job_id: str, data: ResearchRequest):
     """Process research request asynchronously and store results"""
     try:
-        await asyncio.sleep(0.5)
-
         logger.info(f"Starting research for {data.company}")
 
         graph = Graph(
@@ -111,7 +104,6 @@ async def process_research(job_id: str, data: ResearchRequest):
                 "last_update": datetime.now().isoformat()
             })
 
-        # Extract final report
         persona_content = to_serializable(final_state["persona"]) or {}
 
         if persona_content:

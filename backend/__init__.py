@@ -9,7 +9,7 @@ from .src.logger.universal_logger import setup_logger
 logger = setup_logger(__name__)
 
 # Load environment variables from .env file
-env_path = Path(__file__).parent.parent / '.env'
+env_path = Path(__file__).parent / '.env'
 if env_path.exists():
     logger.info(f"Loading environment variables from {env_path}")
     load_dotenv(dotenv_path=env_path, override=True)
