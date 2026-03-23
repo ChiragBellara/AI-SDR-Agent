@@ -59,11 +59,7 @@ async def research(data: ResearchRequest):
                 detail=job_status[job_id].get("error", "Research failed"),
             )
 
-        response = JSONResponse(content={
-            "status": "completed",
-            "job_id": job_id,
-            "persona_content": persona_content,
-        })
+        response = JSONResponse(content=persona_content)
         response.headers["Access-Control-Allow-Origin"] = "*"
         response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
@@ -104,7 +100,8 @@ async def process_research(job_id: str, data: ResearchRequest):
                 "last_update": datetime.now().isoformat()
             })
 
-        persona_content = to_serializable(final_state["persona"]) or {}
+        persona_content = to_serializable(
+            final_state['persona']["final_persona"]) or {}
 
         if persona_content:
             logger.info(
@@ -144,4 +141,4 @@ async def ping():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

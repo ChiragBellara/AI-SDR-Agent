@@ -66,7 +66,7 @@ class ResearchState(InputState):
     reference_titles: Dict[str, Any]
     reference_info: Dict[str, Any]
     report: str
-    persona: NotRequired[Persona]
+    final_persona: NotRequired[Persona]
 
 
 job_status = defaultdict[Any, dict[str, str | list[Any] | None]](lambda: {

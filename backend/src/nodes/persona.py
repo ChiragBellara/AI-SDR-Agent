@@ -210,8 +210,12 @@ class PersonaNode:
             logger.info(f"Received LLM response ({len(response)} chars)")
             persona = self._parse_persona_response(response)
 
+            # If LLM didn't return a useful hq_location, fall back to user-provided value
+            if not persona.get('hq_location') or persona['hq_location'] == 'Unknown':
+                persona['hq_location'] = state.get('hq_location') or 'Unknown'
+
             # Add persona to state
-            state['persona'] = persona
+            state['final_persona'] = persona
 
             logger.info(f"Successfully created persona for {company}")
             logger.debug(
@@ -221,7 +225,7 @@ class PersonaNode:
             logger.error(
                 f"Error creating persona for {company}: {e}", exc_info=True)
             # Add empty persona on error
-            state['persona'] = cast(Persona, {
+            state['final_persona'] = cast(Persona, {
                 "company_name": company,
                 "industry": state.get('industry', 'Unknown'),
                 "hq_location": state.get('hq_location', 'Unknown'),
