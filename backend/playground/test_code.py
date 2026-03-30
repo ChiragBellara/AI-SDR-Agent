@@ -7,8 +7,10 @@ from crawl4ai import (AsyncWebCrawler, CrawlerRunConfig,
                       DefaultMarkdownGenerator, PruningContentFilter,  SeedingConfig, AsyncUrlSeeder, AsyncLogger)
 from crawl4ai.models import CrawlResult
 
-ALLOW = re.compile(r"/(products|solutions|industries|customers|case-studies|pricing|integrations|api|security|trust|careers)(/|$)", re.I)
-DENY  = re.compile(r"/(login|signup|register|privacy|terms|press|events|webinars|shop?)(/|$)|/blog/", re.I)
+ALLOW = re.compile(
+    r"/(products|solutions|industries|customers|case-studies|pricing|integrations|api|security|trust|careers)(/|$)", re.I)
+DENY = re.compile(
+    r"/(login|signup|register|privacy|terms|press|events|webinars|shop?)(/|$)|/blog/", re.I)
 DENY_SUBDOMAIN = re.compile(
     r"^https?://shop\.",
     re.I
@@ -25,12 +27,14 @@ ALLOWED_PATTERNS = (
 )
 QUERY = "product platform features integrate API dashboard solutions reduce cost improve efficiency visibility compliance safety industries fleet construction logistics manufacturing energy customers case study ROI reduced saved hours fleet pricing plans enterprise contact sales quote SOC 2 ISO 27001 GDPR security trust center integrations API developers documentation webhooks careers hiring roles sales ops revops data engineer"
 
+
 class FileWriteError(RuntimeError):
     pass
 
 
 def keep(url: str) -> bool:
     return bool(ALLOW.search(url)) and not bool(DENY.search(url)) and not bool(DENY_LOCALE.search(url)) and not (bool(DENY_SUBDOMAIN.search(url)))
+
 
 async def main():
     crawl_config = CrawlerRunConfig(
