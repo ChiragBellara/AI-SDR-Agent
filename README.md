@@ -5,8 +5,11 @@ An agentic research pipeline that takes a company name and URL, runs parallel we
 ---
 
 ## Demo
-
-<!-- Add your demo video here -->
+<p align="center">
+  <a href="https://youtu.be/1R-8eKzgRdU">
+    <img src="https://img.youtube.com/vi/1R-8eKzgRdU/0.jpg" width="700" />
+  </a>
+</p>
 
 ---
 
