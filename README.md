@@ -17,31 +17,24 @@ An agentic research pipeline that takes a company name and URL, runs parallel we
 
 The user enters a company name, URL, industry, and HQ location. The system crawls the website, runs five parallel research workflows, aggregates the findings, and synthesizes everything into a structured persona using an LLM — all streamed live to the UI.
 
-```
-User Input
-    │
-    ▼
-Grounding Node
-(Crawl company website via Tavily)
-    │
-    ├──────────────────────────────────────────┐
-    │              Parallel Research           │
-    ▼        ▼        ▼        ▼        ▼      │
-Triggers  Offerings Readiness Customers News   │
-Research  Research  Research  Research  Research
-    │        │        │        │        │      │
-    └────────┴────────┴────────┴────────┘      │
-                      │                        │
-                      ▼                        │
-               Collector Node                  │
-          (Aggregate all research)             │
-                      │                        │
-                      ▼                        │
-               Persona Node                    │
-     (Synthesize with Gemini 2.5 Flash)        │
-                      │                        │
-                      ▼                        │
-            Structured Persona JSON
+```mermaid
+flowchart TD
+    A[User Input] --> B[<i>Grounding Node</i><br>Crawl company website via Tavily]
+    
+    B --> C1[<i>Triggers Research</i>]
+    B --> C2[<i>Offerings Research</i>]
+    B --> C3[<i>Readiness Research</i>]
+    B --> C4[<i>Customers Research</i>]
+    B --> C5[<i>News Research</i>]
+    
+    C1 --> D[<i>Collector Node</i><br>Aggregate all research]
+    C2 --> D
+    C3 --> D
+    C4 --> D
+    C5 --> D
+    
+    D --> E[<i>Persona Node</i><br>Synthesize with Gemini 2.5 Flash]
+    E --> F[Structured Persona JSON]
 ```
 
 ### Research Nodes (run in parallel)
