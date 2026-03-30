@@ -6,7 +6,7 @@ An agentic research pipeline that takes a company name and URL, runs parallel we
 
 ## Demo
 <p align="center">
-  <a href="https://youtu.be/1R-8eKzgRdU">
+  <a href="https://youtu.be/1R-8eKzgRdU" target="_blank">
     <img src="docs/sdr-demo.gif" width="540" alt="Demo Video" />
   </a>
 </p>
