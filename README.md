@@ -1,122 +1,212 @@
-# AI-SDR-Agent
+# AI-SDR Agent
 
-AI-SDR-Agent is an agentic pipeline that crawls company websites, extracts structured company intelligence, builds persistent multi-page company memory, and reasons across multiple companies to rank leads against custom sales goals.
-Instead of stopping at raw extraction, the system synthesizes reusable company identity objects and compares them using an LLM-driven reasoning layer—closer to how a real SDR evaluates prospects.
+An agentic research pipeline that takes a company name and URL, runs parallel web research across five dimensions, and synthesizes a structured sales persona — giving SDRs instant, grounded intelligence before they reach out.
 
-### Project Overview
-Traditional web scraping produces fragmented, page-level data that is difficult to compare across companies.
-AI-SDR-Agent transforms website content into structured, persistent company memory and uses an analyzer agent to rank and filter leads based on arbitrary sales criteria.
+---
 
-The project is built incrementally to explore how LLMs move from extraction → synthesis → reasoning in real SDR workflows.
+## Demo
 
-### Key Features
-1. **Noise-reduced crawling** using Crawl4AI to extract clean, LLM-friendly markdown
-2. **Heuristic discovery** of high-signal sub-pages (e.g., product, pricing, integrations, security) instead of naive deep crawls
-3. **Schema-strict extraction** using Pydantic for reliable, typed outputs
-4. **LeadCard memory** objects that capture reusable, goal-agnostic company identity
-5. **Persistent local storage** so the agent does not forget previously analyzed companies
-6. **LLM-driven reasoning** to rank and filter leads against custom sales goals
-7. **Production-style logging** for crawl behavior, LLM usage, and latency
+<!-- Add your demo video here -->
 
->The agent can not only extract ICPs but also rank and filter leads based on custom sales criteria.
+---
 
-### High-Level Architecture
-```mermaid
-flowchart LR
-    A(Company URL) --> B(Heuristic Discovery <br> Select High Signal Pages)
-    B --> C(Crawl4AI<br>Parallel Markdown Extraction)
-    C --> D(Per Page LeadCard Extraction<br>Schema Validation)
-    D --> E(LeadCard Merger<br>Company Memory)
-    E --> F(Analyzer Agent<br>LLM Based Ranking and Filtering)
+## How It Works
+
+The user enters a company name, URL, industry, and HQ location. The system crawls the website, runs five parallel research workflows, aggregates the findings, and synthesizes everything into a structured persona using an LLM — all streamed live to the UI.
+
 ```
-#### Why this separation matters?
-- Scraping is isolated from reasoning
-- Company memory is reusable across different sales goals
-- Multi-page context improves accuracy without excessive token usage
-- Ranking is fast and repeatable without re-scraping
+User Input
+    │
+    ▼
+Grounding Node
+(Crawl company website via Tavily)
+    │
+    ├──────────────────────────────────────────┐
+    │              Parallel Research           │
+    ▼        ▼        ▼        ▼        ▼      │
+Triggers  Offerings Readiness Customers News   │
+Research  Research  Research  Research  Research
+    │        │        │        │        │      │
+    └────────┴────────┴────────┴────────┘      │
+                      │                        │
+                      ▼                        │
+               Collector Node                  │
+          (Aggregate all research)             │
+                      │                        │
+                      ▼                        │
+               Persona Node                    │
+     (Synthesize with Gemini 2.5 Flash)        │
+                      │                        │
+                      ▼                        │
+            Structured Persona JSON
+```
 
-### Company Memory (LeadCards)
-Each company is represented by a LeadCard — a goal-agnostic, schema-validated summary of the company’s identity. Here's a snippet of what each LeadCard would look like.
->[!NOTE]
->The full LeadCard schema includes additional fields (integrations, scale signals, pain points, source notes) and is used internally by the analyzer agent.
+### Research Nodes (run in parallel)
+
+| Node | What it finds |
+|------|--------------|
+| **Triggers Researcher** | Hiring signals, product launches, partnerships, strategic initiatives |
+| **Offerings Researcher** | Core products, platform capabilities, differentiation |
+| **Readiness Researcher** | Integrations, APIs, security/compliance signals, pricing model |
+| **Customers Researcher** | Target industries, ICP, known customers and case studies |
+| **News Analyst** | Recent funding, press releases, leadership changes, announcements |
+
+Each research node generates 4 targeted search queries using OpenAI, executes them in parallel via Tavily, and merges the results.
+
+### Real-Time Progress
+
+The frontend connects to an SSE stream (`/research/{job_id}/stream`) as soon as the job starts. Each node completion is pushed as an event and the UI updates the progress stepper live — no polling.
+
+---
+
+## Persona Output
+
+The final persona is a structured JSON object rendered in the UI:
 
 ```json
 {
-  "company_name": "Stripe",
-  "category": "Payments infrastructure",
-  "one_liner": "Stripe provides APIs and tools for online payments, billing, and global financial operations.",
-  "core_workflows": [
-    "Process online payments",
-    "Manage subscriptions and recurring billing",
-    "Embed financial services into platforms"
+  "company_name": "Snorkel AI",
+  "industry": "Enterprise AI Data Development",
+  "hq_location": "Redwood City, CA",
+  "mission_statement": "Enable every enterprise to turn expert knowledge into specialized AI at scale.",
+  "core_products": [
+    { "name": "Snorkel Flow", "description": "Programmatic data labeling platform" },
+    { "name": "Snorkel Evaluate", "description": "AI evaluation for enterprise settings" }
   ],
-  "technical_surface_area": [
-    "Public APIs",
-    "Webhooks",
-    "Multi-language SDKs"
+  "target_markets": {
+    "industries": ["Banking & Finance", "Healthcare", "Insurance", "Public Sector"],
+    "ideal_customer_profile": "Large enterprises building or fine-tuning custom AI models at scale"
+  },
+  "sales_triggers": {
+    "recent_funding_or_news": "Launched Snorkel Custom; integrated with Google Gemini and Meta Llama 3",
+    "strategic_priorities": "Enabling agentic AI deployment in mission-critical enterprise settings"
+  },
+  "impact_metrics": [
+    { "case_study": "Experian", "result": "Agent response times under 3 seconds" },
+    { "case_study": "Wayfair", "result": "99% category win rate with data-centric AI" }
   ],
-  "compliance_or_regulatory_signals": [
-    "PCI compliance",
-    "Fraud and risk controls"
-  ],
-  "buyer_roles": [
-    "Engineering leaders",
-    "Finance teams"
-  ]
+  "sales_intelligence": {
+    "green_flags": ["SOC 2 Type II certified", "Active enterprise partnerships", "Strong ROI case studies"],
+    "red_flags": ["Custom pricing only — longer sales cycles"],
+    "compliance_standards": ["SOC 2 Type II", "HIPAA", "NIST CSF"]
+  }
 }
 ```
 
-### Example Use Cases
+---
+
+## Tech Stack
+
+**Backend**
+- [FastAPI](https://fastapi.tiangolo.com/) — REST API + Server-Sent Events
+- [LangGraph](https://langchain-ai.github.io/langgraph/) — Stateful multi-node research workflow
+- [Tavily](https://tavily.com/) — Website crawling and web search
+- [OpenAI](https://openai.com/) — Query generation in research nodes
+- [Google Gemini 2.5 Flash](https://deepmind.google/technologies/gemini/) — Final persona synthesis
+
+**Frontend**
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) — UI
+- [Vite](https://vitejs.dev/) — Build tooling
+- [Tailwind CSS](https://tailwindcss.com/) — Styling
+- [EventSource API](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) — SSE-based live progress
+
+---
+
+## Setup
+
+### Prerequisites
+- Python 3.12+
+- Node.js 18+
+- [uv](https://docs.astral.sh/uv/) (Python package manager)
+
+### 1. Clone the repo
+
 ```bash
-# Which companies are most likely to need SOC2 / HIPAA compliance automation?
-uv run python analyser.py --goal "SOC2 and HIPAA compliance automation"
-
-# Which companies are good candidates for observability tooling?
-uv run python analyser.py --goal "Application observability and monitoring"
-
-# Which companies would benefit from developer platform tooling?
-uv run python analyser.py --goal "API management or developer platforms"
-
-```
-> The same stored LeadCards are reused for each query.
-
-### Storage Layout
-```graphql
-storage/
-  icps/          # Raw extracted ICP JSONs (source of truth)
-  lead_cards/    # Synthesized, persistent company memory
-logs/
-  app.log        # Application logs
-  llm_calls.jsonl # LLM usage, latency, and cost metrics
+git clone https://github.com/your-username/AI-SDR-Agent.git
+cd AI-SDR-Agent
 ```
 
-### Logging & Obersvability
-The project uses Python's logging framework instead of print statements and tracks:
-- LLM model usage
-- Prompt and completion token counts (when available)
-- Latency per LLM call
-- Pipeline stage (extraction, synthesis, ranking)
-This makes it easy to debug agent behavior and reason about cost and performance.
+### 2. Configure environment variables
 
-### Technical Stack
-- Crawl4AI (crawling + content-to-markdown)
-- Pydantic (schema validation + strict structured outputs)
-- OpenAI / Anthropic (LLM-based structured extraction)
-- UV (fast Python env + dependency management)
+Create a `.env` file in the project root:
 
-### Key Learnings So Far
-- Single-page scraping is insufficient for enterprise analysis
-- High-signal page selection matters more than crawl depth
-- LLMs reason locally; memory enables global understanding
-- Lead “fit” is different from lead sellability
-- Final filtering requires competitive awareness, not just scoring
+```env
+OPENAI_API_KEY=your_openai_key
+GEMINI_API_KEY=your_gemini_key
+TAVILY_API_KEY=your_tavily_key
+```
 
-### Roadmap
-- Goal-conditioned page discovery (intent-aware crawling)
-- Competitor identification and exclusion
-- Sales playbook–driven lead scoring
-- Optional semantic retrieval layer (vector search)
-- Temporal memory to track company changes over time
+Create a `.env` file in the `ui/` directory:
 
-### Build in Public
-This project is being developed incrementally to explore how LLMs can move from extraction to synthesis and reasoning in practical SDR systems.
+```env
+VITE_API_BASE_URL=http://0.0.0.0:8000
+```
+
+### 3. Install backend dependencies
+
+```bash
+uv sync
+```
+
+### 4. Install frontend dependencies
+
+```bash
+cd ui
+npm install
+```
+
+### 5. Run the backend
+
+```bash
+uv run python main.py
+```
+
+The API will be available at `http://0.0.0.0:8000`.
+
+### 6. Run the frontend
+
+```bash
+cd ui
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+---
+
+## Project Structure
+
+```
+AI-SDR-Agent/
+├── main.py                        # FastAPI server, SSE stream, background job runner
+├── backend/
+│   ├── graph.py                   # LangGraph workflow definition
+│   └── src/
+│       ├── nodes/
+│       │   ├── grounding.py       # Website crawl node
+│       │   ├── collector.py       # Research aggregation node
+│       │   ├── persona.py         # LLM persona synthesis node
+│       │   └── research_nodes/
+│       │       ├── base.py        # Shared query generation + search logic
+│       │       ├── triggers.py
+│       │       ├── offerings.py
+│       │       ├── readiness.py
+│       │       ├── customers.py
+│       │       └── news.py
+│       ├── schema/
+│       │   └── state.py           # TypedDicts for graph state + job status store
+│       └── utils/
+│           ├── prompts.py         # All LLM prompts
+│           └── json_utils.py      # Serialization helpers
+└── ui/
+    └── src/
+        ├── client.ts              # API client + SSE stream consumer
+        ├── components/
+        │   ├── Home.tsx           # Main layout + form
+        │   ├── PersonaPanel.tsx   # Structured persona display
+        │   ├── ProgressPanel.tsx  # Live research progress stepper
+        │   ├── Header.tsx
+        │   └── Field.tsx
+        └── types/
+            └── persona.ts         # Frontend persona types
+```
