@@ -174,6 +174,8 @@ Open `http://localhost:5173` in your browser.
 
 ```
 AI-SDR-Agent/
+├── docs/
+│   ├── sdr-demo.gif
 ├── main.py                        # FastAPI server, SSE stream, background job runner
 ├── backend/
 │   ├── graph.py                   # LangGraph workflow definition
