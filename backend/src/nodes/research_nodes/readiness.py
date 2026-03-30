@@ -9,7 +9,7 @@ from .base import BaseResearcher
 class ReadinessResearcher(BaseResearcher):
     def __init__(self) -> None:
         super().__init__()
-        self.analyst_type = "customers_analyzer"
+        self.analyst_type = "readiness_analyzer"
 
     async def analyze(self, state: ResearchState):
         """Analyze the company's customers and yield events"""

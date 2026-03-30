@@ -2,7 +2,8 @@ import { useMemo, useState } from "react";
 import Header from "./Header";
 import Field from "./Field";
 import PersonaPanel from "./PersonaPanel";
-import { researchCompany } from "../client";
+import ProgressPanel from "./ProgressPanel";
+import { researchCompany, type ProgressEvent } from "../client";
 import type { PersonaConent } from "../types/persona";
 
 type FormState = {
@@ -69,8 +70,9 @@ const MOCK_PERSONA: PersonaConent = {
             "C-suite AI mandate",
             "High SaaS sprawl",
         ],
-        red_flags:
+        red_flags: [
             "May face internal resistance from IT if existing intranet or search tools are recently purchased.",
+        ],
         compliance_standards: [
             "SOC 2 Type II",
             "GDPR",
@@ -90,6 +92,9 @@ export default function Home() {
     const [persona, setPersona] = useState<PersonaConent | null>();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [steps, setSteps] = useState<
+        { node: string; message: string; done: boolean }[]
+    >([]);
 
     const canSubmit = useMemo(() => {
         return form.company.trim().length > 0 && form.url.trim().length > 0;
@@ -112,13 +117,29 @@ export default function Home() {
         e.preventDefault();
         setLoading(true);
         setError(null);
+        setPersona(null);
+        setSteps([]);
         try {
-            const result = await researchCompany({
-                company: form.company,
-                company_url: form.url,
-                industry: form.industry,
-                hq_location: form.hq_location,
-            });
+            const result = await researchCompany(
+                {
+                    company: form.company,
+                    company_url: form.url,
+                    industry: form.industry,
+                    hq_location: form.hq_location,
+                },
+                (event: ProgressEvent) => {
+                    if (event.type === "node_done") {
+                        setSteps((prev) => [
+                            ...prev,
+                            {
+                                node: event.node,
+                                message: event.message,
+                                done: true,
+                            },
+                        ]);
+                    }
+                },
+            );
             setPersona(result);
         } catch (err) {
             setError(
@@ -198,16 +219,20 @@ export default function Home() {
                         </form>
                     </div>
 
-                    {/* Right: Persona or empty state */}
+                    {/* Right: Persona / Progress / empty state */}
                     <div className="hidden flex-1 overflow-hidden md:flex md:flex-col">
                         {persona ? (
                             <PersonaPanel persona={persona} />
+                        ) : loading ? (
+                            <ProgressPanel
+                                completedSteps={steps}
+                                company={form.company}
+                            />
                         ) : (
                             <div className="flex h-full items-center justify-center">
                                 <div className="text-center text-sm text-slate-400">
-                                    {loading
-                                        ? "Running research workflow…"
-                                        : "Results will appear here after you run a search."}
+                                    Results will appear here after you run a
+                                    search.
                                 </div>
                             </div>
                         )}

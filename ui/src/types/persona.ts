@@ -32,6 +32,6 @@ export type ImpactMetrics = {
 
 export type SalesIntelligence = {
     green_flags: string[];
-    red_flags: string;
+    red_flags: string[];
     compliance_standards: string[];
 };

@@ -200,7 +200,7 @@ class PersonaNode:
             f"Built company JSON context ({len(company_json)} chars)")
 
         formatted_prompt = PERSONA_CREATION_PROMPT.format(
-            company_json=company_json, output_structure=OUTPUT_STRUCT, year=2025-2026)
+            company_json=company_json, output_structure=OUTPUT_STRUCT, year="2025-2026")
 
         chain = self.llm | StrOutputParser()
 
