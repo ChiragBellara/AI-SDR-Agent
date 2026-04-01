@@ -165,6 +165,41 @@ class PersonaNode:
                     "result": metric.get("result", ""),
                 })
 
+        # ---- buyer_roles ----
+        buyer_roles: List[Dict[str, Any]] = []
+        for role in data.get("buyer_roles", []) or []:
+            if isinstance(role, dict):
+                buyer_roles.append({
+                    "title": str(role.get("title", "")),
+                    "department": str(role.get("department", "")),
+                    "daily_pain_points": [str(p) for p in role.get("daily_pain_points", []) if p],
+                    "success_metrics": [str(m) for m in role.get("success_metrics", []) if m],
+                    "typical_objections": [str(o) for o in role.get("typical_objections", []) if o],
+                })
+
+        # ---- outbound_hooks ----
+        outbound_hooks: List[Dict[str, Any]] = []
+        for hook in data.get("outbound_hooks", []) or []:
+            if isinstance(hook, dict):
+                outbound_hooks.append({
+                    "hook_type": str(hook.get("hook_type", "")),
+                    "specific_signal": str(hook.get("specific_signal", "")),
+                    "why_now": str(hook.get("why_now", "")),
+                    "source_or_evidence": str(hook.get("source_or_evidence", "")),
+                })
+
+        # ---- buyer_messaging ----
+        buyer_messaging: List[Dict[str, Any]] = []
+        for msg in data.get("buyer_messaging", []) or []:
+            if isinstance(msg, dict):
+                buyer_messaging.append({
+                    "role_title": str(msg.get("role_title", "")),
+                    "value_prop": str(msg.get("value_prop", "")),
+                    "pain_to_solution": str(msg.get("pain_to_solution", "")),
+                    "expected_outcome": str(msg.get("expected_outcome", "")),
+                    "opening_hook": str(msg.get("opening_hook", "")),
+                })
+
         persona: Persona = cast(Persona, {
             "company_name": data.get("company_name", data.get("company", "Unknown")),
             "industry": data.get("industry", "Unknown"),
@@ -185,6 +220,9 @@ class PersonaNode:
                 "red_flags": sales_intelligence.get("red_flags", []),
                 "compliance_standards": sales_intelligence.get("compliance_standards", []),
             }),
+            "buyer_roles": buyer_roles,
+            "outbound_hooks": outbound_hooks,
+            "buyer_messaging": buyer_messaging,
         })
 
         return persona

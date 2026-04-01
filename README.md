@@ -57,7 +57,10 @@ The frontend connects to an SSE stream (`/research/{job_id}/stream`) as soon as 
 
 ## Persona Output
 
-The final persona is a structured JSON object rendered in the UI:
+The result is split across two tabs in the UI.
+
+### Company Profile tab
+Strategic company intelligence — products, target markets, sales triggers, impact metrics, and sales intelligence flags.
 
 ```json
 {
@@ -88,6 +91,52 @@ The final persona is a structured JSON object rendered in the UI:
   }
 }
 ```
+
+### Outreach Intel tab
+SDR-focused intelligence — who to call, what they care about, why to reach out today, and how to open the conversation.
+
+```json
+{
+  "buyer_roles": [
+    {
+      "title": "VP of Engineering",
+      "department": "Engineering",
+      "daily_pain_points": [
+        "Manual code review bottlenecks slow down junior engineer onboarding",
+        "Scaling team fast but AI tooling adoption is inconsistent across squads"
+      ],
+      "success_metrics": ["Deployment frequency", "Engineer onboarding time", "PR cycle time"],
+      "typical_objections": ["We already use GitHub Copilot", "Security team won't approve new tooling mid-year"]
+    }
+  ],
+  "outbound_hooks": [
+    {
+      "hook_type": "hiring",
+      "specific_signal": "Posted 8 ML Engineer and Data Labeling roles in the past 30 days",
+      "why_now": "Rapid ML hiring signals active model development — likely evaluating data tooling to support it",
+      "source_or_evidence": "LinkedIn Jobs, March 2026"
+    },
+    {
+      "hook_type": "product_launch",
+      "specific_signal": "Launched Snorkel Evaluate for enterprise GenAI evaluation",
+      "why_now": "New product means new GTM motion — evaluation and benchmarking are top of mind for buyers right now",
+      "source_or_evidence": "Snorkel AI blog, snorkel.ai/blog"
+    }
+  ],
+  "buyer_messaging": [
+    {
+      "role_title": "VP of Engineering",
+      "value_prop": "Snorkel cuts the time your team spends manually labeling training data — letting engineers focus on model development, not data wrangling.",
+      "pain_to_solution": "You're scaling your ML team fast but manual data labeling is a bottleneck — Snorkel's programmatic labeling removes that constraint without adding headcount.",
+      "expected_outcome": "Teams using Snorkel ship production-ready models in under 60 days instead of 6 months.",
+      "opening_hook": "Noticed you're scaling your ML team quickly — curious whether data labeling throughput is keeping up with the engineering hiring pace."
+    }
+  ]
+}
+```
+
+### JSON export
+Every completed research run is automatically saved to `outputs/<company>_<jobid>.json` in the project root — ready to share for feedback or analysis.
 
 ---
 
@@ -175,7 +224,8 @@ Open `http://localhost:5173` in your browser.
 ```
 AI-SDR-Agent/
 ├── docs/
-│   ├── sdr-demo.gif
+│   └── sdr-demo.gif
+├── outputs/                       # Auto-saved JSON files from completed research runs
 ├── main.py                        # FastAPI server, SSE stream, background job runner
 ├── backend/
 │   ├── graph.py                   # LangGraph workflow definition
@@ -200,8 +250,9 @@ AI-SDR-Agent/
     └── src/
         ├── client.ts              # API client + SSE stream consumer
         ├── components/
-        │   ├── Home.tsx           # Main layout + form
-        │   ├── PersonaPanel.tsx   # Structured persona display
+        │   ├── Home.tsx           # Main layout + form + tab switcher
+        │   ├── PersonaPanel.tsx   # Company Profile tab
+        │   ├── OutreachPanel.tsx  # Outreach Intel tab (buyer roles, hooks, messaging)
         │   ├── ProgressPanel.tsx  # Live research progress stepper
         │   ├── Header.tsx
         │   └── Field.tsx

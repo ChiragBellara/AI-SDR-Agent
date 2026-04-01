@@ -47,6 +47,9 @@ class Persona(TypedDict):
     sales_triggers: SalesTriggers
     impact_metrics: List[ImpactMetrics]
     sales_intelligence: SalesIntelligence
+    buyer_roles: NotRequired[List[Dict[str, Any]]]
+    outbound_hooks: NotRequired[List[Dict[str, Any]]]
+    buyer_messaging: NotRequired[List[Dict[str, Any]]]
 
 
 class ResearchState(InputState):

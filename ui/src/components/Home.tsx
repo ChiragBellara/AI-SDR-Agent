@@ -2,15 +2,87 @@ import { useMemo, useState } from "react";
 import Header from "./Header";
 import Field from "./Field";
 import PersonaPanel from "./PersonaPanel";
+import OutreachPanel from "./OutreachPanel";
 import ProgressPanel from "./ProgressPanel";
 import { researchCompany, type ProgressEvent } from "../client";
 import type { PersonaConent } from "../types/persona";
+
+type Tab = "profile" | "outreach";
 
 type FormState = {
     company: string;
     url: string;
     industry: string;
     hq_location: string;
+};
+
+const MOCK_PERSONA: PersonaConent = {
+    company_name: "Glean",
+    industry: "Enterprise AI",
+    hq_location: "Palo Alto, CA",
+    mission_statement:
+        "Glean makes enterprise knowledge accessible by connecting all company apps and using AI to surface the right information at the right time.",
+    core_products: [
+        {
+            name: "Glean Search",
+            description:
+                "Unified workplace search across 100+ apps including Slack, Jira, Drive, and Confluence.",
+        },
+        {
+            name: "Glean Assistant",
+            description:
+                "AI assistant trained on your company's knowledge to answer questions and draft content.",
+        },
+        {
+            name: "Glean Agents",
+            description:
+                "No-code AI agents that automate multi-step workflows across enterprise tools.",
+        },
+    ],
+    target_markets: {
+        industries: [
+            "Technology",
+            "Financial Services",
+            "Healthcare",
+            "Retail",
+            "Manufacturing",
+        ],
+        ideal_customer_profile:
+            "Mid-to-large enterprises (500+ employees) with fragmented knowledge across many SaaS tools, struggling with employee productivity and information overload.",
+    },
+    sales_triggers: {
+        recent_funding_or_news:
+            "Raised $260M Series F at a $4.6B valuation in 2024. Expanding aggressively into AI agents and international markets.",
+        strategic_priorities:
+            "Scaling enterprise sales motion, growing partner ecosystem, and deepening LLM integrations with proprietary company data.",
+    },
+    impact_metrics: [
+        {
+            case_study: "Global logistics firm with 12,000 employees",
+            result: "40% reduction in time spent searching for information.",
+        },
+        {
+            case_study: "Fortune 500 financial services company",
+            result: "Onboarding time cut by 30% using Glean Assistant for new hire Q&A.",
+        },
+    ],
+    sales_intelligence: {
+        green_flags: [
+            "Active hiring in AI/ML",
+            "Recent funding round",
+            "C-suite AI mandate",
+            "High SaaS sprawl",
+        ],
+        red_flags: [
+            "May face internal resistance from IT if existing intranet or search tools are recently purchased.",
+        ],
+        compliance_standards: [
+            "SOC 2 Type II",
+            "GDPR",
+            "HIPAA Ready",
+            "ISO 27001",
+        ],
+    },
 };
 
 export default function Home() {
@@ -20,12 +92,13 @@ export default function Home() {
         industry: "",
         hq_location: "",
     });
-    const [persona, setPersona] = useState<PersonaConent | null>();
+    const [persona, setPersona] = useState<PersonaConent | null>(MOCK_PERSONA);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [steps, setSteps] = useState<
         { node: string; message: string; done: boolean }[]
     >([]);
+    const [activeTab, setActiveTab] = useState<Tab>("profile");
 
     const canSubmit = useMemo(() => {
         return form.company.trim().length > 0 && form.url.trim().length > 0;
@@ -51,6 +124,7 @@ export default function Home() {
         setPersona(null);
         setSteps([]);
         try {
+            setActiveTab("profile");
             const result = await researchCompany(
                 {
                     company: form.company,
@@ -153,7 +227,37 @@ export default function Home() {
                     {/* Right: Persona / Progress / empty state */}
                     <div className="hidden flex-1 overflow-hidden md:flex md:flex-col">
                         {persona ? (
-                            <PersonaPanel persona={persona} />
+                            <>
+                                {/* Tab bar */}
+                                <div className="flex shrink-0 border-b border-slate-200 px-8 pt-4 pb-4">
+                                    {(["profile", "outreach"] as Tab[]).map(
+                                        (tab) => (
+                                            <button
+                                                key={tab}
+                                                onClick={() =>
+                                                    setActiveTab(tab)
+                                                }
+                                                className={`mr-6 py-3 text-sm font-medium transition-colors bg-transparent border-0 border-b-2 rounded-none focus:outline-none focus:ring-0 ${
+                                                    activeTab === tab
+                                                        ? "border-slate-900 text-slate-900"
+                                                        : "border-transparent text-slate-400 hover:text-slate-600"
+                                                }`}
+                                            >
+                                                {tab === "profile"
+                                                    ? "Company Profile"
+                                                    : "Outreach Intel"}
+                                            </button>
+                                        ),
+                                    )}
+                                </div>
+                                <div className="flex-1 overflow-hidden">
+                                    {activeTab === "profile" ? (
+                                        <PersonaPanel persona={persona} />
+                                    ) : (
+                                        <OutreachPanel persona={persona} />
+                                    )}
+                                </div>
+                            </>
                         ) : loading ? (
                             <ProgressPanel
                                 completedSteps={steps}

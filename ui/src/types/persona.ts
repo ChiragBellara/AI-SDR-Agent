@@ -8,6 +8,9 @@ export type PersonaConent = {
     sales_triggers: SalesTriggers;
     impact_metrics: ImpactMetrics[];
     sales_intelligence: SalesIntelligence;
+    buyer_roles?: BuyerRole[];
+    outbound_hooks?: OutboundHook[];
+    buyer_messaging?: BuyerMessaging[];
 };
 
 export type CompanyProduct = {
@@ -34,4 +37,27 @@ export type SalesIntelligence = {
     green_flags: string[];
     red_flags: string[];
     compliance_standards: string[];
+};
+
+export type BuyerRole = {
+    title: string;
+    department: string;
+    daily_pain_points: string[];
+    success_metrics: string[];
+    typical_objections: string[];
+};
+
+export type OutboundHook = {
+    hook_type: string;
+    specific_signal: string;
+    why_now: string;
+    source_or_evidence: string;
+};
+
+export type BuyerMessaging = {
+    role_title: string;
+    value_prop: string;
+    pain_to_solution: string;
+    expected_outcome: string;
+    opening_hook: string;
 };

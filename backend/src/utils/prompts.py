@@ -174,40 +174,62 @@ Focus on careers, announcements, and recent updates.
 
 
 PERSONA_CREATION_PROMPT = """
-Role: Act as a Senior Strategic Sales Consultant and Business Analyst.
+Role: Act as an expert SDR (Sales Development Representative) coach and sales intelligence analyst.
 
-Task: Using the provided JSON data, create a comprehensive Company Persona formatted as a JSON object. This data will be used in a UI to help a Sales Representative evaluate if the company is a high-value target.\n
+Task: Using the provided JSON research data, create a comprehensive Company Persona formatted as a JSON object.
+This persona will be used by an SDR to prepare for outbound outreach — it must be specific, actionable, and buyer-focused.
+Think like an SDR, not an analyst. Every field must help the SDR know WHO to call, WHAT to say, and WHY to reach out today.
 
-Formatting Constraint: Return ONLY a valid JSON object. Do not include any introductory or concluding text.\n
+Formatting Constraint: Return ONLY a valid JSON object. Do not include any introductory or concluding text.
 
 Structure the Persona as follows:
-Please return a JSON object with the following keys. Follow the descriptions for each:\n
-- company_name: The official name of the entity.\n
-- industry: A 2-3 word classification (e.g., "Enterprise AI Infrastructure").\n
-- mission_statement: A one-sentence summary of their primary business goal.\n
-- core_products: An array of objects. Each should have:\n
-    - name: Product title.\n
-    - description: A brief summary of what it does and why it matters.\n
-- target_market: A array of objects. Each should have:\n
-    - industries: A list of the industries this company is serving\n
-    - ideal_customer_profile: A brief description of what profile of customers is the company is targetting\n
-- sales_triggers: An object containing:\n
-    - funding: Mention the most recent round (e.g., "May 2025 Series D") or if the company has acquired a new funding from a different source.\n
-    - strategic_shifts: Key goals for {year}. Also mention if there are specific areas the company has decided to focus more on."\n
-- impact_metrics: An array of strings. Each must include a specific quantitative result (e.g., "99% accuracy" or "10,000 hours saved").\n
-- sales_intelligence:\n
-    - green_flags: List 3 indicators that make them a "Buy" target for our project.\n
-    - red_flags: List potential barriers (e.g., specific security compliance like SOC2).\n
-    - compliance_standards: List of  the compliance standards the company adheres to.\n
+
+COMPANY PROFILE FIELDS:
+- company_name: The official name of the entity.
+- industry: A 2-3 word classification (e.g., "Enterprise AI Infrastructure").
+- mission_statement: A one-sentence summary of their primary business goal.
+- core_products: An array of objects. Each should have:
+    - name: Product title.
+    - description: A brief summary of what it does and why it matters.
+- target_market: An object with:
+    - industries: A list of the industries this company serves.
+    - ideal_customer_profile: A brief description of the customer profile they target.
+- sales_triggers: An object containing:
+    - recent_funding_or_news: Most recent funding round or major news event.
+    - strategic_priorities: Key strategic goals and focus areas for {year}.
+- impact_metrics: An array of objects. Each should have:
+    - case_study: The customer or scenario.
+    - result: A specific, quantitative outcome (e.g., "99% accuracy", "67% faster claims review").
+- sales_intelligence:
+    - green_flags: List 3 concrete indicators that make this a high-value outbound target.
+    - red_flags: List potential barriers or risks to a deal.
+    - compliance_standards: List compliance certifications the company holds.
+
+SDR OUTREACH FIELDS (critical — do not skip):
+- buyer_roles: Identify 2-3 SPECIFIC buyer titles within this company's typical deal. Not "enterprise buyer" — real titles like "VP of Engineering" or "Director of Revenue Operations". For each:
+    - title: Exact job title.
+    - department: Department they sit in.
+    - daily_pain_points: 2-3 specific problems they face IN THEIR ROLE every day — not company-level problems. Think about what makes their Tuesday frustrating.
+    - success_metrics: What they are personally measured on (e.g., "deployment frequency", "pipeline generated", "churn rate").
+    - typical_objections: 2-3 things this buyer says when pushed back on adopting a new tool.
+
+- outbound_hooks: Find 2-3 SPECIFIC, RECENT signals from the research data that give an SDR a concrete reason to reach out TODAY. Not "they raised funding" — something like "they posted 8 engineering roles in the past 30 days" or "they just launched X product which creates Y need". For each:
+    - hook_type: One of: hiring | product_launch | funding | partnership | press | expansion.
+    - specific_signal: The exact, concrete observation from the research (be specific — name the product, the role, the announcement).
+    - why_now: One sentence explaining why this signal makes now the right moment to reach out.
+    - source_or_evidence: Where this was found (job board, press release, news article URL or title).
+
+- buyer_messaging: For each buyer role identified above, write a role-specific outreach message. For each:
+    - role_title: Must match a title from buyer_roles.
+    - value_prop: Why this buyer specifically should care — framed around their daily pain, not product features.
+    - pain_to_solution: One sentence: "You're dealing with [pain] — [solution] fixes this by [mechanism]."
+    - expected_outcome: The measurable result this buyer would personally experience.
+    - opening_hook: The FIRST LINE of a cold email or call opener. Must be specific, conversational, and reference something real about this company. Not "I wanted to reach out because..." — something that shows you did your homework.
 
 JSON Schema Requirements:
 Please ensure the output follows this exact structure:
 {output_structure}
 
-Instructions for the LLM:\n
-- Analyze the raw_content and site_scrape fields specifically for technical details.\n
-- Look for specific impact metrics like "10,000 hours saved" or "80% reduction in query resolution".\n
-- Identify high-level strategic shifts, such as moving toward "Agentic AI" or "Better Evaluators".\n
-
+Research Data:
 {company_json}
 """

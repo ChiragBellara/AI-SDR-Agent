@@ -175,6 +175,17 @@ async def process_research(job_id: str, data: ResearchRequest):
 
         if persona_content:
             logger.info(f"Research completed for {data.company}")
+
+            # Write persona to a JSON file for inspection and sharing
+            output_dir = Path("outputs")
+            output_dir.mkdir(exist_ok=True)
+            safe_name = data.company.lower().replace(" ", "_")
+            output_path = output_dir / f"{safe_name}_{job_id[:8]}.json"
+            output_path.write_text(
+                json.dumps(persona_content, indent=2, ensure_ascii=False),
+                encoding="utf-8"
+            )
+            logger.info(f"Persona saved to {output_path}")
             job_status[job_id].update({
                 "status": "completed",
                 "report": persona_content,
