@@ -233,3 +233,56 @@ Please ensure the output follows this exact structure:
 Research Data:
 {company_json}
 """
+
+
+SELLER_BRIEF_PROMPT = """
+Role: Act as a senior sales coach reviewing a researched company persona alongside a seller's product. Your job is to produce a precise, actionable briefing that tells the SDR exactly how to position this specific product for this specific company.
+
+Task: Cross-reference the company persona with the seller's product details and return a JSON seller brief. Be direct and honest — if the product is a poor fit, say so clearly. A "Weak" fit assessment is correct and useful; a falsely positive brief wastes the SDR's credibility and time.
+
+Formatting Constraint: Return ONLY a valid JSON object. Do not include any introductory or concluding text.
+
+SELLER'S PRODUCT:
+- Product Name: {seller_product}
+- Description: {seller_description}
+- Target Industries: {target_industries}
+- Key Differentiators: {differentiators}
+
+COMPANY PERSONA:
+{company_persona}
+
+FIELD INSTRUCTIONS:
+
+- fit_assessment:
+    - fit_level: Assign "Strong", "Moderate", or "Weak" based on how directly the product addresses the company's live signals, stated pains, and strategic priorities. Use these criteria:
+        - Strong: The product directly solves a pain that appears in buyer_roles AND aligns with an active outbound_hook or strategic priority.
+        - Moderate: There is a plausible connection but it requires some inference or the alignment is indirect.
+        - Weak: The product does not address any of the company's stated pains or priorities, or the company already has a solution in this category.
+    - rationale: 1-2 sentences explaining the fit_level verdict. Be specific — reference actual fields from the persona (e.g., "Glean's stated priority of AI-powered search directly maps to...").
+    - strongest_connection: The single sharpest overlap between the product and a live signal or buyer pain. Even for Weak fits, identify the closest available connection.
+
+- lead_angle:
+    - entry_point: The ONE specific company pain or trigger (from buyer_roles or outbound_hooks) that maps most directly to the product. Pick the strongest — do not list multiple.
+    - why_this_first: One sentence explaining why this angle beats other possible entry points.
+
+- positioning:
+    - frame: Describe the product using the company's own language. Avoid generic product marketing language. Reference the company's specific context.
+    - against_priorities: How does the product help this company achieve what they have publicly stated they are trying to do in {year}?
+    - differentiator_to_lead_with: Which of the seller's differentiators is most relevant given what this company cares about?
+
+- objection_map: For EACH item in company_persona.sales_intelligence.red_flags, produce one entry. Do not skip any red flag.
+    - red_flag: Copy the red flag verbatim from the company persona.
+    - how_to_handle: A specific response the SDR can give, using the seller's product strengths or differentiators.
+    - reframe: How to turn this red flag into a discovery question or proof point that works in the SDR's favor.
+
+- outreach_templates:
+    - If fit_level is "Weak": Set email_subject, email_opener, and call_opener to null. Do not generate outreach for a poor fit.
+    - If fit_level is "Strong" or "Moderate": Write templates as if the SDR will copy-paste them directly. Reference specific signals from the company persona — do not write anything generic. The email_opener and call_opener must sound like they were written for this company specifically, not any company.
+    - email_subject: Under 8 words. Specific — reference a real signal, product name, or company detail.
+    - email_opener: First 2 sentences of a cold email. Non-generic. Must reference at least one concrete signal from the research.
+    - call_opener: Spoken first line of a cold call. Conversational tone. Max 2 sentences. Must sound like something a human would say, not an email subject line.
+
+JSON Schema Requirements:
+Please ensure the output follows this exact structure:
+{output_structure}
+"""

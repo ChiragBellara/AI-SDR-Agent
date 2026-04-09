@@ -1,11 +1,18 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Home from "./components/Home";
+import SellerPage from "./pages/SellerPage";
 
 export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  );
+    const { pathname } = useLocation();
+
+    return (
+        <>
+            <div style={{ display: pathname === "/" ? "block" : "none" }}>
+                <Home />
+            </div>
+            <div style={{ display: pathname === "/seller" ? "block" : "none" }}>
+                <SellerPage />
+            </div>
+        </>
+    );
 }

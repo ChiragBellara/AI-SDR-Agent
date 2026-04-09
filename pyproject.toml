@@ -24,6 +24,7 @@ dependencies = [
     "langchain-google-genai>=4.2.0",
     "uvicorn>=0.40.0",
     "fastapi>=0.129.0",
+    "slowapi>=0.1.9",
 ]
 
 [tool.uv]

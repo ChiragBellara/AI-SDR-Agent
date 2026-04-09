@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"/Users/chirag/Desktop/Code/AI and Neural Nets/AI-SDR-Agent\" log --all --oneline --follow -- .env)"
+    ]
+  }
+}

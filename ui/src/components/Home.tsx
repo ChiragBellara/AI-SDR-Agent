@@ -99,9 +99,37 @@ export default function Home() {
         { node: string; message: string; done: boolean }[]
     >([]);
     const [activeTab, setActiveTab] = useState<Tab>("profile");
+    const [cachedAt, setCachedAt] = useState<string | null>(null);
+
+    function timeAgo(isoString: string): string {
+        const diffSec = Math.floor(
+            (Date.now() - new Date(isoString).getTime()) / 1000,
+        );
+        if (diffSec < 60) return `${diffSec}s ago`;
+        if (diffSec < 3600) return `${Math.floor(diffSec / 60)}m ago`;
+        return `${Math.floor(diffSec / 3600)}h ago`;
+    }
+
+    function isValidUrl(url: string): boolean {
+        try {
+            const parsed = new URL(url);
+            return parsed.protocol === "http:" || parsed.protocol === "https:";
+        } catch {
+            return false;
+        }
+    }
+
+    const urlError =
+        form.url.trim().length > 0 && !isValidUrl(form.url.trim())
+            ? "URL must start with http:// or https://"
+            : null;
 
     const canSubmit = useMemo(() => {
-        return form.company.trim().length > 0 && form.url.trim().length > 0;
+        return (
+            form.company.trim().length > 0 &&
+            form.url.trim().length > 0 &&
+            isValidUrl(form.url.trim())
+        );
     }, [form.company, form.url]);
 
     function set<K extends keyof FormState>(key: K, value: FormState[K]) {
@@ -123,6 +151,7 @@ export default function Home() {
         setError(null);
         setPersona(null);
         setSteps([]);
+        setCachedAt(null);
         try {
             setActiveTab("profile");
             const result = await researchCompany(
@@ -142,6 +171,8 @@ export default function Home() {
                                 done: true,
                             },
                         ]);
+                    } else if (event.type === "done" && event.cached_at) {
+                        setCachedAt(event.cached_at);
                     }
                 },
             );
@@ -176,10 +207,12 @@ export default function Home() {
                                 label="Company Name"
                                 placeholder="e.g., Snowflake"
                                 value={form.company}
+                                required={true}
                                 onChange={(v) => set("company", v)}
                             />
                             <Field
                                 label="Company URL"
+                                required={true}
                                 placeholder="https://example.com"
                                 value={form.url}
                                 onChange={(v) => set("url", v)}
@@ -188,6 +221,7 @@ export default function Home() {
                                 label="Industry"
                                 placeholder="e.g., Data Infrastructure"
                                 value={form.industry}
+                                required={true}
                                 onChange={(v) => set("industry", v)}
                             />
 
@@ -195,8 +229,15 @@ export default function Home() {
                                 label="HQ"
                                 placeholder="e.g., San Francisco, CA"
                                 value={form.hq_location}
+                                required={true}
                                 onChange={(v) => set("hq_location", v)}
                             />
+
+                            {urlError && (
+                                <p className="text-xs text-red-500">
+                                    {urlError}
+                                </p>
+                            )}
 
                             {error && (
                                 <p className="text-xs text-red-500">{error}</p>
@@ -229,7 +270,7 @@ export default function Home() {
                         {persona ? (
                             <>
                                 {/* Tab bar */}
-                                <div className="flex shrink-0 border-b border-slate-200 px-8 pt-4 pb-4">
+                                <div className="flex shrink-0 items-center border-b border-slate-200 px-8 pt-4 pb-4">
                                     {(["profile", "outreach"] as Tab[]).map(
                                         (tab) => (
                                             <button
@@ -248,6 +289,18 @@ export default function Home() {
                                                     : "Outreach Intel"}
                                             </button>
                                         ),
+                                    )}
+                                    {cachedAt && (
+                                        <span className="ml-auto flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">
+                                            <svg
+                                                className="h-3 w-3"
+                                                viewBox="0 0 12 12"
+                                                fill="currentColor"
+                                            >
+                                                <path d="M6 0a6 6 0 100 12A6 6 0 006 0zm.5 6.707V3a.5.5 0 00-1 0v4a.5.5 0 00.146.354l2 2a.5.5 0 00.708-.708L6.5 6.707z" />
+                                            </svg>
+                                            Cached · {timeAgo(cachedAt)}
+                                        </span>
                                     )}
                                 </div>
                                 <div className="flex-1 overflow-hidden">

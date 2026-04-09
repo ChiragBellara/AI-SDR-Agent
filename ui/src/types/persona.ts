@@ -61,3 +61,44 @@ export type BuyerMessaging = {
     expected_outcome: string;
     opening_hook: string;
 };
+
+// ---------------------------------------------------------------------------
+// Seller Brief — cross-referenced outreach guidance
+// ---------------------------------------------------------------------------
+
+export type FitAssessment = {
+    fit_level: "Strong" | "Moderate" | "Weak";
+    rationale: string;
+    strongest_connection: string;
+};
+
+export type LeadAngle = {
+    entry_point: string;
+    why_this_first: string;
+};
+
+export type Positioning = {
+    frame: string;
+    against_priorities: string;
+    differentiator_to_lead_with: string;
+};
+
+export type ObjectionMapEntry = {
+    red_flag: string;
+    how_to_handle: string;
+    reframe: string;
+};
+
+export type OutreachTemplates = {
+    email_subject: string | null;
+    email_opener: string | null;
+    call_opener: string | null;
+};
+
+export type SellerBrief = {
+    fit_assessment: FitAssessment;
+    lead_angle: LeadAngle;
+    positioning: Positioning;
+    objection_map: ObjectionMapEntry[];
+    outreach_templates: OutreachTemplates;
+};

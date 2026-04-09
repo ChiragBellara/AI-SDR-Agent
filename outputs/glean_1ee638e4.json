@@ -1,0 +1,175 @@
+{
+  "company_name": "Glean",
+  "industry": "Enterprise AI Platform",
+  "hq_location": "San Francisco, CA",
+  "mission_statement": "To unify enterprise intelligence, enabling employees to find knowledge, generate content, and automate work with AI in a secure and contextual manner.",
+  "core_products": [
+    {
+      "name": "Glean Search",
+      "description": "The foundation of enterprise AI, providing unified, personalized, and context-aware search across all company data sources like Slack, Jira, Confluence, and Microsoft 365."
+    },
+    {
+      "name": "Glean Assistant",
+      "description": "A personal AI assistant for data analysis, deep research, and content creation, leveraging the full context of enterprise knowledge to provide accurate answers and insights."
+    },
+    {
+      "name": "Glean Agents",
+      "description": "Tools to build and manage powerful AI agents that automate complex workflows and tasks at scale, grounded in company context and adhering to governance policies."
+    }
+  ],
+  "target_markets": {
+    "industries": [
+      "Large Enterprises",
+      "Technology",
+      "Financial Services",
+      "Manufacturing",
+      "Healthcare"
+    ],
+    "ideal_customer_profile": "Large enterprises (1,000+ users) with complex, fragmented data environments and a strategic focus on AI adoption, seeking to enhance employee productivity, streamline operations, and ensure secure knowledge discovery and workflow automation."
+  },
+  "sales_triggers": {
+    "recent_news": "Glean recently partnered with Dell to offer an on-premises solution for its Work AI platform, combining Glean's AI with Dell's secure, high-performance AI infrastructure.",
+    "strategic_priorities": "Accelerating AI adoption and transformation across the enterprise, enhancing employee productivity through unified knowledge and automation, ensuring robust AI security and governance, and empowering internal teams to build custom generative AI solutions."
+  },
+  "impact_metrics": [
+    {
+      "case_study": "Super.com",
+      "result": "saves 1,500+ hours monthly and onboards employees 20% faster"
+    },
+    {
+      "case_study": "Duolingo",
+      "result": "achieves 5x ROI, saving 500+ hours monthly"
+    },
+    {
+      "case_study": "Webflow",
+      "result": "saves 300+ hours a month"
+    },
+    {
+      "case_study": "Upside",
+      "result": "achieved 92% adoption rate"
+    }
+  ],
+  "sales_intelligence": {
+    "green_flags": [
+      "Strong focus on enterprise-grade AI with comprehensive integrations across 100+ business applications.",
+      "Commitment to robust security and compliance (SOC 2 Type II, ISO 27001, ISO 42001, GDPR) for sensitive enterprise data.",
+      "Proven impact on employee productivity, onboarding efficiency, and knowledge discovery for large enterprises."
+    ],
+    "red_flags": [
+      "High pricing model (per-user, per-month, custom quotes) which can be 2-3x alternatives, potentially leading to high Total Cost of Ownership (TCO).",
+      "Primarily a search-first platform; may not fully resolve tickets or complete complex workflows in downstream systems without additional integration/customization.",
+      "Implementation can be slow and expensive compared to self-serve alternatives, potentially hindering rapid deployment."
+    ],
+    "compliance_standards": [
+      "SOC 2 Type II",
+      "ISO/IEC 27001",
+      "ISO/IEC 42001:2023",
+      "GDPR"
+    ]
+  },
+  "buyer_roles": [
+    {
+      "title": "Chief Information Officer",
+      "department": "IT / Technology",
+      "daily_pain_points": [
+        "Ensuring secure and compliant AI adoption across fragmented data sources.",
+        "Managing the complexity and cost of integrating new AI tools with existing enterprise systems.",
+        "Driving measurable ROI from AI investments while mitigating data privacy risks."
+      ],
+      "success_metrics": [
+        "AI adoption rate",
+        "Data security posture",
+        "Operational efficiency gains from AI",
+        "Compliance adherence"
+      ],
+      "typical_objections": [
+        "We already have an enterprise search solution, and it's 'good enough'.",
+        "The cost of implementation and ongoing maintenance for a new AI platform is too high.",
+        "We're concerned about data governance and security with external AI tools accessing our sensitive data."
+      ]
+    },
+    {
+      "title": "VP of Engineering",
+      "department": "Engineering / Product Development",
+      "daily_pain_points": [
+        "Engineers spending excessive time searching for internal documentation, code, or project context.",
+        "Slow onboarding for new engineers due to difficulty accessing tribal knowledge and fragmented information.",
+        "Lack of a unified platform to build and manage custom AI applications grounded in secure enterprise data."
+      ],
+      "success_metrics": [
+        "Developer productivity",
+        "Time to market for new features",
+        "Onboarding efficiency for new hires",
+        "Code quality and reusability"
+      ],
+      "typical_objections": [
+        "Our internal knowledge base and existing tools are sufficient for our engineering needs.",
+        "We can build this functionality ourselves internally, leveraging our existing engineering talent.",
+        "Integrating another platform will add unnecessary complexity and overhead to our tech stack."
+      ]
+    },
+    {
+      "title": "Head of HR",
+      "department": "Human Resources",
+      "daily_pain_points": [
+        "New hires struggling to find essential company information, slowing down their time-to-productivity.",
+        "Employees spending too much time searching for HR policies, benefits, or internal resources.",
+        "Difficulty in scaling knowledge sharing and consistent information access across a growing, distributed workforce."
+      ],
+      "success_metrics": [
+        "Employee onboarding time",
+        "Employee satisfaction/engagement with internal resources",
+        "Time spent on administrative tasks by HR staff",
+        "Knowledge base utilization and accuracy"
+      ],
+      "typical_objections": [
+        "We use [HRIS/intranet] for all employee information, it covers our needs.",
+        "Our team is small enough that direct communication and existing tools work fine.",
+        "We don't see the clear ROI for an AI platform specifically for HR and internal communications."
+      ]
+    }
+  ],
+  "outbound_hooks": [
+    {
+      "hook_type": "partnership",
+      "specific_signal": "Glean recently partnered with Dell to offer an on-premises solution for its Work AI platform, combining Glean's AI with Dell's secure, high-performance AI infrastructure.",
+      "why_now": "This partnership signals a strategic move towards addressing enterprise demands for greater control, security, and performance in AI deployments, making it a prime time to discuss secure AI infrastructure.",
+      "source_or_evidence": "Dell and Glean On-Premises Solution Redefines Enterprise AI Search | Dell Blog"
+    },
+    {
+      "hook_type": "press",
+      "specific_signal": "The 2026 Forbes CxO Growth Survey highlights cybersecurity as the biggest challenge to growth (58%), an 11-point jump from 2025, driven by AI-driven cyber-attacks, emphasizing the need for robust AI governance.",
+      "why_now": "With cybersecurity and AI governance being top-of-mind for CxOs, now is a critical time to discuss how Glean's secure-by-design platform addresses these growing concerns.",
+      "source_or_evidence": "Risk To Resilience: What Separates Enterprise Leaders In The Age Of AI - Forbes"
+    },
+    {
+      "hook_type": "product_launch",
+      "specific_signal": "Glean Platform now offers tools (app builder, APIs, SDKs) for enterprises to build custom generative AI applications, leveraging Glean's RAG capabilities and full enterprise context.",
+      "why_now": "This new capability allows enterprises to tailor AI solutions to their unique needs, indicating a strategic focus on empowering internal teams to innovate with AI, making it an opportune moment to discuss custom AI development.",
+      "source_or_evidence": "Glean Platform: Build custom generative AI solutions for work | Glean Blog"
+    }
+  ],
+  "buyer_messaging": [
+    {
+      "role_title": "Chief Information Officer",
+      "value_prop": "Securely scaling AI across your organization while maintaining robust data governance and demonstrating clear ROI from your technology investments.",
+      "pain_to_solution": "You're dealing with the challenge of securely integrating AI across fragmented data sources and ensuring compliance — Glean's Work AI platform fixes this by providing a unified, secure, and compliant foundation for all enterprise AI initiatives.",
+      "expected_outcome": "Reduced security risks, accelerated AI adoption with clear governance, and a demonstrable return on your AI investments through enhanced operational efficiency.",
+      "opening_hook": "Saw the news about Glean partnering with Dell for on-premises AI solutions, which immediately brought to mind the growing C-suite focus on secure AI infrastructure and governance, especially given the recent Forbes report on AI-driven cyber-attacks."
+    },
+    {
+      "role_title": "VP of Engineering",
+      "value_prop": "Boosting engineering productivity and accelerating development cycles by providing instant, context-aware access to critical knowledge and empowering custom AI application development.",
+      "pain_to_solution": "You're dealing with engineers losing valuable time searching for information or struggling with onboarding — Glean's unified enterprise search and custom AI agent capabilities fix this by providing instant, context-aware knowledge and tools to automate development workflows.",
+      "expected_outcome": "Faster feature delivery, significantly reduced onboarding time for new hires, and a more efficient, AI-powered engineering team that can build custom solutions faster.",
+      "opening_hook": "Noticed Glean's new platform capabilities for building custom generative AI applications with APIs and SDKs. For a VP of Engineering, this seems like a powerful way to unlock developer productivity and accelerate innovation."
+    },
+    {
+      "role_title": "Head of HR",
+      "value_prop": "Enhancing employee experience and accelerating new hire productivity by making all internal knowledge instantly accessible and actionable, fostering a more informed workforce.",
+      "pain_to_solution": "You're dealing with new hires taking too long to become productive or employees struggling to find HR-related information — Glean's AI-powered knowledge platform fixes this by providing a single, intelligent source for all company information, personalized to each employee.",
+      "expected_outcome": "Reduced new hire ramp-up time (e.g., 20% faster onboarding), increased employee self-service for HR queries, and a more informed, engaged workforce.",
+      "opening_hook": "I was looking at how companies are leveraging AI for internal operations, and Glean's case studies, like Super.com saving 1,500+ hours monthly and onboarding 20% faster, really stood out for HR leaders."
+    }
+  ]
+}
