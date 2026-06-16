@@ -206,3 +206,7 @@ __marimo__/
 # Logs
 /logs/*
 !/logs/
+
+# Outputs
+/outputs/*
+!/outputs/
