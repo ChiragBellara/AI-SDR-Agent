@@ -147,3 +147,22 @@ export async function generateSellerBrief(input: {
         clearTimeout(timer);
     }
 }
+
+export async function clearCache(): Promise<boolean> {
+    try {
+        const headers: Record<string, string> = {
+            "Content-Type": "application/json",
+        };
+        if (API_KEY) headers["X-API-Key"] = API_KEY;
+        await fetch(`${API_BASE}/cache/clear`, {
+            method: "POST",
+            headers,
+        });
+        return true;
+    } catch (err) {
+        if ((err as Error).name === "AbortError") {
+            throw new Error("Request timed out. Please try again.");
+        }
+        throw err;
+    }
+}

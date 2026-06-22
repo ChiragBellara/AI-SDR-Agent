@@ -37,6 +37,10 @@ CACHE_TTL_SECONDS = 60 * 60  # 60 minutes
 _persona_cache: dict[str, dict] = {}
 
 
+def _clear_cache():
+    _persona_cache.clear()
+
+
 def _cache_key(company: str, company_url: str | None) -> str:
     return f"{company.lower().strip()}|{(company_url or '').lower().strip()}"
 
@@ -131,6 +135,12 @@ class SellerBriefRequest(BaseModel):
 @app.get("/health")
 async def health():
     return {"status": "ok"}
+
+
+@app.post("/cache/clear", dependencies=[Depends(verify_api_key)])
+async def clear_cache():
+    _clear_cache()
+    return {"message": "Cache cleared"}
 
 
 @app.get("/")
